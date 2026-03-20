@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -110,6 +111,7 @@
   </div>
 </div>
 
+
 <!-- SEARCH BAR -->
 <div class="search-wrap">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -173,7 +175,7 @@ const DATA = [
     { href:"https://s.shopee.co.id/9fEFgLe0dX", img:"crossbar-motowolf", emoji:"📏", rec:true, name:"Crossbar Motowolf", hook:'Bisa sekalian pasang holder HP <strong>dan</strong> lampu tembak di crossbar yang sama — satu beli dua fungsi!', price:"", tags:["Aluminium CNC","Universal"] },
     { href:"https://s.shopee.co.id/1BFhYogJC0", img:"holder-hp", emoji:"📱", rec:true, name:"Holder HP Motowolf", hook:"Wajib buat navigasi Google Maps pas touring — anti goyang walau jalan rusak sekalipun.", price:"", tags:["Anti Goyang","PnP"] },
     { href:"https://shopee.co.id/Bracket-GPS-Braket-Holder-Hp-Honda-Adv-150-160-Breket-Holder-Hp-Plung-N-Play-Adv-160-150-i.1695213331.50353001736?extraParams=%7B%22display_model_id%22%3A307250736145%2C%22model_selection_logic%22%3A3%7D&sp_atk=b7e176ae-c96d-4da3-b5e9-ac53277485c5&xptdk=b7e176ae-c96d-4da3-b5e9-ac53277485c5", img:"bracket-gps", emoji:"🗺️", rec:false, name:"Bracket GPS / Holder HP Plug N Play", hook:"Plug and play — tinggal pasang tanpa bor, tanpa modif apapun.", price:"", tags:["Plug N Play"] },
-    { href:"https://s.shopee.co.id/4LEn3VaUiu", img:"visor", emoji:"🔭", rec:true, name:"Visor / Windshield", hook:"Bukan cuma gaya — angin langsung ke badan drastis berkurang pas kecepatan 60km/h ke atas.", price:"", tags:["Touring","Aerodinamis"] }
+    { href:"https://s.shopee.co.id/8Kis2apnDn", img:"visor", emoji:"🔭", rec:true, name:"Visor / Windshield", hook:"Bukan cuma gaya — angin langsung ke badan drastis berkurang pas kecepatan 60km/h ke atas.", price:"", tags:["Touring","Aerodinamis"] }
   ]},
   { cat:"⚡ Kelistrikan & Charging", items:[
     { href:"https://s.shopee.co.id/9fEFdZmEgE", img:"fast-charging", emoji:"🔌", rec:true, name:"Fast Charging Motor", hook:"Jangan berangkat touring tanpa ini — satu-satunya yang bikin Fox 350 bisa cas di mana saja.", price:"", tags:["Portable","Wajib Touring"] },
@@ -236,9 +238,9 @@ function card(p, q) {
   const hHook = highlight(p.hook, q);
   return `<a class="product-card${p.rec?' recommended':''}" href="${p.href}" target="_blank" rel="nofollow">
     <div class="product-img-wrap">
-      <img src="img/${p.img}.jpg" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <img src="Img/${p.img}.jpg" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="placeholder" style="display:none">${p.emoji}</div>
-      <div class="img-hint"><span>img/${p.img}.jpg</span></div>
+      <div class="img-hint"><span>Img/${p.img}.jpg</span></div>
     </div>
     <div class="product-body">
       <div>
