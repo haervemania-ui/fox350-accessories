@@ -180,9 +180,9 @@ const DATA=[
 ];
 
 // ── MULTI-EXTENSION IMAGE FALLBACK ──
-// Urutan coba: jpg → JPG → jpeg → JPEG → png → PNG → webp → emoji
+// Urutan coba: JPG → jpg → jpeg → JPEG → png → PNG → webp → emoji
 function loadImg(imgEl, base, placeholderEl) {
-  const exts = ['jpg','JPG','jpeg','JPEG','png','PNG','webp','WEBP'];
+  const exts = ['JPG','jpg','jpeg','JPEG','png','PNG','webp','WEBP'];
   let i = 0;
   function tryNext() {
     if (i >= exts.length) {
