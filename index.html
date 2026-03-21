@@ -179,21 +179,13 @@ const DATA=[
   ]}
 ];
 
-// ── MULTI-EXTENSION IMAGE FALLBACK ──
-// Urutan coba: JPG → jpg → jpeg → JPEG → png → PNG → webp → emoji
+// Image loading — pakai .JPG (kapital, dari snipping tool Windows)
 function loadImg(imgEl, base, placeholderEl) {
-  const exts = ['JPG','jpg','jpeg','JPEG','png','PNG','webp','WEBP'];
-  let i = 0;
-  function tryNext() {
-    if (i >= exts.length) {
-      imgEl.style.display = 'none';
-      placeholderEl.style.display = 'flex';
-      return;
-    }
-    imgEl.onerror = () => { i++; tryNext(); };
-    imgEl.src = base + '.' + exts[i];
-  }
-  tryNext();
+  imgEl.onerror = function() {
+    this.style.display = 'none';
+    placeholderEl.style.display = 'flex';
+  };
+  imgEl.src = base + '.JPG';
 }
 
 function highlight(text,q){
@@ -276,7 +268,6 @@ function filterCat(btn,slug){document.querySelectorAll('.filter-pill').forEach(p
 function toggle(h){const items=h.nextElementSibling,arrow=h.querySelector('.cat-toggle');const open=items.classList.contains('open');items.classList.toggle('open',!open);arrow.classList.toggle('open',!open);}
 
 render();
-  // v2
 window.addEventListener('scroll',()=>{document.getElementById('scrollBtn').classList.toggle('visible',window.scrollY>300);});
 </script>
 </body>
