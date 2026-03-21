@@ -276,6 +276,7 @@ function filterCat(btn,slug){document.querySelectorAll('.filter-pill').forEach(p
 function toggle(h){const items=h.nextElementSibling,arrow=h.querySelector('.cat-toggle');const open=items.classList.contains('open');items.classList.toggle('open',!open);arrow.classList.toggle('open',!open);}
 
 render();
+  // v2
 window.addEventListener('scroll',()=>{document.getElementById('scrollBtn').classList.toggle('visible',window.scrollY>300);});
 </script>
 </body>
