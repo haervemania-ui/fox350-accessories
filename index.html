@@ -123,7 +123,7 @@
 <script>
 const CAT_SLUG={'handlebar':'Handlebar & Navigasi','kelistrikan':'Kelistrikan & Charging','kabel':'Kabel & Sambungan','lampu':'Lampu & Klakson','suspensi':'Suspensi & Rem','android':'Android Auto & Multimedia','pelindung':'Pelindung & Cover','tools':'Tools & Perkakas'};
 let activeSlug='all',searchQuery='';
- 
+
 const DATA=[
   {cat:"🎛️ Handlebar & Navigasi",items:[
     {href:"https://s.shopee.co.id/6VJHgEKxth",img:"crossbar-motowolf",emoji:"📏",rec:true,name:"Crossbar Motowolf",hook:'Bisa sekalian pasang holder HP <strong>dan</strong> lampu tembak di crossbar yang sama — satu beli dua fungsi!',price:"",tags:["Aluminium CNC","Universal"]},
@@ -178,22 +178,28 @@ const DATA=[
     {href:"https://s.shopee.co.id/5Ami72IeFN",img:"minyak-rem-brembo",emoji:"🛢️",rec:false,name:"Minyak Rem Brembo DOT 4 100ml",hook:"Ganti minyak rem setiap 1–2 tahun — pakai Brembo DOT 4 biar performa rem tetap optimal.",price:"Rp21.500",tags:["DOT 4","Brembo"]}
   ]}
 ];
- 
-// Image loading — pakai .JPG (kapital, dari snipping tool Windows)
+
+// Image loading — coba .jpg dulu, kalau 404 coba .JPG, kalau masih gagal tampil emoji
 function loadImg(imgEl, base, placeholderEl) {
+  let tried = false;
   imgEl.onerror = function() {
-    this.style.display = 'none';
-    placeholderEl.style.display = 'flex';
+    if (!tried) {
+      tried = true;
+      this.src = base + '.JPG';
+    } else {
+      this.style.display = 'none';
+      placeholderEl.style.display = 'flex';
+    }
   };
-  imgEl.src = base + '.JPG';
+  imgEl.src = base + '.jpg';
 }
- 
+
 function highlight(text,q){
   if(!q)return text;
   const re=new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,'gi');
   return text.replace(re,'<mark>$1</mark>');
 }
- 
+
 function card(p,q){
   return `<a class="product-card${p.rec?' recommended':''}" href="${p.href}" target="_blank" rel="nofollow">
     <div class="product-img-wrap">
@@ -216,7 +222,7 @@ function card(p,q){
     </div>
   </a>`;
 }
- 
+
 function render(){
   const wrap=document.getElementById('categories');
   wrap.innerHTML='';
@@ -257,7 +263,7 @@ function render(){
     document.querySelectorAll('.cat-toggle').forEach((a,i)=>a.classList.toggle('open',i===0));
   }
 }
- 
+
 document.getElementById('searchInput').addEventListener('input',function(){
   searchQuery=this.value;
   document.getElementById('clearBtn').classList.toggle('visible',this.value.length>0);
@@ -266,10 +272,9 @@ document.getElementById('searchInput').addEventListener('input',function(){
 function clearSearch(){document.getElementById('searchInput').value='';searchQuery='';document.getElementById('clearBtn').classList.remove('visible');render();}
 function filterCat(btn,slug){document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));btn.classList.add('active');activeSlug=slug;render();}
 function toggle(h){const items=h.nextElementSibling,arrow=h.querySelector('.cat-toggle');const open=items.classList.contains('open');items.classList.toggle('open',!open);arrow.classList.toggle('open',!open);}
- 
+
 render();
 window.addEventListener('scroll',()=>{document.getElementById('scrollBtn').classList.toggle('visible',window.scrollY>300);});
 </script>
 </body>
 </html>
- 
