@@ -52,14 +52,6 @@
   .product-tag{font-size:10px;color:var(--muted);background:var(--surface2);padding:2px 7px;border-radius:8px}
   .product-cta{display:flex;align-items:center;background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:6px 13px;border-radius:8px;flex-shrink:0;transition:background .2s;letter-spacing:.3px;white-space:nowrap}
   .product-card:hover .product-cta{background:var(--accent2)}
-  .img-guide{background:var(--surface);border:1px dashed rgba(255,69,0,.3);border-radius:12px;padding:16px 20px;margin:24px 0 12px}
-  .img-guide summary{font-size:12px;color:var(--accent2);font-weight:600;cursor:pointer;letter-spacing:.5px;list-style:none}
-  .img-guide summary::before{content:'📁 '}
-  .img-guide-content{margin-top:12px}
-  .img-guide-content p{font-size:11px;color:var(--muted);line-height:1.7;margin-bottom:8px}
-  .img-guide-content code{font-family:'DM Mono',monospace;font-size:10px;background:var(--surface2);color:var(--accent2);padding:2px 6px;border-radius:4px}
-  .img-file-list{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:8px}
-  .img-file-list span{font-family:'DM Mono',monospace;font-size:10px;color:#666;background:var(--surface2);padding:3px 8px;border-radius:4px}
   .affiliate-notice{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:32px 0 16px;text-align:center}
   .affiliate-notice p{font-size:12px;color:var(--muted);line-height:1.6}
   .affiliate-notice strong{color:var(--gold)}
@@ -67,8 +59,6 @@
   .footer p{font-size:11px;color:#555;letter-spacing:.5px}
   .scroll-top{position:fixed;bottom:24px;right:20px;width:40px;height:40px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s;z-index:100;font-size:16px;border:none;color:#fff}
   .scroll-top.visible{opacity:1}
-
-  /* ── SEARCH ── */
   .search-wrap{position:relative;margin:0 0 16px;animation:fadeUp .4s ease .05s both}
   .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
   #searchInput{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 42px 12px 42px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .2s}
@@ -77,20 +67,13 @@
   #clearBtn{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:var(--surface2);border:none;color:var(--muted);width:22px;height:22px;border-radius:50%;font-size:12px;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .2s}
   #clearBtn:hover{background:var(--accent);color:#fff}
   #clearBtn.visible{display:flex}
-
-  /* Filter pills */
   .filter-wrap{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;animation:fadeUp .4s ease .1s both}
   .filter-pill{background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:11px;padding:5px 12px;border-radius:20px;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:'DM Sans',sans-serif}
   .filter-pill:hover{border-color:rgba(255,69,0,.4);color:var(--text)}
   .filter-pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
-
-  /* No result */
   #noResult{display:none;text-align:center;padding:40px 0;color:var(--muted);font-size:14px;animation:fadeUp .3s ease both}
   #noResult span{font-size:32px;display:block;margin-bottom:10px}
-
-  /* highlight matched text */
   mark{background:rgba(255,69,0,.25);color:var(--accent2);border-radius:3px;padding:0 2px}
-
   @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
   .category:nth-child(1){animation-delay:.05s}.category:nth-child(2){animation-delay:.1s}.category:nth-child(3){animation-delay:.15s}.category:nth-child(4){animation-delay:.2s}.category:nth-child(5){animation-delay:.25s}.category:nth-child(6){animation-delay:.3s}.category:nth-child(7){animation-delay:.35s}.category:nth-child(8){animation-delay:.4s}
@@ -98,7 +81,6 @@
 </head>
 <body>
 <div class="container">
-
 <div class="header">
   <div class="badge">🏍️ Komunitas Riders</div>
   <div class="logo">FOX <span>350</span></div>
@@ -109,17 +91,12 @@
     <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Member Komunitas</div></div>
   </div>
 </div>
-
-
-<!-- SEARCH BAR -->
 <div class="search-wrap">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
   <input id="searchInput" type="search" placeholder="Cari produk... (contoh: shock, lampu, charging)" autocomplete="off">
   <button id="clearBtn" onclick="clearSearch()">✕</button>
 </div>
-
-<!-- FILTER PILLS -->
-<div class="filter-wrap" id="filterWrap">
+<div class="filter-wrap">
   <button class="filter-pill active" onclick="filterCat(this,'all')">Semua</button>
   <button class="filter-pill" onclick="filterCat(this,'handlebar')">🎛️ Handlebar</button>
   <button class="filter-pill" onclick="filterCat(this,'kelistrikan')">⚡ Kelistrikan</button>
@@ -130,121 +107,104 @@
   <button class="filter-pill" onclick="filterCat(this,'pelindung')">🛡️ Pelindung</button>
   <button class="filter-pill" onclick="filterCat(this,'tools')">🔧 Tools</button>
 </div>
-
 <div id="noResult"><span>🔍</span>Produk tidak ditemukan.<br><small>Coba kata kunci lain.</small></div>
-
-<div id="categories">
-
-<!-- helper macro in JS below handles rendering -->
-
-</div>
-
+<div id="categories"></div>
 <div class="affiliate-notice">
   <p>⭐ Produk bertanda <strong>★</strong> adalah rekomendasi langsung dari member komunitas Fox 350.<br>
   Semua harga mengikuti harga Shopee saat ini dan dapat berubah sewaktu-waktu.<br>
   Beberapa link merupakan <strong>link afiliasi</strong> — harga tetap sama, tapi membantu komunitas ini terus aktif.</p>
 </div>
-
 <div class="footer">
   <p>FOX 350 Riders Community · Indonesia 🇮🇩</p>
   <p style="margin-top:6px">Dikurasi dari grup WA komunitas · Diperbarui Feb 2026</p>
 </div>
-
 </div>
 <button class="scroll-top" id="scrollBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
 <script>
-// ── Category slug map for filter pills ──
-const CAT_SLUG = {
-  'handlebar':'Handlebar & Navigasi',
-  'kelistrikan':'Kelistrikan & Charging',
-  'kabel':'Kabel & Sambungan',
-  'lampu':'Lampu & Klakson',
-  'suspensi':'Suspensi & Rem',
-  'android':'Android Auto & Multimedia',
-  'pelindung':'Pelindung & Cover',
-  'tools':'Tools & Perkakas'
-};
-
-let activeSlug = 'all';
-let searchQuery = '';
-
-const DATA = [
-  { cat:"🎛️ Handlebar & Navigasi", items:[
-    { href:"https://s.shopee.co.id/6VJHgEKxth", img:"crossbar-motowolf", emoji:"📏", rec:true, name:"Crossbar Motowolf", hook:'Bisa sekalian pasang holder HP <strong>dan</strong> lampu tembak di crossbar yang sama — satu beli dua fungsi!', price:"", tags:["Aluminium CNC","Universal"] },
-    { href:"https://s.shopee.co.id/6VJHg55952", img:"holder-hp", emoji:"📱", rec:true, name:"Holder HP Motowolf", hook:"Wajib buat navigasi Google Maps pas touring — anti goyang walau jalan rusak sekalipun.", price:"", tags:["Anti Goyang","PnP"] },
-    { href:"https://s.shopee.co.id/20qsJbgNSY", img:"bracket", emoji:"🗺️", rec:false, name:"Bracket GPS / Holder HP Plug N Play", hook:"Plug and play — tinggal pasang tanpa bor, tanpa modif apapun.", price:"", tags:["Plug N Play"] },
-    { href:"https://s.shopee.co.id/LieKMw2vT", img:"visor", emoji:"🔭", rec:true, name:"Visor / Windshield", hook:"Bukan cuma gaya — angin langsung ke badan drastis berkurang pas kecepatan 60km/h ke atas.", price:"", tags:["Touring","Aerodinamis"] }
+const CAT_SLUG={'handlebar':'Handlebar & Navigasi','kelistrikan':'Kelistrikan & Charging','kabel':'Kabel & Sambungan','lampu':'Lampu & Klakson','suspensi':'Suspensi & Rem','android':'Android Auto & Multimedia','pelindung':'Pelindung & Cover','tools':'Tools & Perkakas'};
+let activeSlug='all',searchQuery='';
+ 
+const DATA=[
+  {cat:"🎛️ Handlebar & Navigasi",items:[
+    {href:"https://s.shopee.co.id/6VJHgEKxth",img:"crossbar-motowolf",emoji:"📏",rec:true,name:"Crossbar Motowolf",hook:'Bisa sekalian pasang holder HP <strong>dan</strong> lampu tembak di crossbar yang sama — satu beli dua fungsi!',price:"",tags:["Aluminium CNC","Universal"]},
+    {href:"https://s.shopee.co.id/6VJHg55952",img:"holder-hp",emoji:"📱",rec:true,name:"Holder HP Motowolf",hook:"Wajib buat navigasi Google Maps pas touring — anti goyang walau jalan rusak sekalipun.",price:"",tags:["Anti Goyang","PnP"]},
+    {href:"https://s.shopee.co.id/20qsJbgNSY",img:"bracket",emoji:"🗺️",rec:false,name:"Bracket GPS / Holder HP Plug N Play",hook:"Plug and play — tinggal pasang tanpa bor, tanpa modif apapun.",price:"",tags:["Plug N Play"]},
+    {href:"https://s.shopee.co.id/LieKMw2vT",img:"visor",emoji:"🔭",rec:true,name:"Visor / Windshield",hook:"Bukan cuma gaya — angin langsung ke badan drastis berkurang pas kecepatan 60km/h ke atas.",price:"",tags:["Touring","Aerodinamis"]}
   ]},
-  { cat:"⚡ Kelistrikan & Charging", items:[
-    { href:"https://s.shopee.co.id/9fEFdZmEgE", img:"fast-charging", emoji:"🔌", rec:true, name:"Fast Charging Motor", hook:"Jangan berangkat touring tanpa ini — satu-satunya yang bikin Fox 350 bisa cas di mana saja.", price:"", tags:["Portable","Wajib Touring"] },
-    { href:"https://s.shopee.co.id/7AXlvCT6jH", img:"fast-charging-polytron", emoji:"🔋", rec:true, name:"Polytron Adjustable Fast Charging 25A", hook:"Komunitas debat panjang Polytron vs Huawei — ini menang di sisi <strong>adjustable ampere</strong>-nya.", price:"Rp2.635.000", tags:["25A"] },
-    { href:"https://s.shopee.co.id/9AHz2qn8qO", img:"reducer-20a", emoji:"🔄", rec:false, name:"Reducer 20A", hook:"Pasang ini sebelum charger HP — biar tegangan stabil dan charger tidak cepat rusak.", price:"", tags:["20A","Proteksi"] },
-    { href:"https://s.shopee.co.id/7KqKrFH5k7", img:"kotak-charger", emoji:"📦", rec:true, name:"Kotak Penyimpan Charger Original", hook:"Charger ori Fox 350 gampang nyangkut kabel — kotak ini bikin rapi dan aman pas dibawa.", price:"", tags:["Storage"] },
-    { href:"https://s.shopee.co.id/20oocT6SsY", img:"smart-plug", emoji:"🔌", rec:false, name:"Smart Plug", hook:"Stop kontak pintar — matikan charging otomatis kalau daya penuh, baterai lebih awet.", price:"", tags:["Auto Cut-off"] },
-    { href:"https://s.shopee.co.id/gK1k8AvUr", img:"sensor-tpms", emoji:"🔵", rec:false, name:"Sensor Tekanan Ban TPMS", hook:"Tinggal pasang doang — sensor udah ada kayak tutup pentil biasa. Langsung kedeteksi tekanan ban real-time.", price:"", tags:["Plug N Play","Safety"] }
+  {cat:"⚡ Kelistrikan & Charging",items:[
+    {href:"https://s.shopee.co.id/9fEFdZmEgE",img:"fast-charging",emoji:"🔌",rec:true,name:"Fast Charging Motor",hook:"Jangan berangkat touring tanpa ini — satu-satunya yang bikin Fox 350 bisa cas di mana saja.",price:"",tags:["Portable","Wajib Touring"]},
+    {href:"https://s.shopee.co.id/7AXlvCT6jH",img:"fast-charging-polytron",emoji:"🔋",rec:true,name:"Polytron Adjustable Fast Charging 25A",hook:"Komunitas debat panjang Polytron vs Huawei — ini menang di sisi <strong>adjustable ampere</strong>-nya.",price:"Rp2.635.000",tags:["25A"]},
+    {href:"https://s.shopee.co.id/LigLdr31H",img:"reducer-20a",emoji:"🔄",rec:false,name:"Reducer 20A",hook:"Pasang ini sebelum charger HP — biar tegangan stabil dan charger tidak cepat rusak.",price:"",tags:["20A","Proteksi"]},
+    {href:"https://s.shopee.co.id/6AgTIPwVBW",img:"kotak-charger",emoji:"📦",rec:true,name:"Kotak Penyimpan Charger Original",hook:"Charger ori Fox 350 gampang nyangkut kabel — kotak ini bikin rapi dan aman pas dibawa.",price:"",tags:["Storage"]},
+    {href:"https://s.shopee.co.id/9AK4rzBdtw",img:"smart-plug",emoji:"🔌",rec:false,name:"Smart Plug",hook:"Stop kontak pintar — matikan charging otomatis kalau daya penuh, baterai lebih awet.",price:"",tags:["Auto Cut-off"]},
+    {href:"https://s.shopee.co.id/7AZ0UM5OZm",img:"sensor-tpms",emoji:"🔵",rec:false,name:"Sensor Tekanan Ban TPMS",hook:"Tinggal pasang doang — sensor udah ada kayak tutup pentil biasa. Langsung kedeteksi tekanan ban real-time.",price:"",tags:["Plug N Play","Safety"]}
   ]},
-  { cat:"🔗 Kabel & Sambungan", items:[
-    { href:"https://s.shopee.co.id/gJQtzkgaW", img:"joiner-kabel", emoji:"🔀", rec:true, name:"Joiner / Konektor Kabel", hook:"Wajib kalau mau tambah aksesori kelistrikan — sambungan kabel jadi rapi, tidak asal cabang.", price:"", tags:["Kelistrikan"] },
-    { href:"https://s.shopee.co.id/4VW9T9tO9m", img:"kabel-sambungan-1", emoji:"🔌", rec:false, name:"Kabel Sambungan 3×2.5 — Opsi A", hook:"Pilih yang kawat serabut — lebih lentur, cocok digulung masuk bagasi motor.", price:"", tags:["Serabut","Fleksibel"] },
-    { href:"https://s.shopee.co.id/7AWue7Omhc", img:"kabel-sambungan-2", emoji:"🔌", rec:false, name:"Kabel Sambungan 3×2.5 — Opsi B", hook:"Versi lebih tebal — cocok buat instalasi permanen di motor.", price:"", tags:["Tebal","Permanen"] }
+  {cat:"🔗 Kabel & Sambungan",items:[
+    {href:"https://s.shopee.co.id/4LEp7C6Et6",img:"joiner-kabel",emoji:"🔀",rec:true,name:"Joiner / Konektor Kabel",hook:"Wajib kalau mau tambah aksesori kelistrikan — sambungan kabel jadi rapi, tidak asal cabang.",price:"",tags:["Kelistrikan"]},
+    {href:"https://s.shopee.co.id/6VJJhHkIkM",img:"kabel-sambungan-1",emoji:"🔌",rec:false,name:"Kabel Sambungan 3×2.5 — Opsi A",hook:"Pilih yang kawat serabut — lebih lentur, cocok digulung masuk bagasi motor.",price:"",tags:["Serabut","Fleksibel"]},
+    {href:"https://s.shopee.co.id/8087U9Xyze",img:"kabel-sambungan-2",emoji:"🔌",rec:false,name:"Kabel Sambungan 3×2.5 — Opsi B",hook:"Versi lebih tebal — cocok buat instalasi permanen di motor.",price:"",tags:["Tebal","Permanen"]}
   ]},
-  { cat:"💡 Lampu & Klakson", items:[
-    { href:"https://s.shopee.co.id/2B8EiDCwmA", img:"lampu-ibright-l10", emoji:"🔦", rec:true, name:"Lampu Tembak iBright L10", hook:"Versi upgrade dari L9 — cocok buat yang sering <strong>touring malam</strong>. Sorot lebih jauh dan lebih terang.", price:"", tags:["LED","Touring Malam"] },
-    { href:"https://s.shopee.co.id/8zyYqoXUUo", img:"lampu-ibright-l9", emoji:"🔦", rec:false, name:"Lampu Tembak iBright L9", hook:"Pilihan budget untuk <strong>harian</strong> — harga lebih terjangkau, performa sudah jauh di atas lampu standar.", price:"", tags:["LED","Harian"] },
-    { href:"https://s.shopee.co.id/8pg6BlZgp6", img:"bracket-lampu", emoji:"🔆", rec:false, name:"Bracket Lampu Tembak LED", hook:"Pasang lampu tembak biar rapi dan tidak goyang — kencangkan di spakbor atau crossbar.", price:"Rp19.900", tags:["Universal"] },
-    { href:"https://s.shopee.co.id/1qVOJRcfmW", img:"klakson-denso", emoji:"📢", rec:true, name:"Klakson Denso Waterproof", hook:"Klakson bawaan Fox 350 kurang keras — setelah ganti ini baru kerasa bedanya. <strong>Tahan hujan</strong> pula.", price:"", tags:["Waterproof","Denso"] }
+  {cat:"💡 Lampu & Klakson",items:[
+    {href:"https://s.shopee.co.id/20quLAtGhJ",img:"lampu-ibright-l10",emoji:"🔦",rec:true,name:"Lampu Tembak iBright L10",hook:"Versi upgrade dari L9 — cocok buat yang sering <strong>touring malam</strong>. Sorot lebih jauh dan lebih terang.",price:"",tags:["LED","Touring Malam"]},
+    {href:"https://s.shopee.co.id/8087UEZkAN",img:"lampu-ibright-l9",emoji:"🔦",rec:false,name:"Lampu Tembak iBright L9",hook:"Pilihan budget untuk <strong>harian</strong> — harga lebih terjangkau, performa sudah jauh di atas lampu standar.",price:"",tags:["LED","Harian"]},
+    {href:"https://s.shopee.co.id/30jRX4gLuE",img:"bracket-lampu",emoji:"🔆",rec:false,name:"Bracket Lampu Tembak LED",hook:"Pasang lampu tembak biar rapi dan tidak goyang — kencangkan di spakbor atau crossbar.",price:"Rp19.900",tags:["Universal"]},
+    {href:"https://s.shopee.co.id/9UwvH3TzzH",img:"klakson-denso",emoji:"📢",rec:true,name:"Klakson Denso Waterproof",hook:"Klakson bawaan Fox 350 kurang keras — setelah ganti ini baru kerasa bedanya. <strong>Tahan hujan</strong> pula.",price:"",tags:["Waterproof","Denso"]}
   ]},
-  { cat:"🏎️ Suspensi & Rem", items:[
-    { href:"https://s.shopee.co.id/9AHz2DbKR4", img:"shock-xmax", emoji:"🔩", rec:true, name:"Shock XMAX Original", hook:"<strong>'Udah 2 mingguan, beneran lebih pakem dari ori!'</strong> — paling banyak direkomendasiin di grup.", price:"", tags:["⭐ Top Pick"] },
-    { href:"https://s.shopee.co.id/4LDcGqm7TW", img:"yss-dtg-evo", emoji:"🔩", rec:false, name:"YSS DTG EVO Twin Shock 335–350mm", hook:"Alternatif XMAX — brand YSS sudah terbukti di komunitas motor sport Indonesia.", price:"Rp577.999", tags:["335mm"] },
-    { href:"https://s.shopee.co.id/AUoJhm4i0K", img:"shock-rcb", emoji:"🔩", rec:false, name:"Shock RCB A3 Series 365mm", hook:"Opsi lebih panjang (365mm) — buat yang mau riding position sedikit lebih tinggi.", price:"Rp437.109", tags:["365mm","RCB"] },
-    { href:"https://s.shopee.co.id/50SQ7vnKrs", img:"sarung-shock-28", emoji:"🧤", rec:false, name:"Sarung Shock 28cm", hook:"Lindungi shock dari debu dan kotoran — tampilan jadi lebih clean dan sporty.", price:"", tags:["28cm"] },
-    { href:"https://s.shopee.co.id/4LCjKmjSDY", img:"sarung-shock-30", emoji:"🧤", rec:false, name:"Sarung Shock Upgrade 30cm", hook:"Versi lebih panjang buat yang sudah upgrade ke shock XMAX atau YSS — ukuran lebih pas.", price:"", tags:["30cm","Upgrade"] },
-    { href:"https://s.shopee.co.id/7VAe7QDUHJ", img:"kaliper-rpd", emoji:"🛑", rec:false, name:"Kaliper RPD Axial 2P Proton Brake", hook:"Upgrade pengereman — gigitan rem langsung terasa lebih responsif dibanding kaliper standar.", price:"Rp267.750", tags:["Universal"] },
-    { href:"https://s.shopee.co.id/9pYd2tn3J0", img:"kampas-rem", emoji:"🛑", rec:true, name:"Kampas Rem Keramik Fox R/S", hook:"Kampas bawaan cepat habis di KM 800–1000 — ganti keramik ini, <strong>tidak merusak cakram</strong> dan jauh lebih awet.", price:"Rp56.500", tags:["PnP","Keramik"] }
+  {cat:"🏎️ Suspensi & Rem",items:[
+    {href:"https://vt.tokopedia.com/t/ZS9RmhNjQ961V-Uj6ep/",img:"shock-xmax",emoji:"🔩",rec:true,name:"Shock XMAX Original",hook:"<strong>'Udah 2 mingguan, beneran lebih pakem dari ori!'</strong> — paling banyak direkomendasiin di grup.",price:"",tags:["⭐ Top Pick"]},
+    {href:"https://s.shopee.co.id/1qXU92HZGT",img:"yss-dtg-evo",emoji:"🔩",rec:false,name:"YSS DTG EVO Twin Shock 335–350mm",hook:"Alternatif XMAX — brand YSS sudah terbukti di komunitas motor sport Indonesia.",price:"Rp577.999",tags:["335mm"]},
+    {href:"https://s.shopee.co.id/10yN9Yx7rh",img:"shock-rcb",emoji:"🔩",rec:false,name:"Shock RCB A3 Series 365mm",hook:"Opsi lebih panjang (365mm) — buat yang mau riding position sedikit lebih tinggi.",price:"Rp437.109",tags:["365mm","RCB"]},
+    {href:"https://s.shopee.co.id/1gE3wqmzX1",img:"sarung-shock-28",emoji:"🧤",rec:false,name:"Sarung Shock 28cm",hook:"Lindungi shock dari debu dan kotoran — tampilan jadi lebih clean dan sporty.",price:"",tags:["28cm"]},
+    {href:"https://s.shopee.co.id/7pohIEBist",img:"sarung-shock-30",emoji:"🧤",rec:false,name:"Sarung Shock Upgrade 30cm",hook:"Versi lebih panjang buat yang sudah upgrade ke shock XMAX atau YSS — ukuran lebih pas.",price:"",tags:["30cm","Upgrade"]},
+    {href:"https://s.shopee.co.id/3B2rjhkuHc",img:"kaliper-rpd",emoji:"🛑",rec:false,name:"Kaliper RPD Axial 2P Proton Brake",hook:"Upgrade pengereman — gigitan rem langsung terasa lebih responsif dibanding kaliper standar.",price:"Rp267.750",tags:["Universal"]},
+    {href:"https://s.shopee.co.id/4LEp7zAqmm",img:"kampas-rem",emoji:"🛑",rec:true,name:"Kampas Rem Keramik Fox R/S",hook:"Kampas bawaan cepat habis di KM 800–1000 — ganti keramik ini, <strong>tidak merusak cakram</strong> dan jauh lebih awet.",price:"Rp56.500",tags:["PnP","Keramik"]}
   ]},
-  { cat:"📺 Android Auto & Multimedia", items:[
-    { href:"https://s.shopee.co.id/50SQ5arnz1", img:"android-auto-nonbrand", emoji:"🚗", rec:true, name:"Android Auto Motor — Non Brand", hook:"Pilihan budget — fungsi sama, harga lebih miring. Cocok buat yang mau coba dulu sebelum invest lebih.", price:"", tags:["Budget","Android Auto"] },
-    { href:"https://s.shopee.co.id/8Kis3kxUI4", img:"android-auto-retouch", emoji:"🚗", rec:false, name:"Android Auto — Retouch Esprit S1", hook:"All-in-one: Android Auto + Dashcam + TPMS dalam satu unit — <strong>3 fungsi sekaligus</strong>.", price:"", tags:["3-in-1","Dashcam","TPMS"] },
-    { href:"https://s.shopee.co.id/9pYYDYM7aL", img:"braket-tumpuk", emoji:"🔧", rec:false, name:"Braket Tumpuk 2-in-1 Fox 350", hook:"Khusus Fox 350 — pasang Android Auto sekaligus aksesori lain di atas setang tanpa berantakan.", price:"Rp448.500", tags:["Khusus Fox 350"] }
+  {cat:"📺 Android Auto & Multimedia",items:[
+    {href:"https://s.shopee.co.id/AACc4kBLXc",img:"android-auto-nonbrand",emoji:"🚗",rec:true,name:"Android Auto Motor — Non Brand",hook:"Pilihan budget — fungsi sama, harga lebih miring. Cocok buat yang mau coba dulu sebelum invest lebih.",price:"",tags:["Budget","Android Auto"]},
+    {href:"https://s.shopee.co.id/40byjVAwyL",img:"android-auto-retouch",emoji:"🚗",rec:false,name:"Android Auto — Retouch Esprit S1",hook:"All-in-one: Android Auto + Dashcam + TPMS dalam satu unit — <strong>3 fungsi sekaligus</strong>.",price:"",tags:["3-in-1","Dashcam","TPMS"]},
+    {href:"https://s.shopee.co.id/6pwA6ma5ET",img:"braket-tumpuk",emoji:"🔧",rec:false,name:"Braket Tumpuk 2-in-1 Fox 350",hook:"Khusus Fox 350 — pasang Android Auto sekaligus aksesori lain di atas setang tanpa berantakan.",price:"Rp448.500",tags:["Khusus Fox 350"]}
   ]},
-  { cat:"🛡️ Pelindung & Cover", items:[
-    { href:"https://s.shopee.co.id/3B1iDSd4pu", img:"cover-motor", emoji:"🧥", rec:false, name:"Cover Motor Urban Standard", hook:"Parkir outdoor? Wajib pakai cover — debu dan panas matahari merusak cat dan plastik jangka panjang.", price:"Rp64.754", tags:["Matic/Listrik"] },
-    { href:"https://s.shopee.co.id/6VIB4JFmsq", img:"cover-shock-slimfit", emoji:"🧤", rec:false, name:"Cover Shock Slimfit Premium", hook:"Model slimfit — tidak kelihatan terlalu besar di motor, tetap melindungi dari debu dan air.", price:"Rp56.320", tags:["Universal","Premium"] },
-    { href:"https://s.shopee.co.id/8fMZ97GbBq", img:"spion-vario", emoji:"🔭", rec:false, name:"Spion Click Vario Original Honda Thailand", hook:"PNP tanpa modif apapun — upgrade tampilan sekaligus visibilitas lebih luas dari spion bawaan.", price:"Rp207.930", tags:["PNP","Thailand"] },
-    { href:"https://s.shopee.co.id/2g4VIdAA0y", img:"gantungan-fox350", emoji:"🎒", rec:true, name:"Gantungan / Storage Fox 350", hook:"Khusus Fox 350 — tempat gantung tas belanja atau helm saat parkir. Praktis banget buat harian.", price:"", tags:["Khusus Fox 350","Harian"] }
+  {cat:"🛡️ Pelindung & Cover",items:[
+    {href:"https://s.shopee.co.id/40byjdIr5t",img:"cover-motor",emoji:"🧥",rec:false,name:"Cover Motor Urban Standard",hook:"Parkir outdoor? Wajib pakai cover — debu dan panas matahari merusak cat dan plastik jangka panjang.",price:"Rp64.754",tags:["Matic/Listrik"]},
+    {href:"https://s.shopee.co.id/4frfWtm5xe",img:"cover-shock-slimfit",emoji:"🧤",rec:false,name:"Cover Shock Slimfit Premium",hook:"Model slimfit — tidak kelihatan terlalu besar di motor, tetap melindungi dari debu dan air.",price:"Rp56.320",tags:["Universal","Premium"]},
+    {href:"https://s.shopee.co.id/8KkxtjUGjT",img:"spion-vario",emoji:"🔭",rec:false,name:"Spion Click Vario Original Honda Thailand",hook:"PNP tanpa modif apapun — upgrade tampilan sekaligus visibilitas lebih luas dari spion bawaan.",price:"Rp207.930",tags:["PNP","Thailand"]},
+    {href:"https://s.shopee.co.id/8phEUjLbOq",img:"gantungan-fox350",emoji:"🎒",rec:true,name:"Gantungan / Storage Fox 350",hook:"Khusus Fox 350 — tempat gantung tas belanja atau helm saat parkir. Praktis banget buat harian.",price:"",tags:["Khusus Fox 350","Harian"]}
   ]},
-  { cat:"🔧 Tools & Perkakas", items:[
-    { href:"https://s.shopee.co.id/8KjlwJhiZG", img:"kunci-sok-lippro", emoji:"🔩", rec:false, name:"LIPPRO Kunci Sok Set 21 Pcs", hook:"Set lengkap 1/4\" dan 3/8\" dalam satu kotak — cukup untuk buka semua baut di Fox 350.", price:"Rp299.115", tags:["21 Pcs"] },
-    { href:"https://s.shopee.co.id/4q9v2yydCk", img:"kunci-sok-tactix", emoji:"🧰", rec:false, name:"Tactix Set Kunci Sok 40 Pcs Portable", hook:"40 pcs dalam case ringkas — paling lengkap di kelasnya, mudah dibawa touring.", price:"Rp314.415", tags:["40 Pcs","Portable"] },
-    { href:"https://s.shopee.co.id/10xCUFA1Bo", img:"ratchet-sherlock", emoji:"🔑", rec:false, name:"Sherlock Ratchet 1/2 Inch 10\"", hook:"Gagang ratchet yang enak di tangan — buka baut keras jadi jauh lebih efisien tanpa capek.", price:"Rp201.344", tags:["1/2 Inch"] },
-    { href:"https://s.shopee.co.id/2LSa5k4sT4", img:"adaptor-tekiro", emoji:"🔧", rec:false, name:"TEKIRO Adaptor 3/8 Female × 1/2 Male", hook:"Murah tapi wajib ada — biar mata sok 3/8 bisa dipakai di gagang 1/2 inch.", price:"Rp31.500", tags:["Adaptor"] },
-    { href:"https://s.shopee.co.id/5Ami72IeFN", img:"minyak-rem-brembo", emoji:"🛢️", rec:false, name:"Minyak Rem Brembo DOT 4 100ml", hook:"Ganti minyak rem setiap 1–2 tahun — pakai Brembo DOT 4 biar performa rem tetap optimal.", price:"Rp21.500", tags:["DOT 4","Brembo"] }
+  {cat:"🔧 Tools & Perkakas",items:[
+    {href:"https://s.shopee.co.id/6KztWAmFpB?lp=aff",img:"kunci-sok-lippro",emoji:"🔩",rec:false,name:"LIPPRO Kunci Sok Set 21 Pcs",hook:'Set lengkap 1/4" dan 3/8" dalam satu kotak — cukup untuk buka semua baut di Fox 350.',price:"Rp299.115",tags:["21 Pcs"]},
+    {href:"https://s.shopee.co.id/5Anw8BvJmj",img:"kunci-sok-tactix",emoji:"🧰",rec:false,name:"Tactix Set Kunci Sok 40 Pcs Portable",hook:"40 pcs dalam case ringkas — paling lengkap di kelasnya, mudah dibawa touring.",price:"Rp314.415",tags:["40 Pcs","Portable"]},
+    {href:"https://s.shopee.co.id/5VQmWsKYBK",img:"ratchet-sherlock",emoji:"🔑",rec:false,name:'Sherlock Ratchet 1/2 Inch 10"',hook:"Gagang ratchet yang enak di tangan — buka baut keras jadi jauh lebih efisien tanpa capek.",price:"Rp201.344",tags:["1/2 Inch"]},
+    {href:"https://s.shopee.co.id/2LSa5k4sT4",img:"adaptor-tekiro",emoji:"🔧",rec:false,name:"TEKIRO Adaptor 3/8 Female × 1/2 Male",hook:"Murah tapi wajib ada — biar mata sok 3/8 bisa dipakai di gagang 1/2 inch.",price:"Rp31.500",tags:["Adaptor"]},
+    {href:"https://s.shopee.co.id/5Ami72IeFN",img:"minyak-rem-brembo",emoji:"🛢️",rec:false,name:"Minyak Rem Brembo DOT 4 100ml",hook:"Ganti minyak rem setiap 1–2 tahun — pakai Brembo DOT 4 biar performa rem tetap optimal.",price:"Rp21.500",tags:["DOT 4","Brembo"]}
   ]}
 ];
-
-function highlight(text, q) {
-  if (!q) return text;
-  // strip html tags before matching
-  const plain = text.replace(/<[^>]+>/g, '');
-  const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
-  return text.replace(re, '<mark>$1</mark>');
+ 
+// Image loading — pakai .JPG (kapital, dari snipping tool Windows)
+function loadImg(imgEl, base, placeholderEl) {
+  imgEl.onerror = function() {
+    this.style.display = 'none';
+    placeholderEl.style.display = 'flex';
+  };
+  imgEl.src = base + '.JPG';
 }
-
-function card(p, q) {
-  const hName = highlight(p.name, q);
-  const hHook = highlight(p.hook, q);
+ 
+function highlight(text,q){
+  if(!q)return text;
+  const re=new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,'gi');
+  return text.replace(re,'<mark>$1</mark>');
+}
+ 
+function card(p,q){
   return `<a class="product-card${p.rec?' recommended':''}" href="${p.href}" target="_blank" rel="nofollow">
     <div class="product-img-wrap">
-      <img src="Img/${p.img}.jpg" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="placeholder" style="display:none">${p.emoji}</div>
-      <div class="img-hint"><span>Img/${p.img}.jpg</span></div>
+      <img data-base="Img/${p.img}" alt="${p.name}" style="display:none">
+      <div class="placeholder">${p.emoji}</div>
+      <div class="img-hint"><span>${p.img}</span></div>
     </div>
     <div class="product-body">
       <div>
-        <div class="product-name">${hName}</div>
-        <div class="product-hook">${hHook}</div>
+        <div class="product-name">${highlight(p.name,q)}</div>
+        <div class="product-hook">${highlight(p.hook,q)}</div>
       </div>
       <div class="product-bottom">
         <div class="product-meta">
@@ -256,36 +216,27 @@ function card(p, q) {
     </div>
   </a>`;
 }
-
-function render() {
-  const wrap = document.getElementById('categories');
-  wrap.innerHTML = '';
-  const q = searchQuery.toLowerCase().trim();
-  let totalVisible = 0;
-
-  DATA.forEach((cat) => {
-    // Category filter
-    const catName = cat.cat.substring(cat.cat.indexOf(' ')+1);
-    if (activeSlug !== 'all') {
-      const target = CAT_SLUG[activeSlug] || '';
-      if (!catName.toLowerCase().includes(target.toLowerCase())) return;
+ 
+function render(){
+  const wrap=document.getElementById('categories');
+  wrap.innerHTML='';
+  const q=searchQuery.toLowerCase().trim();
+  let total=0;
+  DATA.forEach(cat=>{
+    const catName=cat.cat.substring(cat.cat.indexOf(' ')+1);
+    if(activeSlug!=='all'){
+      if(!catName.toLowerCase().includes((CAT_SLUG[activeSlug]||'').toLowerCase()))return;
     }
-
-    // Item filter by search
-    const filtered = q
-      ? cat.items.filter(p =>
-          p.name.toLowerCase().includes(q) ||
-          p.hook.replace(/<[^>]+>/g,'').toLowerCase().includes(q) ||
-          p.tags.some(t => t.toLowerCase().includes(q))
-        )
-      : cat.items;
-
-    if (filtered.length === 0) return;
-    totalVisible += filtered.length;
-
-    const div = document.createElement('div');
-    div.className = 'category';
-    div.innerHTML = `
+    const filtered=q?cat.items.filter(p=>
+      p.name.toLowerCase().includes(q)||
+      p.hook.replace(/<[^>]+>/g,'').toLowerCase().includes(q)||
+      p.tags.some(t=>t.toLowerCase().includes(q))
+    ):cat.items;
+    if(!filtered.length)return;
+    total+=filtered.length;
+    const div=document.createElement('div');
+    div.className='category';
+    div.innerHTML=`
       <div class="cat-header" onclick="toggle(this)">
         <div class="cat-icon">${cat.cat.split(' ')[0]}</div>
         <div class="cat-title">${catName}</div>
@@ -294,56 +245,31 @@ function render() {
       </div>
       <div class="cat-items open">${filtered.map(p=>card(p,q)).join('')}</div>`;
     wrap.appendChild(div);
-  });
-
-  // No result message
-  document.getElementById('noResult').style.display = totalVisible === 0 ? 'block' : 'none';
-
-  // If no search/filter, close all except first
-  if (!q && activeSlug === 'all') {
-    document.querySelectorAll('.cat-items').forEach((el,i) => {
-      el.classList.toggle('open', i === 0);
+    // Activate multi-ext fallback
+    div.querySelectorAll('img[data-base]').forEach(img=>{
+      const placeholder=img.nextElementSibling;
+      loadImg(img, img.getAttribute('data-base'), placeholder);
     });
-    const arrows = document.querySelectorAll('.cat-toggle');
-    arrows.forEach((a,i) => a.classList.toggle('open', i === 0));
+  });
+  document.getElementById('noResult').style.display=total===0?'block':'none';
+  if(!q&&activeSlug==='all'){
+    document.querySelectorAll('.cat-items').forEach((el,i)=>el.classList.toggle('open',i===0));
+    document.querySelectorAll('.cat-toggle').forEach((a,i)=>a.classList.toggle('open',i===0));
   }
 }
-
-// Search input handler
-document.getElementById('searchInput').addEventListener('input', function() {
-  searchQuery = this.value;
-  document.getElementById('clearBtn').classList.toggle('visible', this.value.length > 0);
+ 
+document.getElementById('searchInput').addEventListener('input',function(){
+  searchQuery=this.value;
+  document.getElementById('clearBtn').classList.toggle('visible',this.value.length>0);
   render();
 });
-
-function clearSearch() {
-  document.getElementById('searchInput').value = '';
-  searchQuery = '';
-  document.getElementById('clearBtn').classList.remove('visible');
-  render();
-}
-
-// Category pill filter
-function filterCat(btn, slug) {
-  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  activeSlug = slug;
-  render();
-}
-
-function toggle(h) {
-  const items = h.nextElementSibling, arrow = h.querySelector('.cat-toggle');
-  const open = items.classList.contains('open');
-  items.classList.toggle('open', !open);
-  arrow.classList.toggle('open', !open);
-}
-
-// Initial render
+function clearSearch(){document.getElementById('searchInput').value='';searchQuery='';document.getElementById('clearBtn').classList.remove('visible');render();}
+function filterCat(btn,slug){document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));btn.classList.add('active');activeSlug=slug;render();}
+function toggle(h){const items=h.nextElementSibling,arrow=h.querySelector('.cat-toggle');const open=items.classList.contains('open');items.classList.toggle('open',!open);arrow.classList.toggle('open',!open);}
+ 
 render();
-
-window.addEventListener('scroll', () => {
-  document.getElementById('scrollBtn').classList.toggle('visible', window.scrollY > 300);
-});
+window.addEventListener('scroll',()=>{document.getElementById('scrollBtn').classList.toggle('visible',window.scrollY>300);});
 </script>
 </body>
 </html>
+ 
