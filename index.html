@@ -182,6 +182,10 @@ const DATA=[
 // Image loading — coba .jpg dulu, kalau 404 coba .JPG, kalau masih gagal tampil emoji
 function loadImg(imgEl, base, placeholderEl) {
   let tried = false;
+  imgEl.onload = function() {
+    this.style.display = 'block';
+    placeholderEl.style.display = 'none';
+  };
   imgEl.onerror = function() {
     if (!tried) {
       tried = true;
