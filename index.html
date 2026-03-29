@@ -33,27 +33,51 @@ body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellips
 .filter-pill{background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:11px;padding:5px 12px;border-radius:20px;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:"DM Sans",sans-serif}
 .filter-pill:hover{border-color:rgba(255,69,0,.4);color:var(--text)}
 .filter-pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.top-picks-wrap{margin-bottom:24px;animation:fadeUp .4s ease .12s both}
-.section-label{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.section-label-icon{font-size:16px;width:32px;height:32px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* SECTION LABEL */
+.section-label{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.section-label-icon{font-size:15px;width:30px;height:30px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .section-label-title{font-family:"Bebas Neue",sans-serif;font-size:16px;letter-spacing:2px;color:var(--gold)}
 .section-label-sub{font-size:10px;color:var(--muted);font-family:"DM Mono",monospace}
-.top-picks-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-@media(max-width:480px){.top-picks-grid{grid-template-columns:1fr}}
-.tp-card{background:var(--surface);border:1px solid rgba(245,166,35,.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:all .2s}
-.tp-card:hover{background:var(--card-hover);transform:translateY(-2px);box-shadow:0 6px 24px rgba(245,166,35,.1);border-color:rgba(245,166,35,.4)}
-.tp-img{width:100%;height:110px;object-fit:cover;display:none}
-.tp-placeholder{height:110px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:36px}
-.tp-body{padding:10px 12px 12px;flex:1;display:flex;flex-direction:column}
-.tp-badge{display:inline-block;background:rgba(245,166,35,.15);color:var(--gold);font-size:9px;font-family:"DM Mono",monospace;padding:2px 7px;border-radius:8px;margin-bottom:6px;letter-spacing:1px}
-.tp-name{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.3}
-.tp-hook{font-size:10px;color:var(--muted);font-style:italic;line-height:1.4;flex:1;margin-bottom:8px}
-.tp-price{font-family:"DM Mono",monospace;font-size:11px;color:var(--green);font-weight:500;margin-bottom:6px}
-.tp-cta{background:var(--gold);color:#000;font-size:11px;font-weight:700;padding:7px 12px;border-radius:8px;text-align:center;transition:background .2s;text-decoration:none;display:block}
-.tp-cta:hover{background:#e09400}
-.tp-alts{display:flex;gap:4px;margin-top:5px;flex-wrap:wrap}
-.tp-alt{font-size:9px;color:var(--muted);border:1px solid var(--border);padding:2px 7px;border-radius:6px;text-decoration:none;transition:all .2s}
-.tp-alt:hover{color:var(--accent2);border-color:var(--accent2)}
+
+/* SHARED CARD STYLE — dipakai oleh Top Picks dan produk biasa */
+.product-card{display:grid;grid-template-columns:90px 1fr;background:var(--surface);border:1px solid var(--border);border-radius:14px;text-decoration:none;color:var(--text);transition:all .22s ease;position:relative;overflow:hidden}
+.product-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transition:transform .2s ease;border-radius:3px 0 0 3px;z-index:2}
+.product-card:hover{background:var(--card-hover);border-color:rgba(255,69,0,.35);transform:translateX(3px);box-shadow:0 4px 20px rgba(255,69,0,.08)}
+.product-card:hover::before{transform:scaleY(1)}
+
+/* Top Pick card — gold border variant */
+.product-card.tp{border-color:rgba(245,166,35,.25)}
+.product-card.tp::before{background:var(--gold)}
+.product-card.tp:hover{border-color:rgba(245,166,35,.5)}
+
+.product-img-wrap{width:90px;height:90px;flex-shrink:0;border-radius:13px 0 0 13px;overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center;position:relative}
+.product-img-wrap img{width:100%;height:100%;object-fit:cover;display:none;transition:transform .3s ease}
+.product-card:hover .product-img-wrap img{transform:scale(1.06)}
+.placeholder{font-size:32px;opacity:.5}
+.product-body{padding:10px 14px 10px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.product-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:3px}
+.tp-badge{display:inline-block;background:rgba(245,166,35,.15);color:var(--gold);font-size:9px;font-family:"DM Mono",monospace;padding:1px 6px;border-radius:6px;margin-bottom:4px;letter-spacing:1px}
+.product-hook{font-size:11px;color:#aaa;font-style:italic;line-height:1.4;margin-bottom:6px;border-left:2px solid rgba(255,69,0,.4);padding-left:7px}
+.product-card.tp .product-hook{border-left-color:rgba(245,166,35,.4)}
+.product-hook strong{color:var(--accent2);font-style:normal;font-weight:500}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}
+.product-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.product-price{font-family:"DM Mono",monospace;font-size:11px;color:var(--green);font-weight:500}
+.product-tag{font-size:10px;color:var(--muted);background:var(--surface2);padding:2px 7px;border-radius:8px}
+.product-cta{background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:6px 13px;border-radius:8px;flex-shrink:0;transition:background .2s;letter-spacing:.3px;white-space:nowrap;text-decoration:none}
+.product-card.tp .product-cta{background:var(--gold);color:#000}
+.product-card.tp:hover .product-cta{background:#e09400}
+.product-card:not(.tp):hover .product-cta{background:var(--accent2)}
+.product-alts{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
+.product-alt{font-size:9px;color:var(--muted);border:1px solid var(--border);padding:2px 8px;border-radius:6px;text-decoration:none;transition:all .2s}
+.product-alt:hover{color:var(--accent2);border-color:var(--accent2)}
+
+/* TOP PICKS SECTION */
+.top-picks-wrap{margin-bottom:20px;animation:fadeUp .4s ease .12s both}
+.top-picks-list{display:flex;flex-direction:column;gap:8px}
+
+/* CATEGORIES */
 .category{margin-bottom:6px;animation:fadeUp .5s ease both}
 .cat-header{display:flex;align-items:center;gap:10px;padding:10px 4px;cursor:pointer;user-select:none}
 .cat-icon{font-size:18px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border-radius:10px;flex-shrink:0}
@@ -63,27 +87,7 @@ body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellips
 .cat-toggle.open{transform:rotate(180deg)}
 .cat-items{display:flex;flex-direction:column;gap:8px;overflow:hidden;max-height:0;transition:max-height .45s ease}
 .cat-items.open{max-height:4000px}
-.product-card{display:grid;grid-template-columns:90px 1fr;background:var(--surface);border:1px solid var(--border);border-radius:14px;text-decoration:none;color:var(--text);transition:all .22s ease;position:relative;overflow:hidden}
-.product-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transition:transform .2s ease;border-radius:3px 0 0 3px;z-index:2}
-.product-card:hover{background:var(--card-hover);border-color:rgba(255,69,0,.35);transform:translateX(3px);box-shadow:0 4px 20px rgba(255,69,0,.08)}
-.product-card:hover::before{transform:scaleY(1)}
-.product-img-wrap{width:90px;height:90px;flex-shrink:0;border-radius:13px 0 0 13px;overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center;position:relative}
-.product-img-wrap img{width:100%;height:100%;object-fit:cover;display:none;transition:transform .3s ease}
-.product-card:hover .product-img-wrap img{transform:scale(1.06)}
-.placeholder{font-size:32px;opacity:.5}
-.product-body{padding:10px 14px 10px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
-.product-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:3px}
-.product-hook{font-size:11px;color:#aaa;font-style:italic;line-height:1.4;margin-bottom:6px;border-left:2px solid rgba(255,69,0,.4);padding-left:7px}
-.product-hook strong{color:var(--accent2);font-style:normal;font-weight:500}
-.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}
-.product-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
-.product-price{font-family:"DM Mono",monospace;font-size:11px;color:var(--green);font-weight:500}
-.product-tag{font-size:10px;color:var(--muted);background:var(--surface2);padding:2px 7px;border-radius:8px}
-.product-cta{background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:6px 13px;border-radius:8px;flex-shrink:0;transition:background .2s;letter-spacing:.3px;white-space:nowrap;text-decoration:none}
-.product-cta:hover{background:var(--accent2)}
-.product-alts{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
-.product-alt{font-size:9px;color:var(--muted);border:1px solid var(--border);padding:2px 8px;border-radius:6px;text-decoration:none;transition:all .2s}
-.product-alt:hover{color:var(--accent2);border-color:var(--accent2)}
+
 #noResult{display:none;text-align:center;padding:40px 0;color:var(--muted);font-size:14px}
 #noResult span{font-size:32px;display:block;margin-bottom:10px}
 mark{background:rgba(255,69,0,.25);color:var(--accent2);border-radius:3px;padding:0 2px}
@@ -146,77 +150,97 @@ const CAT_SLUG={handlebar:"Handlebar & Navigasi",kelistrikan:"Kelistrikan & Char
 let activeSlug="all",searchQuery="";
 const FEATURED=[{"cat": "🎛️ Handlebar & Navigasi", "name": "Visor / Windshield", "hook": "Bukan cuma gaya — angin langsung ke badan drastis berkurang pas kecepatan 60km/h ke atas.", "img": "visor", "price": "", "tags": ["Touring", "Aerodinamis"], "sellers": [{"url": "https://s.shopee.co.id/LieKMw2vT", "label": "Shopee"}]}, {"cat": "⚡ Kelistrikan & Charging", "name": "Fast Charging Motor", "hook": "Jangan berangkat touring tanpa ini — satu-satunya yang bikin Fox 350 bisa cas di mana saja.", "img": "fast-charging", "price": "", "tags": ["Portable", "Wajib Touring"], "sellers": [{"url": "https://s.shopee.co.id/9fEFdZmEgE", "label": "Shopee"}]}, {"cat": "⚡ Kelistrikan & Charging", "name": "Polytron Adjustable Fast Charging 25A", "hook": "Komunitas debat panjang Polytron vs Huawei — ini menang di sisi adjustable ampere-nya.", "img": "fast-charging-polytron", "price": "Rp2.635.000", "tags": ["25A"], "sellers": [{"url": "https://s.shopee.co.id/7AXlvCT6jH", "label": "Shopee"}]}, {"cat": "⚡ Kelistrikan & Charging", "name": "Sensor Tekanan Ban TPMS", "hook": "Tinggal pasang doang — sensor udah ada kayak tutup pentil biasa. Langsung kedeteksi tekanan ban real-time.", "img": "sensor-tpms", "price": "", "tags": ["Plug N Play", "Safety"], "sellers": [{"url": "https://s.shopee.co.id/7AZ0UM5OZm", "label": "Shopee"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Shock XMAX Original", "hook": "'Udah 2 mingguan, beneran lebih pakem dari ori!' — paling banyak direkomendasiin.", "img": "shock-xmax", "price": "", "tags": ["Top Pick"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9RmhNjQ961V-Uj6ep/", "label": "Tokopedia"}, {"url": "https://s.shopee.co.id/1qXU92HZGT", "label": "Shopee"}]}];
 const DATA=[{"cat": "🎛️ Handlebar & Navigasi", "items": [{"cat": "🎛️ Handlebar & Navigasi", "name": "Visor / Windshield", "hook": "Bukan cuma gaya — angin langsung ke badan drastis berkurang pas kecepatan 60km/h ke atas.", "img": "visor", "price": "", "tags": ["Touring", "Aerodinamis"], "sellers": [{"url": "https://s.shopee.co.id/LieKMw2vT", "label": "Shopee"}]}]}, {"cat": "⚡ Kelistrikan & Charging", "items": [{"cat": "⚡ Kelistrikan & Charging", "name": "Fast Charging Motor", "hook": "Jangan berangkat touring tanpa ini — satu-satunya yang bikin Fox 350 bisa cas di mana saja.", "img": "fast-charging", "price": "", "tags": ["Portable", "Wajib Touring"], "sellers": [{"url": "https://s.shopee.co.id/9fEFdZmEgE", "label": "Shopee"}]}, {"cat": "⚡ Kelistrikan & Charging", "name": "Polytron Adjustable Fast Charging 25A", "hook": "Komunitas debat panjang Polytron vs Huawei — ini menang di sisi adjustable ampere-nya.", "img": "fast-charging-polytron", "price": "Rp2.635.000", "tags": ["25A"], "sellers": [{"url": "https://s.shopee.co.id/7AXlvCT6jH", "label": "Shopee"}]}, {"cat": "⚡ Kelistrikan & Charging", "name": "Sensor Tekanan Ban TPMS", "hook": "Tinggal pasang doang — sensor udah ada kayak tutup pentil biasa. Langsung kedeteksi tekanan ban real-time.", "img": "sensor-tpms", "price": "", "tags": ["Plug N Play", "Safety"], "sellers": [{"url": "https://s.shopee.co.id/7AZ0UM5OZm", "label": "Shopee"}]}]}, {"cat": "🏎️ Suspensi & Rem", "items": [{"cat": "🏎️ Suspensi & Rem", "name": "Shock XMAX Original", "hook": "'Udah 2 mingguan, beneran lebih pakem dari ori!' — paling banyak direkomendasiin.", "img": "shock-xmax", "price": "", "tags": ["Top Pick"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9RmhNjQ961V-Uj6ep/", "label": "Tokopedia"}, {"url": "https://s.shopee.co.id/1qXU92HZGT", "label": "Shopee"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Shock RCB A3 Series 365mm", "hook": "Opsi lebih panjang (365mm) — buat yang mau riding position sedikit lebih tinggi.", "img": "shock-rcb", "price": "Rp437.109", "tags": ["365mm", "RCB"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9RG5GTmLn2a-Ye4ZK/", "label": "Tiktok"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Sarung Shock 28cm", "hook": "Lindungi shock dari debu dan kotoran — tampilan jadi lebih clean dan sporty.", "img": "sarung-shock-28", "price": "", "tags": ["28cm"], "sellers": [{"url": "https://s.shopee.co.id/1gE3wqmzX1", "label": "Shopee"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Sarung Shock Upgrade 30cm", "hook": "Versi lebih panjang buat yang sudah upgrade ke shock XMAX atau YSS — ukuran lebih pas.", "img": "sarung-shock-30", "price": "", "tags": ["30cm", "Upgrade"], "sellers": [{"url": "https://s.shopee.co.id/7pohIEBist", "label": "Shopee"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Kampas Rem Keramik Fox R/S", "hook": "Kampas bawaan cepat habis di KM 800-1000 — ganti keramik ini, tidak merusak cakram dan jauh lebih awet.", "img": "kampas-rem", "price": "Rp56.500", "tags": ["PnP", "Keramik"], "sellers": [{"url": "https://s.shopee.co.id/4LEp7zAqmm", "label": "Shopee"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Bracket Kaliper Rem Belakang", "hook": "Sebelum ganti shockbreaker belakang, wajib beli bracket ini, agar ga mentok. Cuma di jual disini", "img": "bracket-rem-belakang", "price": "", "tags": ["bracket rem", "bracket custom", "bracket belakang"], "sellers": [{"url": "https://s.shopee.co.id/9AKGMHqtlS", "label": "Shopee"}]}]}, {"cat": "🛡️ Pelindung & Cover", "items": [{"cat": "🛡️ Pelindung & Cover", "name": "Gantungan / Storage Fox 350", "hook": "Khusus Fox 350 — tempat gantung tas belanja atau helm saat parkir. Praktis banget buat harian.", "img": "gantungan-fox350", "price": "", "tags": ["Khusus Fox 350", "Harian"], "sellers": [{"url": "https://s.shopee.co.id/8phEUjLbOq", "label": "Shopee"}]}, {"cat": "🛡️ Pelindung & Cover", "name": "Cover Stang FOX 350", "hook": "Cover Stang FOX 350, Penutup Lubang Kabel Stang, Motor Listrik Polytron FOX 350  Motorcycle", "img": "cover-stang", "price": "", "tags": ["Cover Stang"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9R3pe5fWo1R-9qjLp/", "label": "Tiktok"}]}, {"cat": "🛡️ Pelindung & Cover", "name": "Spion Blind 180 Derajat", "hook": "Spion Blind 180 Derajat, universal untuk semua motor", "img": "spion-blind", "price": "", "tags": ["spion blind", "spion 180"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9Rsm9WhoHKq-jVM69/", "label": "Tiktok"}]}, {"cat": "🛡️ Pelindung & Cover", "name": "Kunci Helm Multifungsi", "hook": "Wajib punya, Fox 350 ga ada gantungan helm nya", "img": "kunci-helm", "price": "", "tags": ["kunci helm", "gantungan multifunsi"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9Rsu8hyQxfs-60BED/", "label": "Tiktok"}]}]}];
-// Update stats
 document.getElementById("statCat").textContent=DATA.length;
 document.getElementById("statProd").textContent=DATA.reduce((s,c)=>s+c.items.length,0);
 
 function loadImg(el,base,ph){let t=false;el.onload=()=>{el.style.display="block";ph.style.display="none";};el.onerror=function(){if(!t){t=true;this.src=base+".JPG";}else{this.style.display="none";ph.style.display="flex";}};el.src=base+".jpg";}
 function hl(t,q){if(!q)return t;return t.replace(new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi"),"<mark>$1</mark>");}
-function emo(n){n=n.toLowerCase();if(n.includes("shock")||n.includes("suspensi"))return"🔩";if(n.includes("charging")||n.includes("charger")||n.includes("fast"))return"🔌";if(n.includes("kampas")||n.includes("rem"))return"🛑";if(n.includes("android")||n.includes("dashcam"))return"🚗";if(n.includes("lampu")||n.includes("led"))return"🔦";if(n.includes("klakson"))return"📢";if(n.includes("visor")||n.includes("windshield"))return"🔭";if(n.includes("crossbar"))return"📏";if(n.includes("holder")||n.includes("bracket"))return"📱";if(n.includes("tpms")||n.includes("sensor"))return"🔵";if(n.includes("cover")||n.includes("sarung"))return"🧤";if(n.includes("spion")||n.includes("blind"))return"🔭";if(n.includes("kunci")||n.includes("helm")||n.includes("gantungan"))return"🔑";return"🛒";}
+function emo(n){n=n.toLowerCase();if(n.includes("shock")||n.includes("suspensi"))return"🔩";if(n.includes("charging")||n.includes("charger")||n.includes("fast"))return"🔌";if(n.includes("kampas")||n.includes("rem"))return"🛑";if(n.includes("android")||n.includes("dashcam"))return"🚗";if(n.includes("lampu")||n.includes("led"))return"🔦";if(n.includes("klakson"))return"📢";if(n.includes("visor")||n.includes("windshield"))return"🔭";if(n.includes("crossbar"))return"📏";if(n.includes("holder")||n.includes("bracket"))return"📱";if(n.includes("tpms")||n.includes("sensor"))return"🔵";if(n.includes("cover")||n.includes("sarung")||n.includes("stang"))return"🧤";if(n.includes("spion")||n.includes("blind"))return"🔭";if(n.includes("helm")||n.includes("kunci")||n.includes("gantungan"))return"🔑";return"🛒";}
 
-function renderTopPicks(q){
-  const sec=document.getElementById("topPicksSection");
-  if(activeSlug!=="all"||q){sec.innerHTML="";return;}
-  if(!FEATURED.length){sec.innerHTML="";return;}
-  const cards=FEATURED.map(p=>{
-    const alts=p.sellers.slice(1);
-    return `<div class="tp-card">
-      <img class="tp-img" data-base="Img/${p.img}" alt="${p.name}">
-      <div class="tp-placeholder">${emo(p.name)}</div>
-      <div class="tp-body">
-        <div class="tp-badge">★ TOP PICK</div>
-        <div class="tp-name">${p.name}</div>
-        <div class="tp-hook">${p.hook}</div>
-        ${p.price&&p.price!="None"&&p.price!=""?`<div class="tp-price">${p.price}</div>`:""}
-        <a class="tp-cta" href="${p.sellers[0].url}" target="_blank" rel="nofollow">${p.sellers[0].label} ↗</a>
-        ${alts.length?`<div class="tp-alts">${alts.map(s=>`<a class="tp-alt" href="${s.url}" target="_blank" rel="nofollow">${s.label}</a>`).join("")}</div>`:""}
-      </div></div>`;
-  }).join("");
-  sec.innerHTML=`<div class="top-picks-wrap"><div class="section-label"><div class="section-label-icon">⭐</div><div><div class="section-label-title">Top Picks</div><div class="section-label-sub">AKSESORI PALING DIREKOMENDASIKAN</div></div></div><div class="top-picks-grid">${cards}</div></div>`;
-  sec.querySelectorAll("img[data-base]").forEach(img=>loadImg(img,img.getAttribute("data-base"),img.nextElementSibling));
-}
-
-function cardHtml(p,q){
-  const alts=p.sellers.slice(1);
-  return `<a class="product-card" href="${p.sellers[0].url}" target="_blank" rel="nofollow">
-    <div class="product-img-wrap"><img data-base="Img/${p.img}" alt="${p.name}"><div class="placeholder">${emo(p.name)}</div></div>
+function cardHtml(p, q, isTopPick) {
+  const alts = p.sellers.slice(1);
+  const tpClass = isTopPick ? " tp" : "";
+  const ctaLabel = p.sellers[0].label + " ↗";
+  return `<a class="product-card${tpClass}" href="${p.sellers[0].url}" target="_blank" rel="nofollow">
+    <div class="product-img-wrap">
+      <img data-base="Img/${p.img}" alt="${p.name}">
+      <div class="placeholder">${emo(p.name)}</div>
+    </div>
     <div class="product-body">
       <div>
+        ${isTopPick ? '<div class="tp-badge">★ TOP PICK</div>' : ""}
         <div class="product-name">${hl(p.name,q)}</div>
         <div class="product-hook">${hl(p.hook,q)}</div>
       </div>
       <div>
         <div class="product-bottom">
-          <div class="product-meta">${p.price&&p.price!="None"&&p.price!=""?`<span class="product-price">${p.price}</span>`:""}${p.tags.map(t=>`<span class="product-tag">${t}</span>`).join("")}</div>
-          <a class="product-cta" href="${p.sellers[0].url}" target="_blank" rel="nofollow">${p.sellers[0].label} ↗</a>
+          <div class="product-meta">
+            ${p.price&&p.price!="None"&&p.price!=""?`<span class="product-price">${p.price}</span>`:""}
+            ${p.tags.map(t=>`<span class="product-tag">${t}</span>`).join("")}
+          </div>
+          <a class="product-cta" href="${p.sellers[0].url}" target="_blank" rel="nofollow">${ctaLabel}</a>
         </div>
         ${alts.length?`<div class="product-alts">${alts.map(s=>`<a class="product-alt" href="${s.url}" target="_blank" rel="nofollow">${s.label}</a>`).join("")}</div>`:""}
       </div>
-    </div></a>`;
+    </div>
+  </a>`;
 }
 
-function render(){
-  const wrap=document.getElementById("categories");
-  wrap.innerHTML="";
-  const q=searchQuery.toLowerCase().trim();
-  let total=0;
-  renderTopPicks(q);
-  DATA.forEach(cat=>{
-    const catName=cat.cat.substring(cat.cat.indexOf(" ")+1);
-    if(activeSlug!=="all"&&!catName.toLowerCase().includes((CAT_SLUG[activeSlug]||"").toLowerCase()))return;
-    const filtered=q?cat.items.filter(p=>p.name.toLowerCase().includes(q)||p.hook.toLowerCase().includes(q)||p.tags.some(t=>t.toLowerCase().includes(q))):cat.items;
-    if(!filtered.length)return;
-    total+=filtered.length;
-    const div=document.createElement("div");
-    div.className="category";
-    div.innerHTML=`<div class="cat-header" onclick="toggle(this)"><div class="cat-icon">${cat.cat.split(" ")[0]}</div><div class="cat-title">${catName}</div><span class="cat-count">${filtered.length} produk</span><span class="cat-toggle">▼</span></div><div class="cat-items open">${filtered.map(p=>cardHtml(p,q)).join("")}</div>`;
-    wrap.appendChild(div);
-    div.querySelectorAll("img[data-base]").forEach(img=>loadImg(img,img.getAttribute("data-base"),img.nextElementSibling));
-  });
-  document.getElementById("noResult").style.display=total===0&&!document.getElementById("topPicksSection").innerHTML?"block":"none";
-  if(!q&&activeSlug==="all"){document.querySelectorAll(".cat-items").forEach((el,i)=>el.classList.toggle("open",i===0));document.querySelectorAll(".cat-toggle").forEach((a,i)=>a.classList.toggle("open",i===0));}
+function renderTopPicks(q) {
+  const sec = document.getElementById("topPicksSection");
+  if (activeSlug !== "all" || q) { sec.innerHTML = ""; return; }
+  if (!FEATURED.length) { sec.innerHTML = ""; return; }
+  const cards = FEATURED.map(p => cardHtml(p, "", true)).join("");
+  sec.innerHTML = `<div class="top-picks-wrap">
+    <div class="section-label">
+      <div class="section-label-icon">⭐</div>
+      <div><div class="section-label-title">Top Picks</div><div class="section-label-sub">AKSESORI PALING DIREKOMENDASIKAN</div></div>
+    </div>
+    <div class="top-picks-list">${cards}</div>
+  </div>`;
+  sec.querySelectorAll("img[data-base]").forEach(img => loadImg(img, img.getAttribute("data-base"), img.nextElementSibling));
 }
-document.getElementById("searchInput").addEventListener("input",function(){searchQuery=this.value;document.getElementById("clearBtn").classList.toggle("visible",this.value.length>0);render();});
+
+function render() {
+  const wrap = document.getElementById("categories");
+  wrap.innerHTML = "";
+  const q = searchQuery.toLowerCase().trim();
+  let total = 0;
+  renderTopPicks(q);
+  DATA.forEach(cat => {
+    const catName = cat.cat.substring(cat.cat.indexOf(" ")+1);
+    if (activeSlug !== "all" && !catName.toLowerCase().includes((CAT_SLUG[activeSlug]||"").toLowerCase())) return;
+    const filtered = q ? cat.items.filter(p =>
+      p.name.toLowerCase().includes(q) ||
+      p.hook.toLowerCase().includes(q) ||
+      p.tags.some(t => t.toLowerCase().includes(q))
+    ) : cat.items;
+    if (!filtered.length) return;
+    total += filtered.length;
+    const div = document.createElement("div");
+    div.className = "category";
+    div.innerHTML = `<div class="cat-header" onclick="toggle(this)">
+      <div class="cat-icon">${cat.cat.split(" ")[0]}</div>
+      <div class="cat-title">${catName}</div>
+      <span class="cat-count">${filtered.length} produk</span>
+      <span class="cat-toggle">▼</span>
+    </div>
+    <div class="cat-items open">${filtered.map(p => cardHtml(p, q, false)).join("")}</div>`;
+    wrap.appendChild(div);
+    div.querySelectorAll("img[data-base]").forEach(img => loadImg(img, img.getAttribute("data-base"), img.nextElementSibling));
+  });
+  document.getElementById("noResult").style.display = total === 0 && !document.getElementById("topPicksSection").innerHTML ? "block" : "none";
+  if (!q && activeSlug === "all") {
+    document.querySelectorAll(".cat-items").forEach((el,i) => el.classList.toggle("open", i===0));
+    document.querySelectorAll(".cat-toggle").forEach((a,i) => a.classList.toggle("open", i===0));
+  }
+}
+
+document.getElementById("searchInput").addEventListener("input", function(){
+  searchQuery = this.value;
+  document.getElementById("clearBtn").classList.toggle("visible", this.value.length > 0);
+  render();
+});
 function clearSearch(){document.getElementById("searchInput").value="";searchQuery="";document.getElementById("clearBtn").classList.remove("visible");render();}
 function filterCat(btn,slug){document.querySelectorAll(".filter-pill").forEach(p=>p.classList.remove("active"));btn.classList.add("active");activeSlug=slug;render();}
 function toggle(h){const items=h.nextElementSibling,arrow=h.querySelector(".cat-toggle");const open=items.classList.contains("open");items.classList.toggle("open",!open);arrow.classList.toggle("open",!open);}
