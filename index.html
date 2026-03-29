@@ -7,76 +7,96 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#0a0a0a;--surface:#141414;--surface2:#1c1c1c;--border:#2a2a2a;--accent:#FF4500;--accent2:#FF6B35;--gold:#F5A623;--text:#f0f0f0;--muted:#888;--card-hover:#1e1e1e;--green:#4CAF50}
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
-  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(255,69,0,.12) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 100%,rgba(255,107,53,.06) 0%,transparent 60%);pointer-events:none;z-index:0}
-  .container{max-width:700px;margin:0 auto;padding:0 16px 60px;position:relative;z-index:1}
-  .header{text-align:center;padding:48px 0 32px;animation:fadeDown .6s ease both}
-  .badge{display:inline-block;background:rgba(255,69,0,.15);border:1px solid rgba(255,69,0,.3);color:var(--accent2);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px}
-  .logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,12vw,80px);line-height:.9;letter-spacing:2px;background:linear-gradient(135deg,#fff 30%,var(--accent2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
-  .logo span{color:var(--accent);-webkit-text-fill-color:var(--accent)}
-  .tagline{color:var(--muted);font-size:13px;font-weight:300;letter-spacing:.5px;margin-bottom:20px}
-  .stats{display:flex;justify-content:center;gap:28px;margin-top:20px}
-  .stat{text-align:center}
-  .stat-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--accent2);line-height:1}
-  .stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
-  .category{margin-bottom:6px;animation:fadeUp .5s ease both}
-  .cat-header{display:flex;align-items:center;gap:10px;padding:10px 4px;cursor:pointer;user-select:none}
-  .cat-icon{font-size:18px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border-radius:10px;flex-shrink:0}
-  .cat-title{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;color:var(--text);flex:1}
-  .cat-count{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);background:var(--surface2);padding:2px 8px;border-radius:10px}
-  .cat-toggle{color:var(--muted);font-size:12px;transition:transform .3s}
-  .cat-toggle.open{transform:rotate(180deg)}
-  .cat-items{display:flex;flex-direction:column;gap:8px;overflow:hidden;max-height:0;transition:max-height .45s ease}
-  .cat-items.open{max-height:4000px}
-  .product-card{display:grid;grid-template-columns:90px 1fr;background:var(--surface);border:1px solid var(--border);border-radius:14px;text-decoration:none;color:var(--text);transition:all .22s ease;position:relative;overflow:hidden}
-  .product-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transition:transform .2s ease;border-radius:3px 0 0 3px;z-index:2}
-  .product-card:hover{background:var(--card-hover);border-color:rgba(255,69,0,.35);transform:translateX(3px);box-shadow:0 4px 20px rgba(255,69,0,.08)}
-  .product-card:hover::before{transform:scaleY(1)}
-  .product-img-wrap{width:90px;height:90px;flex-shrink:0;border-radius:13px 0 0 13px;overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center;position:relative}
-  .product-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
-  .product-card:hover .product-img-wrap img{transform:scale(1.06)}
-  .placeholder{font-size:32px;opacity:.5}
-  .img-hint{position:absolute;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;border-radius:13px 0 0 13px}
-  .product-card:hover .img-hint{opacity:1}
-  .img-hint span{font-size:9px;color:rgba(255,255,255,.85);text-align:center;line-height:1.5;padding:0 6px}
-  .product-body{padding:12px 14px 10px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
-  .product-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:4px}
-  .product-card.recommended .product-name::after{content:' ★';color:var(--gold);font-size:11px}
-  .product-hook{font-size:11px;color:#aaa;font-style:italic;line-height:1.45;margin-bottom:7px;border-left:2px solid rgba(255,69,0,.4);padding-left:7px}
-  .product-hook strong{color:var(--accent2);font-style:normal;font-weight:500}
-  .product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}
-  .product-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
-  .product-price{font-family:'DM Mono',monospace;font-size:11px;color:var(--green);font-weight:500}
-  .product-tag{font-size:10px;color:var(--muted);background:var(--surface2);padding:2px 7px;border-radius:8px}
-  .product-cta{display:flex;align-items:center;background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:6px 13px;border-radius:8px;flex-shrink:0;transition:background .2s;letter-spacing:.3px;white-space:nowrap}
-  .product-card:hover .product-cta{background:var(--accent2)}
-  .affiliate-notice{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:32px 0 16px;text-align:center}
-  .affiliate-notice p{font-size:12px;color:var(--muted);line-height:1.6}
-  .affiliate-notice strong{color:var(--gold)}
-  .footer{text-align:center;padding-top:24px}
-  .footer p{font-size:11px;color:#555;letter-spacing:.5px}
-  .scroll-top{position:fixed;bottom:24px;right:20px;width:40px;height:40px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s;z-index:100;font-size:16px;border:none;color:#fff}
-  .scroll-top.visible{opacity:1}
-  .search-wrap{position:relative;margin:0 0 16px;animation:fadeUp .4s ease .05s both}
-  .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
-  #searchInput{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 42px 12px 42px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .2s}
-  #searchInput::placeholder{color:var(--muted)}
-  #searchInput:focus{border-color:rgba(255,69,0,.5);box-shadow:0 0 0 3px rgba(255,69,0,.08)}
-  #clearBtn{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:var(--surface2);border:none;color:var(--muted);width:22px;height:22px;border-radius:50%;font-size:12px;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .2s}
-  #clearBtn:hover{background:var(--accent);color:#fff}
-  #clearBtn.visible{display:flex}
-  .filter-wrap{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;animation:fadeUp .4s ease .1s both}
-  .filter-pill{background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:11px;padding:5px 12px;border-radius:20px;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:'DM Sans',sans-serif}
-  .filter-pill:hover{border-color:rgba(255,69,0,.4);color:var(--text)}
-  .filter-pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
-  #noResult{display:none;text-align:center;padding:40px 0;color:var(--muted);font-size:14px;animation:fadeUp .3s ease both}
-  #noResult span{font-size:32px;display:block;margin-bottom:10px}
-  mark{background:rgba(255,69,0,.25);color:var(--accent2);border-radius:3px;padding:0 2px}
-  @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-  .category:nth-child(1){animation-delay:.05s}.category:nth-child(2){animation-delay:.1s}.category:nth-child(3){animation-delay:.15s}.category:nth-child(4){animation-delay:.2s}.category:nth-child(5){animation-delay:.25s}.category:nth-child(6){animation-delay:.3s}.category:nth-child(7){animation-delay:.35s}.category:nth-child(8){animation-delay:.4s}
+:root{--bg:#0a0a0a;--surface:#141414;--surface2:#1c1c1c;--border:#2a2a2a;--accent:#FF4500;--accent2:#FF6B35;--gold:#F5A623;--text:#f0f0f0;--muted:#888;--card-hover:#1e1e1e;--green:#4CAF50}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min-height:100vh;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(255,69,0,.12) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 100%,rgba(255,107,53,.06) 0%,transparent 60%);pointer-events:none;z-index:0}
+.container{max-width:700px;margin:0 auto;padding:0 16px 60px;position:relative;z-index:1}
+.header{text-align:center;padding:48px 0 28px;animation:fadeDown .6s ease both}
+.badge{display:inline-block;background:rgba(255,69,0,.15);border:1px solid rgba(255,69,0,.3);color:var(--accent2);font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px}
+.logo{font-family:"Bebas Neue",sans-serif;font-size:clamp(52px,12vw,80px);line-height:.9;letter-spacing:2px;background:linear-gradient(135deg,#fff 30%,var(--accent2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.logo span{color:var(--accent);-webkit-text-fill-color:var(--accent)}
+.tagline{color:var(--muted);font-size:13px;font-weight:300;letter-spacing:.5px;margin-bottom:20px}
+.stats{display:flex;justify-content:center;gap:28px;margin-top:20px}
+.stat{text-align:center}
+.stat-num{font-family:"Bebas Neue",sans-serif;font-size:28px;color:var(--accent2);line-height:1}
+.stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.search-wrap{position:relative;margin:0 0 12px;animation:fadeUp .4s ease .05s both}
+.search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+#searchInput{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 42px;font-family:"DM Sans",sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .2s}
+#searchInput::placeholder{color:var(--muted)}
+#searchInput:focus{border-color:rgba(255,69,0,.5);box-shadow:0 0 0 3px rgba(255,69,0,.08)}
+#clearBtn{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:var(--surface2);border:none;color:var(--muted);width:22px;height:22px;border-radius:50%;font-size:12px;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .2s}
+#clearBtn:hover{background:var(--accent);color:#fff}
+#clearBtn.visible{display:flex}
+.filter-wrap{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;animation:fadeUp .4s ease .1s both}
+.filter-pill{background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:11px;padding:5px 12px;border-radius:20px;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:"DM Sans",sans-serif}
+.filter-pill:hover{border-color:rgba(255,69,0,.4);color:var(--text)}
+.filter-pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.top-picks-wrap{margin-bottom:24px;animation:fadeUp .4s ease .12s both}
+.section-label{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.section-label-icon{font-size:16px;width:32px;height:32px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-label-title{font-family:"Bebas Neue",sans-serif;font-size:16px;letter-spacing:2px;color:var(--gold)}
+.section-label-sub{font-size:10px;color:var(--muted);font-family:"DM Mono",monospace}
+.top-picks-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:480px){.top-picks-grid{grid-template-columns:1fr}}
+.tp-card{background:var(--surface);border:1px solid rgba(245,166,35,.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:all .2s}
+.tp-card:hover{background:var(--card-hover);transform:translateY(-2px);box-shadow:0 6px 24px rgba(245,166,35,.1);border-color:rgba(245,166,35,.4)}
+.tp-img{width:100%;height:110px;object-fit:cover;display:none}
+.tp-placeholder{height:110px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:36px}
+.tp-body{padding:10px 12px 12px;flex:1;display:flex;flex-direction:column}
+.tp-badge{display:inline-block;background:rgba(245,166,35,.15);color:var(--gold);font-size:9px;font-family:"DM Mono",monospace;padding:2px 7px;border-radius:8px;margin-bottom:6px;letter-spacing:1px}
+.tp-name{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.3}
+.tp-hook{font-size:10px;color:var(--muted);font-style:italic;line-height:1.4;flex:1;margin-bottom:8px}
+.tp-price{font-family:"DM Mono",monospace;font-size:11px;color:var(--green);font-weight:500;margin-bottom:6px}
+.tp-cta{background:var(--gold);color:#000;font-size:11px;font-weight:700;padding:7px 12px;border-radius:8px;text-align:center;transition:background .2s;text-decoration:none;display:block}
+.tp-cta:hover{background:#e09400}
+.tp-alts{display:flex;gap:4px;margin-top:5px;flex-wrap:wrap}
+.tp-alt{font-size:9px;color:var(--muted);border:1px solid var(--border);padding:2px 7px;border-radius:6px;text-decoration:none;transition:all .2s}
+.tp-alt:hover{color:var(--accent2);border-color:var(--accent2)}
+.category{margin-bottom:6px;animation:fadeUp .5s ease both}
+.cat-header{display:flex;align-items:center;gap:10px;padding:10px 4px;cursor:pointer;user-select:none}
+.cat-icon{font-size:18px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border-radius:10px;flex-shrink:0}
+.cat-title{font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:2px;color:var(--text);flex:1}
+.cat-count{font-family:"DM Mono",monospace;font-size:11px;color:var(--muted);background:var(--surface2);padding:2px 8px;border-radius:10px}
+.cat-toggle{color:var(--muted);font-size:12px;transition:transform .3s}
+.cat-toggle.open{transform:rotate(180deg)}
+.cat-items{display:flex;flex-direction:column;gap:8px;overflow:hidden;max-height:0;transition:max-height .45s ease}
+.cat-items.open{max-height:4000px}
+.product-card{display:grid;grid-template-columns:90px 1fr;background:var(--surface);border:1px solid var(--border);border-radius:14px;text-decoration:none;color:var(--text);transition:all .22s ease;position:relative;overflow:hidden}
+.product-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transition:transform .2s ease;border-radius:3px 0 0 3px;z-index:2}
+.product-card:hover{background:var(--card-hover);border-color:rgba(255,69,0,.35);transform:translateX(3px);box-shadow:0 4px 20px rgba(255,69,0,.08)}
+.product-card:hover::before{transform:scaleY(1)}
+.product-img-wrap{width:90px;height:90px;flex-shrink:0;border-radius:13px 0 0 13px;overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center;position:relative}
+.product-img-wrap img{width:100%;height:100%;object-fit:cover;display:none;transition:transform .3s ease}
+.product-card:hover .product-img-wrap img{transform:scale(1.06)}
+.placeholder{font-size:32px;opacity:.5}
+.product-body{padding:10px 14px 10px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.product-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:3px}
+.product-hook{font-size:11px;color:#aaa;font-style:italic;line-height:1.4;margin-bottom:6px;border-left:2px solid rgba(255,69,0,.4);padding-left:7px}
+.product-hook strong{color:var(--accent2);font-style:normal;font-weight:500}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}
+.product-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.product-price{font-family:"DM Mono",monospace;font-size:11px;color:var(--green);font-weight:500}
+.product-tag{font-size:10px;color:var(--muted);background:var(--surface2);padding:2px 7px;border-radius:8px}
+.product-cta{background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:6px 13px;border-radius:8px;flex-shrink:0;transition:background .2s;letter-spacing:.3px;white-space:nowrap;text-decoration:none}
+.product-cta:hover{background:var(--accent2)}
+.product-alts{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
+.product-alt{font-size:9px;color:var(--muted);border:1px solid var(--border);padding:2px 8px;border-radius:6px;text-decoration:none;transition:all .2s}
+.product-alt:hover{color:var(--accent2);border-color:var(--accent2)}
+#noResult{display:none;text-align:center;padding:40px 0;color:var(--muted);font-size:14px}
+#noResult span{font-size:32px;display:block;margin-bottom:10px}
+mark{background:rgba(255,69,0,.25);color:var(--accent2);border-radius:3px;padding:0 2px}
+.affiliate-notice{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:32px 0 16px;text-align:center}
+.affiliate-notice p{font-size:12px;color:var(--muted);line-height:1.6}
+.affiliate-notice strong{color:var(--gold)}
+.footer{text-align:center;padding-top:24px}
+.footer p{font-size:11px;color:#555;letter-spacing:.5px}
+.scroll-top{position:fixed;bottom:24px;right:20px;width:40px;height:40px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .3s;z-index:100;font-size:16px;border:none;color:#fff}
+.scroll-top.visible{opacity:1}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.category:nth-child(1){animation-delay:.05s}.category:nth-child(2){animation-delay:.1s}.category:nth-child(3){animation-delay:.15s}.category:nth-child(4){animation-delay:.2s}.category:nth-child(5){animation-delay:.25s}.category:nth-child(6){animation-delay:.3s}.category:nth-child(7){animation-delay:.35s}.category:nth-child(8){animation-delay:.4s}
 </style>
 </head>
 <body>
@@ -86,8 +106,8 @@
   <div class="logo">FOX <span>350</span></div>
   <p class="tagline">Aksesori pilihan dari sesama pengguna Polytron Fox 350</p>
   <div class="stats">
-    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Kategori</div></div>
-    <div class="stat"><div class="stat-num">36</div><div class="stat-label">Produk</div></div>
+    <div class="stat"><div class="stat-num" id="statCat">-</div><div class="stat-label">Kategori</div></div>
+    <div class="stat"><div class="stat-num" id="statProd">-</div><div class="stat-label">Produk</div></div>
     <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Member Komunitas</div></div>
   </div>
 </div>
@@ -107,178 +127,101 @@
   <button class="filter-pill" onclick="filterCat(this,'pelindung')">🛡️ Pelindung</button>
   <button class="filter-pill" onclick="filterCat(this,'tools')">🔧 Tools</button>
 </div>
+<div id="topPicksSection"></div>
 <div id="noResult"><span>🔍</span>Produk tidak ditemukan.<br><small>Coba kata kunci lain.</small></div>
 <div id="categories"></div>
 <div class="affiliate-notice">
-  <p>⭐ Produk bertanda <strong>★</strong> adalah rekomendasi langsung dari member komunitas Fox 350.<br>
+  <p>⭐ Produk di section <strong>Top Picks</strong> adalah aksesori paling direkomendasikan.<br>
   Semua harga mengikuti harga Shopee saat ini dan dapat berubah sewaktu-waktu.<br>
-  Beberapa link merupakan <strong>link afiliasi</strong> — harga tetap sama, tapi membantu komunitas ini terus aktif.</p>
+  Beberapa link merupakan <strong>link afiliasi</strong> — harga tetap sama, tapi membantu konten ini terus aktif.</p>
 </div>
 <div class="footer">
   <p>FOX 350 Riders Community · Indonesia 🇮🇩</p>
-  <p style="margin-top:6px">Dikurasi dari grup WA komunitas · Diperbarui Feb 2026</p>
+  <p style="margin-top:6px">Diperbarui Mar 2026</p>
 </div>
 </div>
 <button class="scroll-top" id="scrollBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script>
-const CAT_SLUG={'handlebar':'Handlebar & Navigasi','kelistrikan':'Kelistrikan & Charging','kabel':'Kabel & Sambungan','lampu':'Lampu & Klakson','suspensi':'Suspensi & Rem','android':'Android Auto & Multimedia','pelindung':'Pelindung & Cover','tools':'Tools & Perkakas'};
-let activeSlug='all',searchQuery='';
+const CAT_SLUG={handlebar:"Handlebar & Navigasi",kelistrikan:"Kelistrikan & Charging",kabel:"Kabel & Sambungan",lampu:"Lampu & Klakson",suspensi:"Suspensi & Rem",android:"Android Auto & Multimedia",pelindung:"Pelindung & Cover",tools:"Tools & Perkakas"};
+let activeSlug="all",searchQuery="";
+const FEATURED=[{"cat": "🎛️ Handlebar & Navigasi", "name": "Visor / Windshield", "hook": "Bukan cuma gaya — angin langsung ke badan drastis berkurang pas kecepatan 60km/h ke atas.", "img": "visor", "price": "", "tags": ["Touring", "Aerodinamis"], "sellers": [{"url": "https://s.shopee.co.id/LieKMw2vT", "label": "Shopee"}]}, {"cat": "⚡ Kelistrikan & Charging", "name": "Fast Charging Motor", "hook": "Jangan berangkat touring tanpa ini — satu-satunya yang bikin Fox 350 bisa cas di mana saja.", "img": "fast-charging", "price": "", "tags": ["Portable", "Wajib Touring"], "sellers": [{"url": "https://s.shopee.co.id/9fEFdZmEgE", "label": "Shopee"}]}, {"cat": "⚡ Kelistrikan & Charging", "name": "Polytron Adjustable Fast Charging 25A", "hook": "Komunitas debat panjang Polytron vs Huawei — ini menang di sisi adjustable ampere-nya.", "img": "fast-charging-polytron", "price": "Rp2.635.000", "tags": ["25A"], "sellers": [{"url": "https://s.shopee.co.id/7AXlvCT6jH", "label": "Shopee"}]}, {"cat": "⚡ Kelistrikan & Charging", "name": "Sensor Tekanan Ban TPMS", "hook": "Tinggal pasang doang — sensor udah ada kayak tutup pentil biasa. Langsung kedeteksi tekanan ban real-time.", "img": "sensor-tpms", "price": "", "tags": ["Plug N Play", "Safety"], "sellers": [{"url": "https://s.shopee.co.id/7AZ0UM5OZm", "label": "Shopee"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Shock XMAX Original", "hook": "'Udah 2 mingguan, beneran lebih pakem dari ori!' — paling banyak direkomendasiin.", "img": "shock-xmax", "price": "", "tags": ["Top Pick"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9RmhNjQ961V-Uj6ep/", "label": "Tokopedia"}, {"url": "https://s.shopee.co.id/1qXU92HZGT", "label": "Shopee"}]}];
+const DATA=[{"cat": "🎛️ Handlebar & Navigasi", "items": [{"cat": "🎛️ Handlebar & Navigasi", "name": "Visor / Windshield", "hook": "Bukan cuma gaya — angin langsung ke badan drastis berkurang pas kecepatan 60km/h ke atas.", "img": "visor", "price": "", "tags": ["Touring", "Aerodinamis"], "sellers": [{"url": "https://s.shopee.co.id/LieKMw2vT", "label": "Shopee"}]}]}, {"cat": "⚡ Kelistrikan & Charging", "items": [{"cat": "⚡ Kelistrikan & Charging", "name": "Fast Charging Motor", "hook": "Jangan berangkat touring tanpa ini — satu-satunya yang bikin Fox 350 bisa cas di mana saja.", "img": "fast-charging", "price": "", "tags": ["Portable", "Wajib Touring"], "sellers": [{"url": "https://s.shopee.co.id/9fEFdZmEgE", "label": "Shopee"}]}, {"cat": "⚡ Kelistrikan & Charging", "name": "Polytron Adjustable Fast Charging 25A", "hook": "Komunitas debat panjang Polytron vs Huawei — ini menang di sisi adjustable ampere-nya.", "img": "fast-charging-polytron", "price": "Rp2.635.000", "tags": ["25A"], "sellers": [{"url": "https://s.shopee.co.id/7AXlvCT6jH", "label": "Shopee"}]}, {"cat": "⚡ Kelistrikan & Charging", "name": "Sensor Tekanan Ban TPMS", "hook": "Tinggal pasang doang — sensor udah ada kayak tutup pentil biasa. Langsung kedeteksi tekanan ban real-time.", "img": "sensor-tpms", "price": "", "tags": ["Plug N Play", "Safety"], "sellers": [{"url": "https://s.shopee.co.id/7AZ0UM5OZm", "label": "Shopee"}]}]}, {"cat": "🏎️ Suspensi & Rem", "items": [{"cat": "🏎️ Suspensi & Rem", "name": "Shock XMAX Original", "hook": "'Udah 2 mingguan, beneran lebih pakem dari ori!' — paling banyak direkomendasiin.", "img": "shock-xmax", "price": "", "tags": ["Top Pick"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9RmhNjQ961V-Uj6ep/", "label": "Tokopedia"}, {"url": "https://s.shopee.co.id/1qXU92HZGT", "label": "Shopee"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Shock RCB A3 Series 365mm", "hook": "Opsi lebih panjang (365mm) — buat yang mau riding position sedikit lebih tinggi.", "img": "shock-rcb", "price": "Rp437.109", "tags": ["365mm", "RCB"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9RG5GTmLn2a-Ye4ZK/", "label": "Tiktok"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Sarung Shock 28cm", "hook": "Lindungi shock dari debu dan kotoran — tampilan jadi lebih clean dan sporty.", "img": "sarung-shock-28", "price": "", "tags": ["28cm"], "sellers": [{"url": "https://s.shopee.co.id/1gE3wqmzX1", "label": "Shopee"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Sarung Shock Upgrade 30cm", "hook": "Versi lebih panjang buat yang sudah upgrade ke shock XMAX atau YSS — ukuran lebih pas.", "img": "sarung-shock-30", "price": "", "tags": ["30cm", "Upgrade"], "sellers": [{"url": "https://s.shopee.co.id/7pohIEBist", "label": "Shopee"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Kampas Rem Keramik Fox R/S", "hook": "Kampas bawaan cepat habis di KM 800-1000 — ganti keramik ini, tidak merusak cakram dan jauh lebih awet.", "img": "kampas-rem", "price": "Rp56.500", "tags": ["PnP", "Keramik"], "sellers": [{"url": "https://s.shopee.co.id/4LEp7zAqmm", "label": "Shopee"}]}, {"cat": "🏎️ Suspensi & Rem", "name": "Bracket Kaliper Rem Belakang", "hook": "Sebelum ganti shockbreaker belakang, wajib beli bracket ini, agar ga mentok. Cuma di jual disini", "img": "bracket-rem-belakang", "price": "", "tags": ["bracket rem", "bracket custom", "bracket belakang"], "sellers": [{"url": "https://s.shopee.co.id/9AKGMHqtlS", "label": "Shopee"}]}]}, {"cat": "🛡️ Pelindung & Cover", "items": [{"cat": "🛡️ Pelindung & Cover", "name": "Gantungan / Storage Fox 350", "hook": "Khusus Fox 350 — tempat gantung tas belanja atau helm saat parkir. Praktis banget buat harian.", "img": "gantungan-fox350", "price": "", "tags": ["Khusus Fox 350", "Harian"], "sellers": [{"url": "https://s.shopee.co.id/8phEUjLbOq", "label": "Shopee"}]}, {"cat": "🛡️ Pelindung & Cover", "name": "Cover Stang FOX 350", "hook": "Cover Stang FOX 350, Penutup Lubang Kabel Stang, Motor Listrik Polytron FOX 350  Motorcycle", "img": "cover-stang", "price": "", "tags": ["Cover Stang"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9R3pe5fWo1R-9qjLp/", "label": "Tiktok"}]}, {"cat": "🛡️ Pelindung & Cover", "name": "Spion Blind 180 Derajat", "hook": "Spion Blind 180 Derajat, universal untuk semua motor", "img": "spion-blind", "price": "", "tags": ["spion blind", "spion 180"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9Rsm9WhoHKq-jVM69/", "label": "Tiktok"}]}, {"cat": "🛡️ Pelindung & Cover", "name": "Kunci Helm Multifungsi", "hook": "Wajib punya, Fox 350 ga ada gantungan helm nya", "img": "kunci-helm", "price": "", "tags": ["kunci helm", "gantungan multifunsi"], "sellers": [{"url": "https://vt.tokopedia.com/t/ZS9Rsu8hyQxfs-60BED/", "label": "Tiktok"}]}]}];
+// Update stats
+document.getElementById("statCat").textContent=DATA.length;
+document.getElementById("statProd").textContent=DATA.reduce((s,c)=>s+c.items.length,0);
 
-const DATA=[
-  {cat:"🎛️ Handlebar & Navigasi",items:[
-    {href:"https://s.shopee.co.id/6VJHgEKxth",img:"crossbar-motowolf",emoji:"📏",rec:true,name:"Crossbar Motowolf",hook:'Bisa sekalian pasang holder HP <strong>dan</strong> lampu tembak di crossbar yang sama — satu beli dua fungsi!',price:"",tags:["Aluminium CNC","Universal"]},
-    {href:"https://s.shopee.co.id/6VJHg55952",img:"holder-hp",emoji:"📱",rec:true,name:"Holder HP Motowolf",hook:"Wajib buat navigasi Google Maps pas touring — anti goyang walau jalan rusak sekalipun.",price:"",tags:["Anti Goyang","PnP"]},
-    {href:"https://s.shopee.co.id/20qsJbgNSY",img:"bracket",emoji:"🗺️",rec:false,name:"Bracket GPS / Holder HP Plug N Play",hook:"Plug and play — tinggal pasang tanpa bor, tanpa modif apapun.",price:"",tags:["Plug N Play"]},
-    {href:"https://s.shopee.co.id/LieKMw2vT",img:"visor",emoji:"🔭",rec:true,name:"Visor / Windshield",hook:"Bukan cuma gaya — angin langsung ke badan drastis berkurang pas kecepatan 60km/h ke atas.",price:"",tags:["Touring","Aerodinamis"]}
-  ]},
-  {cat:"⚡ Kelistrikan & Charging",items:[
-    {href:"https://s.shopee.co.id/9fEFdZmEgE",img:"fast-charging",emoji:"🔌",rec:true,name:"Fast Charging Motor",hook:"Jangan berangkat touring tanpa ini — satu-satunya yang bikin Fox 350 bisa cas di mana saja.",price:"",tags:["Portable","Wajib Touring"]},
-    {href:"https://s.shopee.co.id/7AXlvCT6jH",img:"fast-charging-polytron",emoji:"🔋",rec:true,name:"Polytron Adjustable Fast Charging 25A",hook:"Komunitas debat panjang Polytron vs Huawei — ini menang di sisi <strong>adjustable ampere</strong>-nya.",price:"Rp2.635.000",tags:["25A"]},
-    {href:"https://s.shopee.co.id/LigLdr31H",img:"reducer-20a",emoji:"🔄",rec:false,name:"Reducer 20A",hook:"Pasang ini sebelum charger HP — biar tegangan stabil dan charger tidak cepat rusak.",price:"",tags:["20A","Proteksi"]},
-    {href:"https://s.shopee.co.id/6AgTIPwVBW",img:"kotak-charger",emoji:"📦",rec:true,name:"Kotak Penyimpan Charger Original",hook:"Charger ori Fox 350 gampang nyangkut kabel — kotak ini bikin rapi dan aman pas dibawa.",price:"",tags:["Storage"]},
-    {href:"https://s.shopee.co.id/9AK4rzBdtw",img:"smart-plug",emoji:"🔌",rec:false,name:"Smart Plug",hook:"Stop kontak pintar — matikan charging otomatis kalau daya penuh, baterai lebih awet.",price:"",tags:["Auto Cut-off"]},
-    {href:"https://s.shopee.co.id/7AZ0UM5OZm",img:"sensor-tpms",emoji:"🔵",rec:false,name:"Sensor Tekanan Ban TPMS",hook:"Tinggal pasang doang — sensor udah ada kayak tutup pentil biasa. Langsung kedeteksi tekanan ban real-time.",price:"",tags:["Plug N Play","Safety"]}
-  ]},
-  {cat:"🔗 Kabel & Sambungan",items:[
-    {href:"https://s.shopee.co.id/4LEp7C6Et6",img:"joiner-kabel",emoji:"🔀",rec:true,name:"Joiner / Konektor Kabel",hook:"Wajib kalau mau tambah aksesori kelistrikan — sambungan kabel jadi rapi, tidak asal cabang.",price:"",tags:["Kelistrikan"]},
-    {href:"https://s.shopee.co.id/6VJJhHkIkM",img:"kabel-sambungan-1",emoji:"🔌",rec:false,name:"Kabel Sambungan 3×2.5 — Opsi A",hook:"Pilih yang kawat serabut — lebih lentur, cocok digulung masuk bagasi motor.",price:"",tags:["Serabut","Fleksibel"]},
-    {href:"https://s.shopee.co.id/8087U9Xyze",img:"kabel-sambungan-2",emoji:"🔌",rec:false,name:"Kabel Sambungan 3×2.5 — Opsi B",hook:"Versi lebih tebal — cocok buat instalasi permanen di motor.",price:"",tags:["Tebal","Permanen"]}
-  ]},
-  {cat:"💡 Lampu & Klakson",items:[
-    {href:"https://s.shopee.co.id/20quLAtGhJ",img:"lampu-ibright-l10",emoji:"🔦",rec:true,name:"Lampu Tembak iBright L10",hook:"Versi upgrade dari L9 — cocok buat yang sering <strong>touring malam</strong>. Sorot lebih jauh dan lebih terang.",price:"",tags:["LED","Touring Malam"]},
-    {href:"https://s.shopee.co.id/8087UEZkAN",img:"lampu-ibright-l9",emoji:"🔦",rec:false,name:"Lampu Tembak iBright L9",hook:"Pilihan budget untuk <strong>harian</strong> — harga lebih terjangkau, performa sudah jauh di atas lampu standar.",price:"",tags:["LED","Harian"]},
-    {href:"https://s.shopee.co.id/30jRX4gLuE",img:"bracket-lampu",emoji:"🔆",rec:false,name:"Bracket Lampu Tembak LED",hook:"Pasang lampu tembak biar rapi dan tidak goyang — kencangkan di spakbor atau crossbar.",price:"Rp19.900",tags:["Universal"]},
-    {href:"https://s.shopee.co.id/9UwvH3TzzH",img:"klakson-denso",emoji:"📢",rec:true,name:"Klakson Denso Waterproof",hook:"Klakson bawaan Fox 350 kurang keras — setelah ganti ini baru kerasa bedanya. <strong>Tahan hujan</strong> pula.",price:"",tags:["Waterproof","Denso"]}
-  ]},
-  {cat:"🏎️ Suspensi & Rem",items:[
-    {href:"https://vt.tokopedia.com/t/ZS9RmhNjQ961V-Uj6ep/",img:"shock-xmax",emoji:"🔩",rec:true,name:"Shock XMAX Original",hook:"<strong>'Udah 2 mingguan, beneran lebih pakem dari ori!'</strong> — paling banyak direkomendasiin di grup.",price:"",tags:["⭐ Top Pick"]},
-    {href:"https://s.shopee.co.id/1qXU92HZGT",img:"yss-dtg-evo",emoji:"🔩",rec:false,name:"YSS DTG EVO Twin Shock 335–350mm",hook:"Alternatif XMAX — brand YSS sudah terbukti di komunitas motor sport Indonesia.",price:"Rp577.999",tags:["335mm"]},
-    {href:"https://s.shopee.co.id/10yN9Yx7rh",img:"shock-rcb",emoji:"🔩",rec:false,name:"Shock RCB A3 Series 365mm",hook:"Opsi lebih panjang (365mm) — buat yang mau riding position sedikit lebih tinggi.",price:"Rp437.109",tags:["365mm","RCB"]},
-    {href:"https://s.shopee.co.id/1gE3wqmzX1",img:"sarung-shock-28",emoji:"🧤",rec:false,name:"Sarung Shock 28cm",hook:"Lindungi shock dari debu dan kotoran — tampilan jadi lebih clean dan sporty.",price:"",tags:["28cm"]},
-    {href:"https://s.shopee.co.id/7pohIEBist",img:"sarung-shock-30",emoji:"🧤",rec:false,name:"Sarung Shock Upgrade 30cm",hook:"Versi lebih panjang buat yang sudah upgrade ke shock XMAX atau YSS — ukuran lebih pas.",price:"",tags:["30cm","Upgrade"]},
-    {href:"https://s.shopee.co.id/3B2rjhkuHc",img:"kaliper-rpd",emoji:"🛑",rec:false,name:"Kaliper RPD Axial 2P Proton Brake",hook:"Upgrade pengereman — gigitan rem langsung terasa lebih responsif dibanding kaliper standar.",price:"Rp267.750",tags:["Universal"]},
-    {href:"https://s.shopee.co.id/4LEp7zAqmm",img:"kampas-rem",emoji:"🛑",rec:true,name:"Kampas Rem Keramik Fox R/S",hook:"Kampas bawaan cepat habis di KM 800–1000 — ganti keramik ini, <strong>tidak merusak cakram</strong> dan jauh lebih awet.",price:"Rp56.500",tags:["PnP","Keramik"]}
-  ]},
-  {cat:"📺 Android Auto & Multimedia",items:[
-    {href:"https://s.shopee.co.id/AACc4kBLXc",img:"android-auto-nonbrand",emoji:"🚗",rec:true,name:"Android Auto Motor — Non Brand",hook:"Pilihan budget — fungsi sama, harga lebih miring. Cocok buat yang mau coba dulu sebelum invest lebih.",price:"",tags:["Budget","Android Auto"]},
-    {href:"https://s.shopee.co.id/40byjVAwyL",img:"android-auto-retouch",emoji:"🚗",rec:false,name:"Android Auto — Retouch Esprit S1",hook:"All-in-one: Android Auto + Dashcam + TPMS dalam satu unit — <strong>3 fungsi sekaligus</strong>.",price:"",tags:["3-in-1","Dashcam","TPMS"]},
-    {href:"https://s.shopee.co.id/6pwA6ma5ET",img:"braket-tumpuk",emoji:"🔧",rec:false,name:"Braket Tumpuk 2-in-1 Fox 350",hook:"Khusus Fox 350 — pasang Android Auto sekaligus aksesori lain di atas setang tanpa berantakan.",price:"Rp448.500",tags:["Khusus Fox 350"]}
-  ]},
-  {cat:"🛡️ Pelindung & Cover",items:[
-    {href:"https://s.shopee.co.id/40byjdIr5t",img:"cover-motor",emoji:"🧥",rec:false,name:"Cover Motor Urban Standard",hook:"Parkir outdoor? Wajib pakai cover — debu dan panas matahari merusak cat dan plastik jangka panjang.",price:"Rp64.754",tags:["Matic/Listrik"]},
-    {href:"https://s.shopee.co.id/4frfWtm5xe",img:"cover-shock-slimfit",emoji:"🧤",rec:false,name:"Cover Shock Slimfit Premium",hook:"Model slimfit — tidak kelihatan terlalu besar di motor, tetap melindungi dari debu dan air.",price:"Rp56.320",tags:["Universal","Premium"]},
-    {href:"https://s.shopee.co.id/8KkxtjUGjT",img:"spion-vario",emoji:"🔭",rec:false,name:"Spion Click Vario Original Honda Thailand",hook:"PNP tanpa modif apapun — upgrade tampilan sekaligus visibilitas lebih luas dari spion bawaan.",price:"Rp207.930",tags:["PNP","Thailand"]},
-    {href:"https://s.shopee.co.id/8phEUjLbOq",img:"gantungan-fox350",emoji:"🎒",rec:true,name:"Gantungan / Storage Fox 350",hook:"Khusus Fox 350 — tempat gantung tas belanja atau helm saat parkir. Praktis banget buat harian.",price:"",tags:["Khusus Fox 350","Harian"]}
-  ]},
-  {cat:"🔧 Tools & Perkakas",items:[
-    {href:"https://s.shopee.co.id/6KztWAmFpB?lp=aff",img:"kunci-sok-lippro",emoji:"🔩",rec:false,name:"LIPPRO Kunci Sok Set 21 Pcs",hook:'Set lengkap 1/4" dan 3/8" dalam satu kotak — cukup untuk buka semua baut di Fox 350.',price:"Rp299.115",tags:["21 Pcs"]},
-    {href:"https://s.shopee.co.id/5Anw8BvJmj",img:"kunci-sok-tactix",emoji:"🧰",rec:false,name:"Tactix Set Kunci Sok 40 Pcs Portable",hook:"40 pcs dalam case ringkas — paling lengkap di kelasnya, mudah dibawa touring.",price:"Rp314.415",tags:["40 Pcs","Portable"]},
-    {href:"https://s.shopee.co.id/5VQmWsKYBK",img:"ratchet-sherlock",emoji:"🔑",rec:false,name:'Sherlock Ratchet 1/2 Inch 10"',hook:"Gagang ratchet yang enak di tangan — buka baut keras jadi jauh lebih efisien tanpa capek.",price:"Rp201.344",tags:["1/2 Inch"]},
-    {href:"https://s.shopee.co.id/2LSa5k4sT4",img:"adaptor-tekiro",emoji:"🔧",rec:false,name:"TEKIRO Adaptor 3/8 Female × 1/2 Male",hook:"Murah tapi wajib ada — biar mata sok 3/8 bisa dipakai di gagang 1/2 inch.",price:"Rp31.500",tags:["Adaptor"]},
-    {href:"https://s.shopee.co.id/5Ami72IeFN",img:"minyak-rem-brembo",emoji:"🛢️",rec:false,name:"Minyak Rem Brembo DOT 4 100ml",hook:"Ganti minyak rem setiap 1–2 tahun — pakai Brembo DOT 4 biar performa rem tetap optimal.",price:"Rp21.500",tags:["DOT 4","Brembo"]}
-  ]}
-];
+function loadImg(el,base,ph){let t=false;el.onload=()=>{el.style.display="block";ph.style.display="none";};el.onerror=function(){if(!t){t=true;this.src=base+".JPG";}else{this.style.display="none";ph.style.display="flex";}};el.src=base+".jpg";}
+function hl(t,q){if(!q)return t;return t.replace(new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi"),"<mark>$1</mark>");}
+function emo(n){n=n.toLowerCase();if(n.includes("shock")||n.includes("suspensi"))return"🔩";if(n.includes("charging")||n.includes("charger")||n.includes("fast"))return"🔌";if(n.includes("kampas")||n.includes("rem"))return"🛑";if(n.includes("android")||n.includes("dashcam"))return"🚗";if(n.includes("lampu")||n.includes("led"))return"🔦";if(n.includes("klakson"))return"📢";if(n.includes("visor")||n.includes("windshield"))return"🔭";if(n.includes("crossbar"))return"📏";if(n.includes("holder")||n.includes("bracket"))return"📱";if(n.includes("tpms")||n.includes("sensor"))return"🔵";if(n.includes("cover")||n.includes("sarung"))return"🧤";if(n.includes("spion")||n.includes("blind"))return"🔭";if(n.includes("kunci")||n.includes("helm")||n.includes("gantungan"))return"🔑";return"🛒";}
 
-// Image loading — coba .jpg dulu, kalau 404 coba .JPG, kalau masih gagal tampil emoji
-function loadImg(imgEl, base, placeholderEl) {
-  let tried = false;
-  imgEl.onload = function() {
-    this.style.display = 'block';
-    placeholderEl.style.display = 'none';
-  };
-  imgEl.onerror = function() {
-    if (!tried) {
-      tried = true;
-      this.src = base + '.JPG';
-    } else {
-      this.style.display = 'none';
-      placeholderEl.style.display = 'flex';
-    }
-  };
-  imgEl.src = base + '.jpg';
+function renderTopPicks(q){
+  const sec=document.getElementById("topPicksSection");
+  if(activeSlug!=="all"||q){sec.innerHTML="";return;}
+  if(!FEATURED.length){sec.innerHTML="";return;}
+  const cards=FEATURED.map(p=>{
+    const alts=p.sellers.slice(1);
+    return `<div class="tp-card">
+      <img class="tp-img" data-base="Img/${p.img}" alt="${p.name}">
+      <div class="tp-placeholder">${emo(p.name)}</div>
+      <div class="tp-body">
+        <div class="tp-badge">★ TOP PICK</div>
+        <div class="tp-name">${p.name}</div>
+        <div class="tp-hook">${p.hook}</div>
+        ${p.price&&p.price!="None"&&p.price!=""?`<div class="tp-price">${p.price}</div>`:""}
+        <a class="tp-cta" href="${p.sellers[0].url}" target="_blank" rel="nofollow">${p.sellers[0].label} ↗</a>
+        ${alts.length?`<div class="tp-alts">${alts.map(s=>`<a class="tp-alt" href="${s.url}" target="_blank" rel="nofollow">${s.label}</a>`).join("")}</div>`:""}
+      </div></div>`;
+  }).join("");
+  sec.innerHTML=`<div class="top-picks-wrap"><div class="section-label"><div class="section-label-icon">⭐</div><div><div class="section-label-title">Top Picks</div><div class="section-label-sub">AKSESORI PALING DIREKOMENDASIKAN</div></div></div><div class="top-picks-grid">${cards}</div></div>`;
+  sec.querySelectorAll("img[data-base]").forEach(img=>loadImg(img,img.getAttribute("data-base"),img.nextElementSibling));
 }
 
-function highlight(text,q){
-  if(!q)return text;
-  const re=new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,'gi');
-  return text.replace(re,'<mark>$1</mark>');
-}
-
-function card(p,q){
-  return `<a class="product-card${p.rec?' recommended':''}" href="${p.href}" target="_blank" rel="nofollow">
-    <div class="product-img-wrap">
-      <img data-base="Img/${p.img}" alt="${p.name}" style="display:none">
-      <div class="placeholder">${p.emoji}</div>
-      <div class="img-hint"><span>${p.img}</span></div>
-    </div>
+function cardHtml(p,q){
+  const alts=p.sellers.slice(1);
+  return `<a class="product-card" href="${p.sellers[0].url}" target="_blank" rel="nofollow">
+    <div class="product-img-wrap"><img data-base="Img/${p.img}" alt="${p.name}"><div class="placeholder">${emo(p.name)}</div></div>
     <div class="product-body">
       <div>
-        <div class="product-name">${highlight(p.name,q)}</div>
-        <div class="product-hook">${highlight(p.hook,q)}</div>
+        <div class="product-name">${hl(p.name,q)}</div>
+        <div class="product-hook">${hl(p.hook,q)}</div>
       </div>
-      <div class="product-bottom">
-        <div class="product-meta">
-          ${p.price?`<span class="product-price">${p.price}</span>`:''}
-          ${p.tags.map(t=>`<span class="product-tag">${t}</span>`).join('')}
+      <div>
+        <div class="product-bottom">
+          <div class="product-meta">${p.price&&p.price!="None"&&p.price!=""?`<span class="product-price">${p.price}</span>`:""}${p.tags.map(t=>`<span class="product-tag">${t}</span>`).join("")}</div>
+          <a class="product-cta" href="${p.sellers[0].url}" target="_blank" rel="nofollow">${p.sellers[0].label} ↗</a>
         </div>
-        <div class="product-cta">Beli ↗</div>
+        ${alts.length?`<div class="product-alts">${alts.map(s=>`<a class="product-alt" href="${s.url}" target="_blank" rel="nofollow">${s.label}</a>`).join("")}</div>`:""}
       </div>
-    </div>
-  </a>`;
+    </div></a>`;
 }
 
 function render(){
-  const wrap=document.getElementById('categories');
-  wrap.innerHTML='';
+  const wrap=document.getElementById("categories");
+  wrap.innerHTML="";
   const q=searchQuery.toLowerCase().trim();
   let total=0;
+  renderTopPicks(q);
   DATA.forEach(cat=>{
-    const catName=cat.cat.substring(cat.cat.indexOf(' ')+1);
-    if(activeSlug!=='all'){
-      if(!catName.toLowerCase().includes((CAT_SLUG[activeSlug]||'').toLowerCase()))return;
-    }
-    const filtered=q?cat.items.filter(p=>
-      p.name.toLowerCase().includes(q)||
-      p.hook.replace(/<[^>]+>/g,'').toLowerCase().includes(q)||
-      p.tags.some(t=>t.toLowerCase().includes(q))
-    ):cat.items;
+    const catName=cat.cat.substring(cat.cat.indexOf(" ")+1);
+    if(activeSlug!=="all"&&!catName.toLowerCase().includes((CAT_SLUG[activeSlug]||"").toLowerCase()))return;
+    const filtered=q?cat.items.filter(p=>p.name.toLowerCase().includes(q)||p.hook.toLowerCase().includes(q)||p.tags.some(t=>t.toLowerCase().includes(q))):cat.items;
     if(!filtered.length)return;
     total+=filtered.length;
-    const div=document.createElement('div');
-    div.className='category';
-    div.innerHTML=`
-      <div class="cat-header" onclick="toggle(this)">
-        <div class="cat-icon">${cat.cat.split(' ')[0]}</div>
-        <div class="cat-title">${catName}</div>
-        <span class="cat-count">${filtered.length} produk</span>
-        <span class="cat-toggle">▼</span>
-      </div>
-      <div class="cat-items open">${filtered.map(p=>card(p,q)).join('')}</div>`;
+    const div=document.createElement("div");
+    div.className="category";
+    div.innerHTML=`<div class="cat-header" onclick="toggle(this)"><div class="cat-icon">${cat.cat.split(" ")[0]}</div><div class="cat-title">${catName}</div><span class="cat-count">${filtered.length} produk</span><span class="cat-toggle">▼</span></div><div class="cat-items open">${filtered.map(p=>cardHtml(p,q)).join("")}</div>`;
     wrap.appendChild(div);
-    // Activate multi-ext fallback
-    div.querySelectorAll('img[data-base]').forEach(img=>{
-      const placeholder=img.nextElementSibling;
-      loadImg(img, img.getAttribute('data-base'), placeholder);
-    });
+    div.querySelectorAll("img[data-base]").forEach(img=>loadImg(img,img.getAttribute("data-base"),img.nextElementSibling));
   });
-  document.getElementById('noResult').style.display=total===0?'block':'none';
-  if(!q&&activeSlug==='all'){
-    document.querySelectorAll('.cat-items').forEach((el,i)=>el.classList.toggle('open',i===0));
-    document.querySelectorAll('.cat-toggle').forEach((a,i)=>a.classList.toggle('open',i===0));
-  }
+  document.getElementById("noResult").style.display=total===0&&!document.getElementById("topPicksSection").innerHTML?"block":"none";
+  if(!q&&activeSlug==="all"){document.querySelectorAll(".cat-items").forEach((el,i)=>el.classList.toggle("open",i===0));document.querySelectorAll(".cat-toggle").forEach((a,i)=>a.classList.toggle("open",i===0));}
 }
-
-document.getElementById('searchInput').addEventListener('input',function(){
-  searchQuery=this.value;
-  document.getElementById('clearBtn').classList.toggle('visible',this.value.length>0);
-  render();
-});
-function clearSearch(){document.getElementById('searchInput').value='';searchQuery='';document.getElementById('clearBtn').classList.remove('visible');render();}
-function filterCat(btn,slug){document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));btn.classList.add('active');activeSlug=slug;render();}
-function toggle(h){const items=h.nextElementSibling,arrow=h.querySelector('.cat-toggle');const open=items.classList.contains('open');items.classList.toggle('open',!open);arrow.classList.toggle('open',!open);}
-
+document.getElementById("searchInput").addEventListener("input",function(){searchQuery=this.value;document.getElementById("clearBtn").classList.toggle("visible",this.value.length>0);render();});
+function clearSearch(){document.getElementById("searchInput").value="";searchQuery="";document.getElementById("clearBtn").classList.remove("visible");render();}
+function filterCat(btn,slug){document.querySelectorAll(".filter-pill").forEach(p=>p.classList.remove("active"));btn.classList.add("active");activeSlug=slug;render();}
+function toggle(h){const items=h.nextElementSibling,arrow=h.querySelector(".cat-toggle");const open=items.classList.contains("open");items.classList.toggle("open",!open);arrow.classList.toggle("open",!open);}
 render();
-window.addEventListener('scroll',()=>{document.getElementById('scrollBtn').classList.toggle('visible',window.scrollY>300);});
+window.addEventListener("scroll",()=>{document.getElementById("scrollBtn").classList.toggle("visible",window.scrollY>300);});
 </script>
 </body>
 </html>
