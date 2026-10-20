@@ -1,0 +1,692 @@
+[
+  {
+    "id": "polytron-fast-charging-25a",
+    "name": "Polytron Adjustable Portable Fast Charging 25A",
+    "category": "charging",
+    "hook": "Banyak dibandingkan dengan merek lain di komunitas. Unggul karena ampere-nya bisa diatur sesuai daya listrik di lokasi.",
+    "price_range": "Rp2,6–2,9 jt",
+    "tags": [
+      "25A",
+      "Adjustable"
+    ],
+    "top_pick": true,
+    "img": "fast-charging-polytron.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/7AXlvCT6jH"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "fast-charging-motor",
+    "name": "Fast Charging Motor",
+    "category": "charging",
+    "hook": "Charger portable untuk touring, supaya Fox 350 bisa dicas di luar rumah.",
+    "price_range": "",
+    "tags": [
+      "Portable",
+      "Wajib Touring"
+    ],
+    "top_pick": false,
+    "img": "fast-charging.jpg",
+    "links": [],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "reducer-20a",
+    "name": "Reducer 20A",
+    "category": "charging",
+    "hook": "Dipasang sebelum charger HP supaya tegangan stabil dan charger tidak cepat rusak.",
+    "price_range": "",
+    "tags": [
+      "20A",
+      "Proteksi"
+    ],
+    "top_pick": false,
+    "img": "reducer-20a.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/LigLdr31H"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "kotak-charger-original",
+    "name": "Kotak Penyimpan Charger Original",
+    "category": "charging",
+    "hook": "Charger bawaan jadi rapi dan kabelnya tidak kusut saat dibawa.",
+    "price_range": "",
+    "tags": [
+      "Storage"
+    ],
+    "top_pick": false,
+    "img": "kotak-charger.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/6AgTIPwVBW"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "smart-plug",
+    "name": "Smart Plug",
+    "category": "charging",
+    "hook": "Stop kontak pintar dengan timer, jadi charging bisa diputus otomatis.",
+    "price_range": "",
+    "tags": [
+      "Timer"
+    ],
+    "top_pick": false,
+    "img": "smart-plug.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/9AK4rzBdtw"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "joiner-kabel",
+    "name": "Joiner / Konektor Kabel",
+    "category": "charging",
+    "hook": "Sambungan kabel jadi rapi saat menambah aksesori kelistrikan, tidak asal cabang.",
+    "price_range": "",
+    "tags": [
+      "Kelistrikan"
+    ],
+    "top_pick": false,
+    "img": "joiner-kabel.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/4LEp7C6Et6"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "kabel-sambungan-3x25-serabut",
+    "name": "Kabel Sambungan 3×2,5 mm (Serabut)",
+    "category": "charging",
+    "hook": "Kawat serabut lebih lentur, enak digulung dan masuk bagasi.",
+    "price_range": "",
+    "tags": [
+      "Serabut",
+      "Fleksibel"
+    ],
+    "top_pick": false,
+    "img": "kabel-sambungan-1.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/6VJJhHkIkM"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "kabel-sambungan-3x25-tebal",
+    "name": "Kabel Sambungan 3×2,5 mm (Tebal)",
+    "category": "charging",
+    "hook": "Versi lebih tebal, cocok untuk instalasi permanen.",
+    "price_range": "",
+    "tags": [
+      "Tebal",
+      "Permanen"
+    ],
+    "top_pick": false,
+    "img": "kabel-sambungan-2.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/8087U9Xyze"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "shock-xmax-original",
+    "name": "Shock XMAX Original",
+    "category": "suspensi",
+    "hook": "Shock belakang yang paling sering direkomendasikan di komunitas. Banyak yang merasa lebih stabil dibanding bawaan.",
+    "price_range": "",
+    "tags": [
+      "Populer"
+    ],
+    "top_pick": false,
+    "img": "shock-xmax.jpg",
+    "links": [],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "yss-dtg-evo",
+    "name": "YSS DTG EVO Twin Shock 335–350 mm",
+    "category": "suspensi",
+    "hook": "Alternatif shock XMAX dari merek yang sudah lama dipakai di motor Indonesia.",
+    "price_range": "Rp578rb",
+    "tags": [
+      "335 mm"
+    ],
+    "top_pick": false,
+    "img": "yss-dtg-evo.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/1qXU92HZGT"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "shock-rcb-a3-365",
+    "name": "Shock RCB A3 Series 365 mm",
+    "category": "suspensi",
+    "hook": "Ukuran lebih panjang (365 mm) untuk posisi duduk sedikit lebih tinggi.",
+    "price_range": "Rp437rb",
+    "tags": [
+      "365 mm",
+      "RCB"
+    ],
+    "top_pick": false,
+    "img": "shock-rcb.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/10yN9Yx7rh"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "sarung-shock-28",
+    "name": "Sarung Shock 28 cm",
+    "category": "suspensi",
+    "hook": "Melindungi shock dari debu dan kotoran, tampilan juga lebih bersih.",
+    "price_range": "",
+    "tags": [
+      "28 cm"
+    ],
+    "top_pick": false,
+    "img": "sarung-shock-28.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/1gE3wqmzX1"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "sarung-shock-30",
+    "name": "Sarung Shock 30 cm",
+    "category": "suspensi",
+    "hook": "Ukuran lebih panjang untuk yang sudah ganti ke shock XMAX atau YSS.",
+    "price_range": "",
+    "tags": [
+      "30 cm",
+      "Upgrade"
+    ],
+    "top_pick": false,
+    "img": "sarung-shock-30.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/7pohIEBist"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "cover-shock-slimfit",
+    "name": "Cover Shock Slimfit Premium",
+    "category": "suspensi",
+    "hook": "Model ramping, tidak terlihat bongsor tapi tetap melindungi dari debu dan air.",
+    "price_range": "Rp56rb",
+    "tags": [
+      "Universal"
+    ],
+    "top_pick": false,
+    "img": "cover-shock-slimfit.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/4frfWtm5xe"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "kaliper-rpd-axial-2p",
+    "name": "Kaliper RPD Axial 2P Proton Brake",
+    "category": "rem",
+    "hook": "Upgrade kaliper untuk gigitan rem yang lebih responsif dibanding standar.",
+    "price_range": "Rp268rb",
+    "tags": [
+      "Universal"
+    ],
+    "top_pick": false,
+    "img": "kaliper-rpd.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/3B2rjhkuHc"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "kampas-rem-keramik",
+    "name": "Kampas Rem Keramik Fox R/S",
+    "category": "rem",
+    "hook": "Kampas keramik yang PnP. Banyak dipilih karena lebih awet dari kampas bawaan.",
+    "price_range": "Rp57rb",
+    "tags": [
+      "PnP",
+      "Keramik"
+    ],
+    "top_pick": true,
+    "img": "kampas-rem.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/4LEp7zAqmm"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "minyak-rem-brembo-dot4",
+    "name": "Minyak Rem Brembo DOT 4 100 ml",
+    "category": "rem",
+    "hook": "Minyak rem DOT 4 untuk penggantian berkala.",
+    "price_range": "Rp22rb",
+    "tags": [
+      "DOT 4"
+    ],
+    "top_pick": false,
+    "img": "minyak-rem-brembo.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/5Ami72IeFN"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "visor-windshield",
+    "name": "Visor / Windshield",
+    "category": "body",
+    "hook": "Angin ke badan jauh berkurang di kecepatan 60 km/jam ke atas.",
+    "price_range": "",
+    "tags": [
+      "Touring",
+      "Aerodinamis"
+    ],
+    "top_pick": true,
+    "img": "visor.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/LieKMw2vT"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "crossbar-motowolf",
+    "name": "Crossbar Motowolf",
+    "category": "body",
+    "hook": "Satu crossbar untuk dua fungsi: holder HP dan lampu tembak.",
+    "price_range": "",
+    "tags": [
+      "Aluminium CNC",
+      "Universal"
+    ],
+    "top_pick": true,
+    "img": "crossbar-motowolf.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/6VJHgEKxth"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "spion-vario-thailand",
+    "name": "Spion Click Vario Original Honda Thailand",
+    "category": "body",
+    "hook": "PnP tanpa modifikasi, pandangan ke belakang lebih luas dari spion bawaan.",
+    "price_range": "Rp208rb",
+    "tags": [
+      "PnP"
+    ],
+    "top_pick": false,
+    "img": "spion-vario.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/8KkxtjUGjT"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "cover-motor-urban",
+    "name": "Cover Motor Urban Standard",
+    "category": "body",
+    "hook": "Untuk parkir di luar, melindungi cat dan plastik dari debu dan panas.",
+    "price_range": "Rp65rb",
+    "tags": [
+      "Outdoor"
+    ],
+    "top_pick": false,
+    "img": "cover-motor-urban.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/40byjdIr5t"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "lampu-ibright-l10",
+    "name": "Lampu Tembak iBright L10",
+    "category": "lampu",
+    "hook": "Versi atas dari L9 dengan sorot lebih jauh. Cocok untuk yang sering jalan malam.",
+    "price_range": "",
+    "tags": [
+      "LED",
+      "Touring Malam"
+    ],
+    "top_pick": true,
+    "img": "lampu-ibright-l10.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/20quLAtGhJ"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "lampu-ibright-l9",
+    "name": "Lampu Tembak iBright L9",
+    "category": "lampu",
+    "hook": "Pilihan hemat untuk harian, sudah jauh lebih terang dari lampu standar.",
+    "price_range": "",
+    "tags": [
+      "LED",
+      "Harian"
+    ],
+    "top_pick": false,
+    "img": "lampu-ibright-l9.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/8087UEZkAN"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "bracket-lampu-tembak",
+    "name": "Bracket Lampu Tembak LED",
+    "category": "lampu",
+    "hook": "Supaya lampu tembak terpasang rapi dan tidak goyang.",
+    "price_range": "Rp20rb",
+    "tags": [
+      "Universal"
+    ],
+    "top_pick": false,
+    "img": "bracket-lampu.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/30jRX4gLuE"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "klakson-denso-waterproof",
+    "name": "Klakson Denso Waterproof",
+    "category": "lampu",
+    "hook": "Jauh lebih keras dari klakson bawaan dan tahan hujan.",
+    "price_range": "",
+    "tags": [
+      "Waterproof"
+    ],
+    "top_pick": false,
+    "img": "klakson-denso.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/9UwvH3TzzH"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "holder-hp-motowolf",
+    "name": "Holder HP Motowolf",
+    "category": "gadget",
+    "hook": "Holder kokoh untuk navigasi, tetap stabil di jalan rusak.",
+    "price_range": "",
+    "tags": [
+      "Anti Goyang",
+      "PnP"
+    ],
+    "top_pick": false,
+    "img": "holder-hp.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/6VJHg55952"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "bracket-gps-pnp",
+    "name": "Bracket GPS / Holder HP Plug N Play",
+    "category": "gadget",
+    "hook": "Tinggal pasang, tanpa bor dan tanpa modifikasi.",
+    "price_range": "",
+    "tags": [
+      "PnP"
+    ],
+    "top_pick": false,
+    "img": "bracket.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/20qsJbgNSY"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "android-auto-nonbrand",
+    "name": "Android Auto Motor (Non Brand)",
+    "category": "gadget",
+    "hook": "Pilihan hemat untuk mencoba layar Android Auto di motor.",
+    "price_range": "",
+    "tags": [
+      "Budget"
+    ],
+    "top_pick": false,
+    "img": "android-auto-nonbrand.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/AACc4kBLXc"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "android-auto-retouch-esprit-s1",
+    "name": "Android Auto Retouch Esprit S1",
+    "category": "gadget",
+    "hook": "Tiga fungsi dalam satu unit: Android Auto, dashcam, dan TPMS.",
+    "price_range": "",
+    "tags": [
+      "3-in-1",
+      "Dashcam"
+    ],
+    "top_pick": false,
+    "img": "android-auto-retouch.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/40byjVAwyL"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "bracket-tumpuk-2in1",
+    "name": "Bracket Tumpuk 2-in-1 Fox 350",
+    "category": "gadget",
+    "hook": "Khusus Fox 350, untuk memasang layar dan aksesori lain di setang tanpa berantakan.",
+    "price_range": "Rp449rb",
+    "tags": [
+      "Khusus Fox 350"
+    ],
+    "top_pick": false,
+    "img": "bracket-tumpuk.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/6pwA6ma5ET"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "gantungan-fox350",
+    "name": "Gantungan Barang Fox 350",
+    "category": "gadget",
+    "hook": "Khusus Fox 350, untuk menggantung tas belanja atau helm. Praktis untuk harian.",
+    "price_range": "",
+    "tags": [
+      "Khusus Fox 350",
+      "Harian"
+    ],
+    "top_pick": false,
+    "img": "gantungan-fox350.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/8phEUjLbOq"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "sensor-tpms",
+    "name": "Sensor Tekanan Ban TPMS",
+    "category": "ban-tools",
+    "hook": "Sensor dipasang seperti tutup pentil, tekanan ban terpantau langsung.",
+    "price_range": "",
+    "tags": [
+      "Safety"
+    ],
+    "top_pick": true,
+    "img": "sensor-tpms.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/7AZ0UM5OZm"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "kunci-sok-lippro-21",
+    "name": "LIPPRO Kunci Sok Set 21 Pcs",
+    "category": "ban-tools",
+    "hook": "Set 1/4\" dan 3/8\" dalam satu kotak untuk perawatan rutin.",
+    "price_range": "Rp299rb",
+    "tags": [
+      "21 Pcs"
+    ],
+    "top_pick": false,
+    "img": "kunci-sok-lippro.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/6KztWAmFpB?lp=aff"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "kunci-sok-tactix-40",
+    "name": "Tactix Set Kunci Sok 40 Pcs Portable",
+    "category": "ban-tools",
+    "hook": "40 pcs dalam case ringkas, mudah dibawa saat touring.",
+    "price_range": "Rp314rb",
+    "tags": [
+      "40 Pcs",
+      "Portable"
+    ],
+    "top_pick": false,
+    "img": "kunci-sok-tactix.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/5Anw8BvJmj"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "ratchet-sherlock-12",
+    "name": "Sherlock Ratchet 1/2 Inch 10\"",
+    "category": "ban-tools",
+    "hook": "Gagang ratchet yang nyaman, membuka baut keras jadi lebih ringan.",
+    "price_range": "Rp201rb",
+    "tags": [
+      "1/2 Inch"
+    ],
+    "top_pick": false,
+    "img": "ratchet-sherlock.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/5VQmWsKYBK"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  },
+  {
+    "id": "adaptor-tekiro-38-12",
+    "name": "TEKIRO Adaptor 3/8 Female × 1/2 Male",
+    "category": "ban-tools",
+    "hook": "Supaya mata sok 3/8 bisa dipakai di gagang 1/2 inch.",
+    "price_range": "Rp32rb",
+    "tags": [
+      "Adaptor"
+    ],
+    "top_pick": false,
+    "img": "adaptor-tekiro.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/2LSa5k4sT4"
+      }
+    ],
+    "checked_at": "2026-03-22"
+  }
+]

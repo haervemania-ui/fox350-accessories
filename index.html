@@ -1,182 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FOX 350 Riders — Aksesori Pilihan Komunitas</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fox350 riders · Aksesori pilihan komunitas Fox 350</title>
+<meta name="description" content="Aksesori Polytron Fox 350 yang paling sering dibahas komunitas rider, lengkap dengan alasan dan link Shopee.">
+<meta name="theme-color" content="#F3F4EF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0a0a0a;--surface:#141414;--surface2:#1c1c1c;--border:#2a2a2a;--accent:#FF4500;--accent2:#FF6B35;--gold:#F5A623;--text:#f0f0f0;--muted:#888;--card-hover:#1e1e1e;--green:#4CAF50}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min-height:100vh;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(255,69,0,.12) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 100%,rgba(255,107,53,.06) 0%,transparent 60%);pointer-events:none;z-index:0}
-.container{max-width:700px;margin:0 auto;padding:0 16px 60px;position:relative;z-index:1}
-.header{text-align:center;padding:48px 0 28px;animation:fadeDown .6s ease both}
-.badge{display:inline-block;background:rgba(255,69,0,.15);border:1px solid rgba(255,69,0,.3);color:var(--accent2);font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px}
-.logo{font-family:"Bebas Neue",sans-serif;font-size:clamp(52px,12vw,80px);line-height:.9;letter-spacing:2px;background:linear-gradient(135deg,#fff 30%,var(--accent2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
-.logo span{color:var(--accent);-webkit-text-fill-color:var(--accent)}
-.tagline{color:var(--muted);font-size:13px;font-weight:300;letter-spacing:.5px;margin-bottom:20px}
-.stats{display:flex;justify-content:center;gap:28px;margin-top:20px;flex-wrap:wrap}
-.stat{text-align:center;min-width:80px}
-.stat-num{font-family:"Bebas Neue",sans-serif;font-size:28px;color:var(--accent2);line-height:1}
-.stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
-.search-wrap{position:relative;margin:0 0 12px;animation:fadeUp .4s ease .05s both}
-.search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;width:16px;height:16px}
-#searchInput{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 42px;font-family:"DM Sans",sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .2s}
-#searchInput::placeholder{color:var(--muted)}
-#searchInput:focus{border-color:rgba(255,69,0,.5);box-shadow:0 0 0 3px rgba(255,69,0,.08)}
-#clearBtn{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:var(--surface2);border:none;color:var(--muted);width:22px;height:22px;border-radius:50%;font-size:12px;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .2s}
-#clearBtn:hover{background:var(--accent);color:#fff}
-#clearBtn.visible{display:flex}
-.filter-wrap{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;animation:fadeUp .4s ease .1s both;max-width:100%;overflow-x:auto;padding-bottom:8px}
-.filter-pill{background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:11px;padding:5px 12px;border-radius:20px;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:"DM Sans",sans-serif;flex-shrink:0;min-width:fit-content}
-.filter-pill:hover{border-color:rgba(255,69,0,.4);color:var(--text)}
-.filter-pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
-
-/* SECTION LABEL */
-.section-label{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.section-label-icon{font-size:15px;width:30px;height:30px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.section-label-title{font-family:"Bebas Neue",sans-serif;font-size:16px;letter-spacing:2px;color:var(--gold)}
-.section-label-sub{font-size:10px;color:var(--muted);font-family:"DM Mono",monospace}
-
-/* SHARED CARD STYLE */
-.product-card{display:grid;grid-template-columns:90px 1fr;background:var(--surface);border:1px solid var(--border);border-radius:14px;text-decoration:none;color:var(--text);transition:all .22s ease;position:relative;overflow:hidden;min-height:110px}
-.product-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transition:transform .2s ease;border-radius:3px 0 0 3px;z-index:2}
-.product-card:hover{background:var(--card-hover);border-color:rgba(255,69,0,.35);transform:translateX(3px);box-shadow:0 4px 20px rgba(255,69,0,.08)}
-.product-card:hover::before{transform:scaleY(1)}
-
-/* Top Pick card */
-.product-card.tp{border-color:rgba(245,166,35,.25)}
-.product-card.tp::before{background:var(--gold)}
-.product-card.tp:hover{border-color:rgba(245,166,35,.5)}
-
-.product-img-wrap{width:90px;height:90px;flex-shrink:0;border-radius:13px 0 0 13px;overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center;position:relative}
-.product-img-wrap img{width:100%;height:100%;object-fit:cover;display:none;transition:transform .3s ease}
-.product-card:hover .product-img-wrap img{transform:scale(1.06)}
-.placeholder{font-size:32px;opacity:.5;display:flex;align-items:center;justify-content:center;width:100%;height:100%;color:var(--muted)}
-.product-body{padding:14px;display:flex;flex-direction:column;justify-content:space-between;min-width:0;min-height:62px}
-.product-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:4px;min-height:36px;display:flex;align-items:flex-start}
-.tp-badge{display:inline-block;background:rgba(245,166,35,.15);color:var(--gold);font-size:9px;font-family:"DM Mono",monospace;padding:1px 6px;border-radius:6px;margin-bottom:4px;letter-spacing:1px;flex-shrink:0}
-.product-hook{font-size:11px;color:#aaa;font-style:italic;line-height:1.4;margin-bottom:8px;border-left:2px solid rgba(255,69,0,.4);padding-left:8px;flex-grow:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.product-card.tp .product-hook{border-left-color:rgba(245,166,35,.4)}
-.product-hook strong{color:var(--accent2);font-style:normal;font-weight:500}
-.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}
-.product-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap;flex:1;min-width:0}
-.product-price{font-family:"DM Mono",monospace;font-size:11px;color:var(--green);font-weight:500;flex-shrink:0}
-.product-tag{font-size:10px;color:var(--muted);background:var(--surface2);padding:2px 7px;border-radius:8px;flex-shrink:0}
-.product-cta{background:var(--accent);color:#fff;font-size:11px;font-weight:600;padding:6px 13px;border-radius:8px;flex-shrink:0;transition:background .2s;letter-spacing:.3px;white-space:nowrap;text-decoration:none}
-.product-card.tp .product-cta{background:var(--gold);color:#000}
-.product-card.tp:hover .product-cta{background:#e09400}
-.product-card:not(.tp):hover .product-cta{background:var(--accent2)}
-.product-alts{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
-.product-alt{font-size:9px;color:var(--muted);border:1px solid var(--border);padding:3px 8px;border-radius:6px;text-decoration:none;transition:all .2s;flex-shrink:0}
-.product-alt:hover{color:var(--accent2);border-color:var(--accent2)}
-
-/* TOP PICKS SECTION */
-.top-picks-wrap{margin-bottom:24px;animation:fadeUp .4s ease .12s both}
-.top-picks-list{display:flex;flex-direction:column;gap:10px}
-
-/* CATEGORIES */
-.category{margin-bottom:12px;animation:fadeUp .5s ease both}
-.cat-header{display:flex;align-items:center;gap:12px;padding:12px 8px;cursor:pointer;user-select:none;border-radius:12px;background:var(--surface);transition:all .2s}
-.cat-header:hover{background:var(--surface2)}
-.cat-icon{font-size:20px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border-radius:12px;flex-shrink:0}
-.cat-title{font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:2px;color:var(--text);flex:1}
-.cat-count{font-family:"DM Mono",monospace;font-size:11px;color:var(--muted);background:var(--surface2);padding:4px 10px;border-radius:12px;flex-shrink:0}
-.cat-toggle{color:var(--muted);font-size:14px;transition:transform .3s;flex-shrink:0}
-.cat-toggle.open{transform:rotate(180deg)}
-.cat-items{display:flex;flex-direction:column;gap:10px;overflow:hidden;max-height:0;transition:max-height .45s cubic-bezier(.4,0,.2,1);padding:0 8px}
-.cat-items.open{max-height:4000px;padding:12px 8px 8px}
-
-#noResult{display:none;text-align:center;padding:60px 20px;color:var(--muted);font-size:14px}
-#noResult span{font-size:36px;display:block;margin-bottom:12px}
-mark{background:rgba(255,69,0,.25);color:var(--accent2);border-radius:3px;padding:0 2px;font-weight:500}
-.affiliate-notice{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:32px 0 16px;text-align:center}
-.affiliate-notice p{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:4px}
-.affiliate-notice strong{color:var(--gold)}
-.footer{text-align:center;padding-top:32px;border-top:1px solid var(--border);padding-bottom:20px}
-.footer p{font-size:11px;color:#555;letter-spacing:.5px;margin-bottom:4px}
-.scroll-top{position:fixed;bottom:24px;right:20px;width:44px;height:44px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:all .3s cubic-bezier(.4,0,.2,1);z-index:100;font-size:16px;border:none;color:#fff;box-shadow:0 4px 12px rgba(255,69,0,.3)}
-.scroll-top.visible{opacity:1;transform:translateY(0)}
-.scroll-top:hover{background:var(--accent2);transform:translateY(-2px)}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.category:nth-child(1){animation-delay:.05s}.category:nth-child(2){animation-delay:.1s}.category:nth-child(3){animation-delay:.15s}.category:nth-child(4){animation-delay:.2s}.category:nth-child(5){animation-delay:.25s}.category:nth-child(6){animation-delay:.3s}.category:nth-child(7){animation-delay:.35s}.category:nth-child(8){animation-delay:.4s}
-
-/* Responsive */
-@media (max-width: 480px) {
-  .stats{flex-direction:column;gap:16px}
-  .filter-wrap{justify-content:flex-start}
-  .container{padding-bottom:80px}
-  .header{padding:32px 0 24px}
-}
-</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-<div class="container">
-<div class="header">
-  <div class="badge">🏍️ Komunitas Riders</div>
-  <div class="logo">FOX <span>350</span></div>
-  <p class="tagline">Aksesori pilihan dari sesama pengguna Polytron Fox 350</p>
-  <div class="stats">
-    <div class="stat"><div class="stat-num" id="statCat">-</div><div class="stat-label">Kategori</div></div>
-    <div class="stat"><div class="stat-num" id="statProd">-</div><div class="stat-label">Produk</div></div>
-    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Member Komunitas</div></div>
+<body data-page="home" data-base="">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8F03C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+      <span>FOX350<span class="brand-sub"> riders</span></span>
+    </a>
+    <nav class="nav" aria-label="Menu utama">
+      <a href="produk.html">Katalog</a>
+      <a href="tips/">Tips</a>
+    </nav>
   </div>
-</div>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <span class="pill">Kurasi komunitas Fox 350</span>
+    <h1>Upgrade Fox 350-mu. Yang sudah dicoba rider lain.</h1>
+    <p class="lead">Aksesori yang paling sering dibahas di komunitas, dirangkum jadi satu daftar lengkap dengan alasannya. Langsung ke Shopee.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="produk.html">Lihat katalog</a>
+      <a class="btn btn-outline" href="tips/">Baca tips</a>
+    </div>
+  </section>
 
-<div class="search-wrap">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-  <input id="searchInput" type="search" placeholder="Cari produk... (contoh: shock, lampu, charging)" autocomplete="off">
-  <button id="clearBtn" onclick="clearSearch()">✕</button>
-</div>
+  <section class="section" aria-labelledby="h-kategori">
+    <h2 id="h-kategori" class="sr-only">Kategori</h2>
+    <div class="cat-grid" id="cat-grid"></div>
+  </section>
 
-<div class="filter-wrap">
-  <button class="filter-pill active" onclick="filterCat(this,'all')">Semua</button>
-  <button class="filter-pill" onclick="filterCat(this,'handlebar')">🎛️ Handlebar</button>
-  <button class="filter-pill" onclick="filterCat(this,'kelistrikan')">⚡ Kelistrikan</button>
-  <button class="filter-pill" onclick="filterCat(this,'kabel')">🔗 Kabel</button>
-  <button class="filter-pill" onclick="filterCat(this,'lampu')">💡 Lampu</button>
-  <button class="filter-pill" onclick="filterCat(this,'suspensi')">🏎️ Suspensi</button>
-  <button class="filter-pill" onclick="filterCat(this,'android')">📺 Android Auto</button>
-  <button class="filter-pill" onclick="filterCat(this,'pelindung')">🛡️ Pelindung</button>
-  <button class="filter-pill" onclick="filterCat(this,'tools')">🔧 Tools</button>
-</div>
+  <section class="section" aria-labelledby="h-top" data-fallback>
+    <div class="section-head">
+      <h2 id="h-top">Top pick</h2>
+      <a href="produk.html">Semua produk</a>
+    </div>
+    <div class="cards" id="top-picks"></div>
+  </section>
 
-<div id="topPicksSection"></div>
-<div id="noResult"><span>🔍</span>Produk tidak ditemukan.<br><small>Coba kata kunci lain atau pilih kategori.</small></div>
-<div id="categories"></div>
-
-<div class="affiliate-notice">
-  <p>⭐ Produk di section <strong>Top Picks</strong> adalah aksesori paling direkomendasikan.<br>
-  Semua harga mengikuti harga Shopee saat ini dan dapat berubah sewaktu-waktu.<br>
-  Beberapa link merupakan <strong>link afiliasi</strong> — harga tetap sama, tapi membantu konten ini terus aktif.</p>
-</div>
-
-<div class="footer">
-  <p>FOX 350 Riders Community · Indonesia 🇮🇩</p>
-  <p>Diperbarui Mar 2026</p>
-</div>
-</div>
-
-<button class="scroll-top" id="scrollBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-<script>
-const CAT_SLUG={
-  handlebar:"Handlebar & Navigasi",
-  kelistrikan:"Kelistrikan & Charging", 
-  kabel:"Kabel & Sambungan",
-  lampu:"Lampu & Klakson",
-  suspensi:"Suspensi & Rem",
-  android:"Android Auto & Multimedia",
-  pelindung:"Pelindung & Cover",
-  tools:"Tools & Perkakas"
-};
-
-let activeSlug="all", searchQuery="";
-
-const FEATURED=[
-  {"cat": "🎛️ Handlebar & Navigasi", "name": "Visor / Windshield", "hook": "Bukan cuma gaya — angin langsung ke badan drastis berkurang pas kecepatan 60km/h ke atas.", "img": "visor", "price": "", "tags": ["Touring", "Aerodinamis"], "sellers": [{"url": "https://s.shopee.co.id/LieKMw2vT", "label": "Shopee"}]},
-  {"cat": "⚡ Kelistrikan & Charging", "name": "Fast Charging Motor", "hook": "Jangan berangkat touring tanpa ini — satu-satunya yang bikin Fox 350 bisa cas di mana saja.", "img": "fast-charging", "price": "", "tags": ["Portable", "Wajib Touring"], "sellers": [{"url": "https://s.shopee.co.id/9fEFdZmEgE", "label": "Shopee"}]},
-  {"cat": "⚡ Kelistrikan & Charging", "name": "Polytron Adjustable Fast Charging 25A", "hook": "Komunitas debat panjang Polytron vs Huawei — ini menang di sisi adjustable ampere-nya.", "img": "fast-ch
+  <section class="panel-dark" aria-labelledby="h-tips">
+    <span class="eyebrow">Tips komunitas</span>
+    <h2 id="h-tips">Pertanyaan yang paling sering muncul, dijawab rapi</h2>
+    <ul class="tip-list" id="tips-teaser"></ul>
+    <a href="tips/">Lihat semua tips</a>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Beberapa link di website ini adalah link affiliate. Kami bisa mendapat komisi tanpa biaya tambahan untukmu. Harga mengikuti Shopee dan bisa berubah sewaktu-waktu.</p>
+    <p id="updated"></p>
+    <p>Ikuti tips dan review di TikTok <a href="https://www.tiktok.com/@fox350id" target="_blank" rel="noopener">@fox350id</a>.</p>
+    <p>Fox350 riders · Bukan situs resmi Polytron</p>
+  </div>
+</footer>
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>

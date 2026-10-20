@@ -1,0 +1,7 @@
+[
+  { "id": "charging-di-rumah", "title": "Charging di rumah tanpa jeglek", "summary": "Daya listrik rumah, kabel ekstensi yang aman, MCB, dan apakah charger bawaan berhenti otomatis saat penuh.", "category": "charging", "status": "segera" },
+  { "id": "memilih-fast-charger", "title": "Memilih fast charger portable: 20A, 25A, atau 30A?", "summary": "Arti ampere adjustable, menyesuaikan dengan sumber listrik, konektor, dan hal yang perlu dicek soal garansi.", "category": "charging", "status": "segera" },
+  { "id": "upgrade-rem-pnp", "title": "Upgrade rem: kaliper dan bracket yang PnP", "summary": "Kaliper universal vs bracket, opsi depan dan belakang, serta pilihan kampas.", "category": "rem", "status": "segera" },
+  { "id": "panduan-ukuran-shock", "title": "Shock belakang dan suspensi depan: panduan ukuran", "summary": "Ukuran shock yang umum dipakai, XMAX vs RCB, oli shock depan, dan dampak downsize.", "category": "suspensi", "status": "segera" },
+  { "id": "jarak-tempuh-baterai", "title": "Jarak tempuh dan merawat baterai", "summary": "Faktor yang memengaruhi jarak, kebiasaan cas yang baik, dan merencanakan perjalanan jauh.", "category": "charging", "status": "segera" }
+]
