@@ -1,0 +1,10 @@
+[
+  { "slug": "charging", "name": "Charging & Kelistrikan", "short": "Charging" },
+  { "slug": "suspensi", "name": "Shock & Suspensi", "short": "Suspensi" },
+  { "slug": "rem", "name": "Rem & Kaliper", "short": "Rem" },
+  { "slug": "body", "name": "Visor, Body & Handlebar", "short": "Body" },
+  { "slug": "jok", "name": "Jok, Karpet & Kenyamanan", "short": "Jok" },
+  { "slug": "lampu", "name": "Lampu & Klakson", "short": "Lampu" },
+  { "slug": "gadget", "name": "Gadget & Aksesori", "short": "Gadget" },
+  { "slug": "ban-tools", "name": "Ban, Perawatan & Tools", "short": "Tools" }
+]

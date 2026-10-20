@@ -43,8 +43,8 @@ Data produk dipisah dari HTML, di `data/products.json`. Satu objek per produk:
 | `price_range` | string | contoh `"Rp150rb–250rb"`, boleh kosong |
 | `tags` | string[] | label pendek, contoh `["Touring"]` |
 | `top_pick` | boolean | tampil di bagian unggulan |
-| `img` | string | nama file di `Img/` tanpa folder, contoh `visor.jpg` |
-| `links` | `{label, url}[]` | `url` wajib link affiliate `s.shopee.co.id` |
+| `img` | string | nama file di `assets/img/` tanpa folder, contoh `visor.jpg`. Kosong = kartu tampil tanpa foto |
+| `links` | `{label, url}[]` | `url` wajib link affiliate `s.shopee.co.id`. Boleh kosong `[]`: tombol tampil "Link menyusul" |
 | `checked_at` | string | tanggal ISO `YYYY-MM-DD` |
 
 Contoh:
@@ -64,17 +64,29 @@ Contoh:
 }
 ```
 
-Halaman yang dituju:
+Struktur file:
 
-- **Landing**: pengenalan singkat dan produk top pick
-- **Katalog**: semua produk, filter kategori, dan pencarian
-- **Tips**: tips dan insight komunitas (tanpa identitas member)
+```
+index.html          landing: hero, grid kategori, top pick, teaser tips
+produk.html         katalog: search + filter kategori (?kategori=<slug>)
+tips/index.html     daftar artikel tips
+data/products.json  data produk (skema di atas)
+data/categories.json  8 kategori: slug, name, short (urutan = urutan tampil)
+data/tips.json      daftar artikel: id, title, summary, category, status ("segera" = belum terbit)
+assets/css/style.css  tema Volt
+assets/js/app.js    render semua halaman dari data/*.json
+assets/img/         foto produk
+```
+
+Semua halaman di-render dari JSON lewat `fetch`, jadi untuk cek lokal jalankan server (`python3 -m http.server`), bukan buka file langsung. Tanggal "Data produk terakhir dicek" di footer dihitung otomatis dari `checked_at` terbaru.
+
+Slug kategori: `charging`, `suspensi`, `rem`, `body`, `jok`, `lampu`, `gadget`, `ban-tools`. Kategori tanpa produk tetap tampil dengan label "segera".
 
 Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub Pages tanpa build step kecuali sudah disepakati.
 
 ## 6. Konvensi gambar
 
-- Simpan di `Img/`.
+- Simpan di `assets/img/`.
 - Nama file: **lowercase, kebab-case, satu ekstensi `.jpg`**. Contoh `lampu-ibright-l9.jpg`, bukan `Lampu_iBright L9.JPG` atau `.jpeg`.
 - Hanya foto produk. Tanpa screenshot chat, tanpa wajah atau nama member.
 - Hapus metadata EXIF (Artist, GPS, dll.) sebelum commit gambar baru.
@@ -83,15 +95,17 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 
 - Identitas **BARU**, bukan tema dark/oranye yang lama.
 - Sebelum membangun desain, usulkan **2–3 arah visual** (palet, tipografi, contoh tampilan) untuk dipilih owner.
+- Arah terpilih (20 Okt 2026): **Volt**. Latar terang `#F3F4EF`, navy `#10213A`, aksen lime `#C8F03C`, heading Space Grotesk, body Inter. Token warna ada di `:root` `assets/css/style.css`.
 
 ## 8. Kondisi repo saat ini
 
-> **Status sementara, update setelah PR rombak.**
+> **Status sementara, update setiap ada perubahan besar.**
 
-- `index.html`: satu file berisi semua CSS, JS, dan data produk (hardcode di array JS). Tema dark/oranye lama, font Bebas Neue + DM Sans. Link produk sudah memakai `s.shopee.co.id`. Belum ada disclaimer affiliate.
-- `README.md`: deskripsi singkat.
-- `Img/`: 72 file gambar, tapi hanya 41 gambar unik. 31 file adalah duplikat `.jpg` / `.JPG` dengan isi identik. Ada juga `shock-xmax.jpeg` dan file kosong bernama `. gitkeep` (ada spasi). Pembersihan duplikat dan rename menunggu PR terpisah.
-- Hasil cek gambar (20 Okt 2026): semua 41 gambar unik adalah foto produk atau screenshot listing toko. Tidak ada screenshot chat, nomor HP, atau wajah member. Temuan: 36 dari 41 gambar unik (67 file termasuk duplikat) punya metadata EXIF `Artist` berisi nama owner. Bukan identitas member, tapi sebaiknya di-strip saat pembersihan gambar.
+- Situs sudah memakai struktur di bagian 5 dan visual Volt.
+- `data/products.json` berisi 36 produk hasil migrasi dari situs lama (versi lengkap terakhir, 22 Mar 2026). `checked_at` masih tanggal itu karena link belum dicek ulang. Dua produk belum punya link (`links: []`): Fast Charging Motor (link lama juga dibagikan member di grup, jadi perlu link affiliate baru) dan Shock XMAX Original (link lama dari Tokopedia, bukan Shopee).
+- Kategori `jok` belum ada produknya.
+- `assets/img/`: 41 foto unik, sudah lowercase `.jpg` dan tanpa EXIF. 4 file lama yang sebenarnya WEBP sudah dikonversi ke JPEG. Folder `Img/` lama dihapus.
+- Artikel tips masih berstatus "segera" (judul dan ringkasan saja).
 
 ## 9. Checklist sebelum buka PR
 
