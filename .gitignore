@@ -1,0 +1,8 @@
+# Export chat WA: jangan pernah masuk repo (repo public)
+WhatsApp Chat*
+*.zip
+_private/
+
+# OS / editor
+.DS_Store
+Thumbs.db
