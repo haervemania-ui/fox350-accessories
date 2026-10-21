@@ -106,7 +106,7 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
   - 41 produk pertama = top 50 yang paling sering dibahas di grup WA (duplikat digabung jadi link tambahan "Shopee 2", dst.), ditandai tag `Populer di grup` dan diurutkan dari yang paling sering dibahas. 22 di antaranya produk baru, belum punya foto (`img: ""`).
   - 17 produk sisanya = produk lama dari situs sebelumnya yang tidak masuk top 50, tetap ditampilkan atas keputusan owner.
   - Produk yang bukan untuk Fox 350 (misalnya casing kunci mobil) sengaja tidak dimasukkan.
-- 21 Okt 2026: link produk dicek ulang. Polytron Fast Charging 25A sebelumnya memakai kode affiliate orang lain, sudah diganti ke link affiliate owner (produk yang sama). Minyak Rem Brembo DOT4 dan Adaptor Tekiro 3/8-1/2 masih memakai kode affiliate orang lain dan perlu link baru dari owner. Link lain sudah memakai kode affiliate owner.
+- 21 Okt 2026: link produk dicek ulang. Polytron Fast Charging 25A sebelumnya memakai kode affiliate orang lain, sudah diganti ke link affiliate owner (produk yang sama). Minyak Rem Brembo DOT4 dan Adaptor Tekiro 3/8-1/2 juga sudah diganti. Semua link sekarang memakai kode affiliate owner.
 - `assets/img/`: 41 foto unik, sudah lowercase `.jpg` dan tanpa EXIF. 4 file lama yang sebenarnya WEBP sudah dikonversi ke JPEG. Folder `Img/` lama dihapus.
 - Artikel tips masih berstatus "segera" (judul dan ringkasan saja).
 
