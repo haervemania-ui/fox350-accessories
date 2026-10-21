@@ -70,9 +70,10 @@ Struktur file:
 index.html          landing: hero, grid kategori, top pick, teaser tips
 produk.html         katalog: search + filter kategori (?kategori=<slug>)
 tips/index.html     daftar artikel tips
+tips/<id>.html      satu file per artikel; produk terkait dirender dari data-related="id1,id2"
 data/products.json  data produk (skema di atas)
 data/categories.json  8 kategori: slug, name, short (urutan = urutan tampil)
-data/tips.json      daftar artikel: id, title, summary, category, status ("segera" = belum terbit)
+data/tips.json      daftar artikel: id, title, summary, category, status ("terbit" = link ke tips/<id>.html, "segera" = belum terbit)
 assets/css/style.css  tema Volt
 assets/js/app.js    render semua halaman dari data/*.json
 assets/img/         foto produk
@@ -108,7 +109,7 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
   - Produk yang bukan untuk Fox 350 (misalnya casing kunci mobil) sengaja tidak dimasukkan.
 - 21 Okt 2026: link produk dicek ulang. Polytron Fast Charging 25A sebelumnya memakai kode affiliate orang lain, sudah diganti ke link affiliate owner (produk yang sama). Minyak Rem Brembo DOT4 dan Adaptor Tekiro 3/8-1/2 juga sudah diganti. Semua link sekarang memakai kode affiliate owner.
 - `assets/img/`: 41 foto unik, sudah lowercase `.jpg` dan tanpa EXIF. 4 file lama yang sebenarnya WEBP sudah dikonversi ke JPEG. Folder `Img/` lama dihapus.
-- Artikel tips masih berstatus "segera" (judul dan ringkasan saja).
+- 5 artikel tips terbit (21 Okt 2026). Fakta teknis dicek ke sumber Polytron dan media otomotif (daftar sumber ada di tiap artikel). Hitungan perkiraan ditandai jelas, dan hal yang tidak ditemukan sumber resminya ditulis apa adanya. Kutipan member tidak dipakai.
 
 ## 9. Checklist sebelum buka PR
 
