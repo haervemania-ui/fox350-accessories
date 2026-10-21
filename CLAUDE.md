@@ -102,8 +102,11 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 > **Status sementara, update setiap ada perubahan besar.**
 
 - Situs sudah memakai struktur di bagian 5 dan visual Volt.
-- `data/products.json` berisi 36 produk hasil migrasi dari situs lama (versi lengkap terakhir, 22 Mar 2026). `checked_at` masih tanggal itu karena link belum dicek ulang. Dua produk belum punya link (`links: []`): Fast Charging Motor (link lama juga dibagikan member di grup, jadi perlu link affiliate baru) dan Shock XMAX Original (link lama dari Tokopedia, bukan Shopee).
-- Kategori `jok` belum ada produknya.
+- `data/products.json` berisi 58 produk (21 Okt 2026). Urutan array = urutan tampil di tiap kategori:
+  - 41 produk pertama = top 50 yang paling sering dibahas di grup WA (duplikat digabung jadi link tambahan "Shopee 2", dst.), ditandai tag `Populer di grup` dan diurutkan dari yang paling sering dibahas. 22 di antaranya produk baru, belum punya foto (`img: ""`).
+  - 17 produk sisanya = produk lama dari situs sebelumnya yang tidak masuk top 50, tetap ditampilkan atas keputusan owner.
+  - Produk yang bukan untuk Fox 350 (misalnya casing kunci mobil) sengaja tidak dimasukkan.
+- 21 Okt 2026: link produk dicek ulang. Polytron Fast Charging 25A sebelumnya memakai kode affiliate orang lain, sudah diganti ke link affiliate owner (produk yang sama). Minyak Rem Brembo DOT4 dan Adaptor Tekiro 3/8-1/2 juga sudah diganti. Semua link sekarang memakai kode affiliate owner.
 - `assets/img/`: 41 foto unik, sudah lowercase `.jpg` dan tanpa EXIF. 4 file lama yang sebenarnya WEBP sudah dikonversi ke JPEG. Folder `Img/` lama dihapus.
 - Artikel tips masih berstatus "segera" (judul dan ringkasan saja).
 
