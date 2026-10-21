@@ -96,6 +96,8 @@ p { margin: 0; }
 .search { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 14px; border-radius: 14px; background: var(--surface); border: 1.5px solid var(--line); color: var(--muted); }
 .search:focus-within { border-color: var(--ink); }
 .search input { flex: 1; min-width: 0; border: 0; outline: 0; font: inherit; font-size: 16px; color: var(--ink); background: transparent; height: 48px; }
+.search-btn { flex: none; min-height: 38px; padding: 0 14px; margin-right: -6px; border: 0; border-radius: 10px; background: var(--ink); color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+.hero .search { margin-top: 4px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
 .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #FFFFFF; }

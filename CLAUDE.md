@@ -70,8 +70,8 @@ Contoh:
 Struktur file:
 
 ```
-index.html          landing: hero, grid kategori, top pick, teaser tips
-produk.html         katalog: search + filter kategori (?kategori=<slug>)
+index.html          landing: hero + kotak search (ke produk.html?q=), grid kategori, top pick, teaser tips
+produk.html         katalog: search + filter kategori (?kategori=<slug>&q=<kata kunci>)
 tips/index.html     daftar artikel tips
 tips/<id>.html      satu file per artikel; produk terkait dirender dari data-related="id1,id2"
 data/products.json  data produk (skema di atas)

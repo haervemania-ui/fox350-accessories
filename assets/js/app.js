@@ -110,7 +110,7 @@
     var cats = indexCats(catList);
     var params = new URLSearchParams(location.search);
     var active = cats[params.get("kategori")] ? params.get("kategori") : "all";
-    var query = "";
+    var query = (params.get("q") || "").toLowerCase().trim();
 
     var chipsEl = document.getElementById("chips");
     var listEl = document.getElementById("catalog");
@@ -125,8 +125,12 @@
     function matches(p) {
       if (active !== "all" && p.category !== active) return false;
       if (!query) return true;
-      var hay = [p.name, p.hook].concat(p.tags || []).join(" ").toLowerCase();
-      return query.split(/\s+/).every(function (w) { return hay.indexOf(w) !== -1; });
+      var cat = cats[p.category] || {};
+      var hay = [p.name, p.hook, p.price_range, cat.name, cat.short].concat(p.tags || []).join(" ").toLowerCase();
+      // Cocokkan dari awal kata, supaya "rem" tidak ikut menemukan "Extreme".
+      return query.split(/\s+/).every(function (w) {
+        return new RegExp("(^|[^a-z0-9])" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).test(hay);
+      });
     }
 
     function draw() {
@@ -151,14 +155,25 @@
       if (!b) return;
       active = b.getAttribute("data-slug");
       chipsEl.querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
-      var url = active === "all" ? location.pathname : location.pathname + "?kategori=" + active;
-      history.replaceState(null, "", url);
+      syncURL();
       draw();
     });
     input.addEventListener("input", function () {
       query = input.value.toLowerCase().trim();
+      syncURL();
       draw();
     });
+
+    // URL ikut filter aktif, jadi hasil bisa dibagikan dan pencarian dari beranda (?q=) terbawa.
+    function syncURL() {
+      var qs = new URLSearchParams();
+      if (active !== "all") qs.set("kategori", active);
+      if (input.value.trim()) qs.set("q", input.value.trim());
+      var s = qs.toString();
+      history.replaceState(null, "", location.pathname + (s ? "?" + s : ""));
+    }
+
+    input.value = params.get("q") || "";
 
     draw();
     setUpdated(products);
