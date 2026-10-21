@@ -100,7 +100,7 @@
     var tipList = document.getElementById("tips-teaser");
     if (tipList) {
       tipList.innerHTML = tips.slice(0, 3).map(function (t) {
-        return '<li class="tip"><strong>' + esc(t.title) + "</strong></li>";
+        return '<li class="tip"><a href="' + tipHref(t) + '"><strong>' + esc(t.title) + "</strong></a></li>";
       }).join("");
     }
     setUpdated(products);
@@ -164,14 +164,34 @@
     setUpdated(products);
   }
 
+  function tipHref(t) {
+    return BASE + "tips/" + (t.status === "terbit" ? encodeURIComponent(t.id) + ".html" : "");
+  }
+
   function renderTips(tips, catList, products) {
     var cats = indexCats(catList);
     document.getElementById("tip-list").innerHTML = tips.map(function (t) {
       var cat = cats[t.category];
-      return '<li class="tip"><span class="badge">' + (t.status === "segera" ? "Segera terbit" : esc(cat ? cat.short : "")) + "</span>" +
-        "<h2>" + esc(t.title) + "</h2><p class=\"hook\">" + esc(t.summary) + "</p>" +
-        (cat ? '<a href="' + BASE + "produk.html?kategori=" + cat.slug + '">Lihat produk ' + esc(cat.short) + "</a>" : "") + "</li>";
+      var live = t.status === "terbit";
+      return '<li class="tip"><span class="badge">' + (live ? esc(cat ? cat.short : "Tips") : "Segera terbit") + "</span>" +
+        "<h2>" + (live ? '<a href="' + tipHref(t) + '">' + esc(t.title) + "</a>" : esc(t.title)) + "</h2>" +
+        '<p class="hook">' + esc(t.summary) + "</p>" +
+        (live ? '<a href="' + tipHref(t) + '">Baca artikel</a>' : "") + "</li>";
     }).join("");
+    setUpdated(products);
+  }
+
+  // Artikel: kartu produk terkait dari data-related="id1,id2".
+  function renderArticle(products, catList) {
+    var cats = indexCats(catList);
+    var box = document.getElementById("related");
+    if (box) {
+      var ids = (box.getAttribute("data-related") || "").split(",").map(function (x) { return x.trim(); });
+      var items = ids.map(function (id) {
+        return products.filter(function (p) { return p.id === id; })[0];
+      }).filter(Boolean);
+      box.innerHTML = items.map(function (p) { return cardHTML(p, cats); }).join("");
+    }
     setUpdated(products);
   }
 
@@ -186,6 +206,7 @@
       if (PAGE === "home") renderHome(r[0], r[1], r[2]);
       else if (PAGE === "catalog") renderCatalog(r[0], r[1]);
       else if (PAGE === "tips") renderTips(r[2], r[1], r[0]);
+      else if (PAGE === "article") renderArticle(r[0], r[1]);
     })
     .catch(fail);
 })();

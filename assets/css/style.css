@@ -129,3 +129,18 @@ p { margin: 0; }
 .compact .hook { font-size: 13px; }
 .compact .btn { min-height: 44px; font-size: 14px; }
 @media (min-width: 600px) { .compact { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Artikel tips */
+.article { padding: 28px 0 8px; display: flex; flex-direction: column; gap: 14px; }
+.article h1 { font-size: 32px; letter-spacing: -0.8px; }
+.article h2 { margin-top: 14px; }
+.article ul, .article ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.article table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--surface); }
+.article th, .article td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+.article .table-wrap { overflow-x: auto; }
+.article .meta { font-size: 13px; color: var(--muted); }
+.callout { background: var(--accent-soft); border-radius: 12px; padding: 14px 16px; color: var(--accent-ink); font-size: 14px; }
+.callout-warn { background: #FFF1D6; color: #5A3A00; }
+.sources { font-size: 13px; color: var(--ink-2); }
+.sources a { word-break: break-word; }
+.back { font-size: 14px; font-weight: 600; }
