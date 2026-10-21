@@ -12,23 +12,26 @@ Rombak total website affiliate aksesori **Fox 350 (Polytron)**.
 
 ## 2. Aturan kerja
 
-- **Bahasa**: Indonesia campur istilah teknis English (commit message, nama file, dan kode boleh English).
+- **Bahasa**: Indonesia campur istilah teknis English, termasuk CLAUDE.md ini (commit message, nama file, dan kode boleh English).
 - **Plan before execute**: setiap perubahan besar (struktur, desain, fitur baru, hapus/rename banyak file) dibuat rencananya dulu, di-approve owner, baru dikerjakan.
 - **Review before commit**: semua perubahan lewat branch + Pull Request. **Jangan pernah push langsung ke `main`.**
+- **Merge**: kirim ringkasan singkat + link PR di thread, lalu merge hanya setelah owner membalas "merge" untuk PR itu.
+- **Data terpisah dari tampilan**: data produk hanya di `data/products.json`. Update rutin (tambah produk, ganti harga, ganti link) cukup mengubah file ini, tanpa menyentuh HTML.
 
 ## 3. Privasi (wajib)
 
 - Sumber konten: export chat grup WA **Fox350 riders**.
-- **DILARANG** memasukkan nama, nomor HP, foto wajah, username, atau identitas member apa pun ke repo, termasuk di komentar kode, commit message, alt text, dan metadata gambar. Repo ini public.
-- File export WA mentah tidak boleh di-commit. Simpan di luar repo atau di folder `_private/` (sudah diblokir `.gitignore`, begitu juga `WhatsApp Chat*` dan `*.zip`).
+- **DILARANG** memasukkan nama, nomor HP, mention (`@...`), foto, username, atau identitas member apa pun ke repo, termasuk di komentar kode, commit message, alt text, dan metadata gambar. Repo ini public.
+- File export WA mentah, kartu kontak `.vcf`, dan file bahan olahan (CSV/MD seperti `kandidat_produk*.csv`, `topik_tips*.md`, `HANDOFF*.md`) tidak boleh di-commit. Simpan di luar repo atau di folder `_private/` / `bahan/`. Semuanya sudah diblokir `.gitignore`; jangan dilonggarkan.
 - Kutipan atau insight dari chat ditulis ulang dengan bahasa sendiri tanpa atribusi ke member. Contoh: "Komunitas banyak bahas…", bukan "Kata Pak X…".
 - Screenshot chat tidak boleh dipakai sebagai gambar di website.
 
 ## 4. Aturan affiliate
 
-- Semua link produk **wajib link affiliate Shopee** (`https://s.shopee.co.id/...`). Jangan diganti link produk biasa, link toko langsung, atau link tanpa kode affiliate.
-- **Disclaimer affiliate wajib tampil** di website (minimal di footer setiap halaman dan di halaman katalog), misalnya: "Beberapa link di website ini adalah link affiliate. Kami bisa mendapat komisi tanpa biaya tambahan untukmu."
-- Setiap produk punya `checked_at`, yaitu tanggal terakhir link dan harga dicek masih valid.
+- Semua link produk **wajib link affiliate Shopee milik owner sendiri** (`https://s.shopee.co.id/...`, dibuat owner lewat Shopee Affiliate). Jangan diganti link produk biasa, link toko langsung, atau link tanpa kode affiliate.
+- **Link Shopee yang dibagikan di grup WA adalah milik member dan tidak boleh dipakai di website.** Kolom referensi di file bahan (mis. `contoh_link_referensi`) hanya untuk mencari produknya, tidak pernah masuk `products.json`. Kalau link affiliate owner belum ada, `links` dibiarkan `[]` ("Link menyusul").
+- **Disclaimer affiliate wajib tampil di setiap halaman yang menampilkan produk** (landing, katalog, dan halaman/artikel lain yang memuat link produk), misalnya: "Beberapa link di website ini adalah link affiliate. Kami bisa mendapat komisi tanpa biaya tambahan untukmu."
+- Field `checked_at` **wajib diisi** di setiap produk, yaitu tanggal terakhir link dan harga dicek masih valid.
 
 ## 5. Struktur target
 
@@ -39,7 +42,7 @@ Data produk dipisah dari HTML, di `data/products.json`. Satu objek per produk:
 | `id` | string | slug unik, kebab-case, contoh `visor-windshield` |
 | `name` | string | nama produk |
 | `category` | string | slug kategori, contoh `kelistrikan` |
-| `hook` | string | satu kalimat kenapa produk ini layak dibeli |
+| `hook` | string | satu kalimat pengalaman nyata rider, ditulis ulang (bukan kutipan member) |
 | `price_range` | string | contoh `"Rp150rb–250rb"`, boleh kosong |
 | `tags` | string[] | label pendek, contoh `["Touring"]` |
 | `top_pick` | boolean | tampil di bagian unggulan |
@@ -87,8 +90,8 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 ## 6. Konvensi gambar
 
 - Simpan di `assets/img/`.
-- Nama file: **lowercase, kebab-case, satu ekstensi `.jpg`**. Contoh `lampu-ibright-l9.jpg`, bukan `Lampu_iBright L9.JPG` atau `.jpeg`.
-- Hanya foto produk. Tanpa screenshot chat, tanpa wajah atau nama member.
+- Nama file: **lowercase, kebab-case, satu ekstensi `.jpg`**. Contoh `lampu-ibright-l9.jpg`, bukan `Lampu_iBright L9.JPG` atau `.jpeg`. GitHub Pages case-sensitive, jadi `foto.JPG` dan `foto.jpg` dianggap file berbeda.
+- Hanya foto produk. Tanpa screenshot chat, tanpa wajah atau nama member. Kalau ditemukan, catat sebagai temuan dan hapus.
 - Hapus metadata EXIF (Artist, GPS, dll.) sebelum commit gambar baru.
 
 ## 7. Visual
@@ -113,9 +116,10 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 ## 9. Checklist sebelum buka PR
 
 - [ ] Tampilan dicek di ukuran mobile (±375px) dan tidak ada horizontal scroll
-- [ ] Semua link tidak rusak dan link produk tetap affiliate `s.shopee.co.id`
-- [ ] Disclaimer affiliate masih tampil
-- [ ] Tidak ada data pribadi member (nama, nomor HP, wajah, screenshot chat) di file, gambar, atau commit
+- [ ] Semua link tidak rusak dan link produk tetap link affiliate `s.shopee.co.id` milik owner
+- [ ] Disclaimer affiliate tampil di setiap halaman yang menampilkan produk
+- [ ] Setiap produk punya `checked_at`
+- [ ] Tidak ada data pribadi member (nama, nomor HP, mention, wajah, screenshot chat) maupun file bahan mentah di file, gambar, atau commit
 - [ ] Nama gambar baru mengikuti konvensi
 - [ ] CLAUDE.md di-update bila struktur, aturan, atau kondisi repo berubah
 

@@ -1,7 +1,12 @@
-# Export chat WA: jangan pernah masuk repo (repo public)
+# Export chat WA dan bahan mentah: jangan pernah masuk repo (repo public)
 WhatsApp Chat*
 *.zip
+*.vcf
 _private/
+bahan/
+kandidat_produk*.csv
+topik_tips*.md
+HANDOFF*.md
 
 # OS / editor
 .DS_Store
