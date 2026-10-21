@@ -103,6 +103,7 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 
 - Situs sudah memakai struktur di bagian 5 dan visual Volt.
 - `data/products.json` berisi 36 produk hasil migrasi dari situs lama (versi lengkap terakhir, 22 Mar 2026). `checked_at` masih tanggal itu karena link belum dicek ulang. Dua produk belum punya link (`links: []`): Fast Charging Motor (link lama juga dibagikan member di grup, jadi perlu link affiliate baru) dan Shock XMAX Original (link lama dari Tokopedia, bukan Shopee).
+- 21 Okt 2026: link produk dicek ulang. Polytron Fast Charging 25A sebelumnya memakai kode affiliate orang lain, sudah diganti ke link affiliate owner (produk yang sama). Minyak Rem Brembo DOT4 dan Adaptor Tekiro 3/8-1/2 masih memakai kode affiliate orang lain dan perlu link baru dari owner. Link lain sudah memakai kode affiliate owner.
 - Kategori `jok` belum ada produknya.
 - `assets/img/`: 41 foto unik, sudah lowercase `.jpg` dan tanpa EXIF. 4 file lama yang sebenarnya WEBP sudah dikonversi ke JPEG. Folder `Img/` lama dihapus.
 - Artikel tips masih berstatus "segera" (judul dan ringkasan saja).
