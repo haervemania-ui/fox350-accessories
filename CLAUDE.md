@@ -113,6 +113,7 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 - 21 Okt 2026: link produk dicek ulang. Polytron Fast Charging 25A sebelumnya memakai kode affiliate orang lain, sudah diganti ke link affiliate owner (produk yang sama). Minyak Rem Brembo DOT4 dan Adaptor Tekiro 3/8-1/2 juga sudah diganti. Semua link sekarang memakai kode affiliate owner.
 - `assets/img/`: 62 foto unik (41 lama + 21 baru 22 Okt 2026, maks 800px, <120 KB), sudah lowercase `.jpg` dan tanpa EXIF. 4 file lama yang sebenarnya WEBP sudah dikonversi ke JPEG. Folder `Img/` lama dihapus.
 - 5 artikel tips terbit (21 Okt 2026). Fakta teknis dicek ke sumber Polytron dan media otomotif (daftar sumber ada di tiap artikel). Hitungan perkiraan ditandai jelas, dan hal yang tidak ditemukan sumber resminya ditulis apa adanya. Kutipan member tidak dipakai.
+- 22 Okt 2026: artikel ke-6 `tips/ganti-kampas-rem.html` (kampas rem cepat habis + memilih pengganti). Pengalaman komunitas dari ringkasan owner (export WA tidak tersedia), ditulis tanpa atribusi. Ditaruh paling atas di `data/tips.json` supaya tampil di teaser beranda.
 
 ## 9. Checklist sebelum buka PR
 
