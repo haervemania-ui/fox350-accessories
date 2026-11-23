@@ -145,3 +145,15 @@ p { margin: 0; }
 .sources { font-size: 13px; color: var(--ink-2); }
 .sources a { word-break: break-word; }
 .back { font-size: 14px; font-weight: 600; }
+
+/* SPKLU & SPLU: kartu ajakan buka peta (halaman spklu + beranda) */
+.map-cta { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px 14px; align-items: center; padding: 18px; border-radius: var(--radius); background: var(--ink); color: #FFFFFF; }
+.map-cta-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--accent); color: var(--ink); display: flex; align-items: center; justify-content: center; }
+.map-cta strong { font-family: var(--font-head); font-size: 17px; }
+.map-cta p { margin: 2px 0 0; font-size: 14px; color: #C9D2E0; }
+.map-cta .btn { grid-column: 1 / -1; }
+.map-cta .btn-outline { color: #FFFFFF; border-color: #FFFFFF; }
+/* Header 3 menu muat di layar 360–400px tanpa brand turun baris */
+.brand { white-space: nowrap; }
+@media (max-width: 400px) { .nav { gap: 0; } .nav a { padding: 0 9px; } }
+@media (max-width: 359px) { .brand-sub { display: none; } }

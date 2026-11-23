@@ -72,6 +72,7 @@ Struktur file:
 ```
 index.html          landing: hero + kotak search (ke produk.html?q=), grid kategori, top pick, teaser tips
 produk.html         katalog: search + filter kategori (?kategori=<slug>&q=<kata kunci>)
+spklu.html          halaman SPKLU & SPLU: tombol ke daftar Google Maps + panduan charging di luar rumah
 tips/index.html     daftar artikel tips
 tips/<id>.html      satu file per artikel; produk terkait dirender dari data-related="id1,id2"
 data/products.json  data produk (skema di atas)
@@ -114,6 +115,7 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 - `assets/img/`: 62 foto unik (41 lama + 21 baru 22 Okt 2026, maks 800px, <120 KB), sudah lowercase `.jpg` dan tanpa EXIF. 4 file lama yang sebenarnya WEBP sudah dikonversi ke JPEG. Folder `Img/` lama dihapus.
 - 5 artikel tips terbit (21 Okt 2026). Fakta teknis dicek ke sumber Polytron dan media otomotif (daftar sumber ada di tiap artikel). Hitungan perkiraan ditandai jelas, dan hal yang tidak ditemukan sumber resminya ditulis apa adanya. Kutipan member tidak dipakai.
 - 22 Okt 2026: artikel ke-6 `tips/ganti-kampas-rem.html` (kampas rem cepat habis + memilih pengganti). Pengalaman komunitas dari ringkasan owner (export WA tidak tersedia), ditulis tanpa atribusi. Ditaruh paling atas di `data/tips.json` supaya tampil di teaser beranda.
+- 24 Nov 2026: halaman `spklu.html` (link daftar Google Maps "SPKLU & SPLU Motor Listrik", 241 titik, dari owner). Daftar Maps tidak bisa di-embed, jadi pakai tombol. Nama pembuat daftar tidak boleh ditulis di repo. Tarif dan alamat tidak ditulis. Menu "SPKLU" ada di header semua halaman, kartu ajakan di beranda di bawah hero.
 
 ## 9. Checklist sebelum buka PR
 
