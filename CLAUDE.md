@@ -83,6 +83,8 @@ assets/js/app.js    render semua halaman dari data/*.json
 assets/img/         foto produk
 ```
 
+Setiap kali `assets/css/style.css` atau `assets/js/app.js` diubah, naikkan versi `?v=YYYYMMDD` di tag `<link>`/`<script>` semua halaman. Tanpa itu browser HP bisa memakai file lama dari cache (kejadian 24 Nov 2026: kartu adaptor di `spklu.html` tidak muncul).
+
 Semua halaman di-render dari JSON lewat `fetch`, jadi untuk cek lokal jalankan server (`python3 -m http.server`), bukan buka file langsung. Tanggal "Data produk terakhir dicek" di footer dihitung otomatis dari `checked_at` terbaru.
 
 Slug kategori: `charging`, `suspensi`, `rem`, `body`, `jok`, `lampu`, `gadget`, `ban-tools`. Kategori tanpa produk tetap tampil dengan label "segera".
