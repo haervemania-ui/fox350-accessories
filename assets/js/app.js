@@ -196,17 +196,17 @@
     setUpdated(products);
   }
 
-  // Artikel: kartu produk terkait dari data-related="id1,id2".
+  // Artikel: kartu produk dari setiap elemen data-related="id1,id2".
   function renderArticle(products, catList) {
     var cats = indexCats(catList);
-    var box = document.getElementById("related");
-    if (box) {
+    // Bisa lebih dari satu kotak per halaman (mis. kartu produk di tengah penjelasan).
+    document.querySelectorAll("[data-related]").forEach(function (box) {
       var ids = (box.getAttribute("data-related") || "").split(",").map(function (x) { return x.trim(); });
       var items = ids.map(function (id) {
         return products.filter(function (p) { return p.id === id; })[0];
       }).filter(Boolean);
       box.innerHTML = items.map(function (p) { return cardHTML(p, cats); }).join("");
-    }
+    });
     setUpdated(products);
   }
 
