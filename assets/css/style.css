@@ -157,3 +157,6 @@ p { margin: 0; }
 .brand { white-space: nowrap; }
 @media (max-width: 400px) { .nav { gap: 0; } .nav a { padding: 0 9px; } }
 @media (max-width: 359px) { .brand-sub { display: none; } }
+/* Kartu produk tunggal di tengah artikel */
+.inline-product { max-width: 420px; }
+.article > h3 { margin: 10px 0 0; scroll-margin-top: 76px; }
