@@ -130,6 +130,7 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 - 25 Nov 2026: menu bawah ala aplikasi (nomor 2), disisipkan `app.js` ke semua halaman, tampil di layar <720px; di HP menu header disembunyikan. Isi: Beranda, Katalog, Tips (termasuk Perawatan), SPKLU, Hitung (kalkulator). Halaman baru otomatis dapat menu ini asal memuat `app.js`.
 - 25 Nov 2026: bisa dipasang di layar HP (nomor 5): `manifest.webmanifest`, `sw.js`, ikon di `assets/icons/`, tag manifest + apple-touch-icon di `<head>` semua halaman (halaman baru wajib ikut). Ajakan "Pasang di layar HP" muncul di beranda (Android: tombol Pasang; iPhone: petunjuk Bagikan > Tambah ke Layar Utama), bisa ditutup dengan "Nanti". Kelima perbaikan selesai.
 - 27 Nov 2026: solusi cepat "Setang geter di kecepatan rendah" di `perawatan.html` yang mengarah ke produk Jalu Stang Besi di katalog (`produk.html?q=jalu`, tanpa link affiliate langsung). Insight komunitas ditulis ulang tanpa atribusi.
+- 27 Nov 2026: kartu kedua di `spklu.html`: peta Google My Maps "Charger Polytron" (44 titik dari daftar stasiun aplikasi Polytron, dibuat di akun owner, link viewer). Data sumbernya (CSV) disimpan di luar repo. Kartu beranda menyebut kedua peta.
 
 ## 9. Checklist sebelum buka PR
 
