@@ -241,6 +241,60 @@
   }
   renderTabbar();
 
+  // Bisa dipasang di layar HP (PWA). sw.js memakai jaringan dulu, cache hanya saat offline.
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register(BASE + "sw.js").catch(function () {});
+    });
+  }
+
+  function store(key, val) {
+    try {
+      if (val === undefined) return localStorage.getItem(key);
+      localStorage.setItem(key, val);
+    } catch (e) { return null; }
+  }
+
+  function installBanner() {
+    var hero = document.querySelector(".hero");
+    var standalone = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone;
+    if (PAGE !== "home" || !hero || standalone || store("install-dismissed")) return;
+    var ua = navigator.userAgent;
+    var ios = /iPhone|iPad|iPod/.test(ua) && !/CriOS|FxiOS|EdgiOS/.test(ua);
+    var deferred = null;
+
+    function show(text, withButton) {
+      if (document.getElementById("install")) return;
+      var box = document.createElement("section");
+      box.id = "install";
+      box.className = "install";
+      box.setAttribute("aria-label", "Pasang di layar HP");
+      box.innerHTML = '<div><strong>Pasang di layar HP</strong><p>' + text + "</p></div>" +
+        '<div class="install-actions">' + (withButton ? '<button type="button" class="btn btn-primary" data-act="install">Pasang</button>' : "") +
+        '<button type="button" class="btn btn-outline" data-act="close">Nanti</button></div>';
+      hero.insertAdjacentElement("afterend", box);
+      box.addEventListener("click", function (e) {
+        var act = e.target.getAttribute("data-act");
+        if (act === "install" && deferred) {
+          deferred.prompt();
+          deferred = null;
+          box.remove();
+        } else if (act === "close") {
+          store("install-dismissed", "1");
+          box.remove();
+        }
+      });
+    }
+
+    window.addEventListener("beforeinstallprompt", function (e) {
+      e.preventDefault();
+      deferred = e;
+      show("Buka Fox350 riders langsung dari layar utama seperti aplikasi, tanpa mengetik alamat lagi.", true);
+    });
+    if (ios) show("Ketuk tombol Bagikan di Safari (kotak dengan panah ke atas), lalu pilih <strong>Tambah ke Layar Utama</strong>.", false);
+  }
+  installBanner();
+
   Promise.all([getJSON("data/products.json"), getJSON("data/categories.json"), getJSON("data/tips.json")])
     .then(function (r) {
       if (PAGE === "home") renderHome(r[0], r[1], r[2]);
