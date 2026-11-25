@@ -70,7 +70,7 @@ Contoh:
 Struktur file:
 
 ```
-index.html          landing: hero + kotak search (ke produk.html?q=), grid kategori, top pick, teaser tips
+index.html          landing: hero + kotak search (ke produk.html?q=), kartu SPKLU, grid kategori, kartu kalkulator, "Fox 350 dalam angka", top pick, teaser tips
 produk.html         katalog: search + filter kategori (?kategori=<slug>&q=<kata kunci>)
 spklu.html          halaman SPKLU & SPLU: tombol ke daftar Google Maps + panduan charging di luar rumah
 perawatan.html      perawatan & solusi cepat: daftar buka-tutup (<details>), gaya di assets/css/perawatan.css
@@ -123,6 +123,7 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 - 25 Nov 2026: owner menyetujui 5 perbaikan yang terinspirasi situs komunitas lain (hanya ide fitur, teks/gambar/desain tidak disalin): (1) kalkulator charging, (2) menu bawah ala aplikasi di HP, (3) halaman Perawatan & Solusi Cepat, (4) kartu spesifikasi Fox 350 di beranda, (5) bisa dipasang di layar HP (PWA). Dikerjakan satu PR per nomor.
 - 25 Nov 2026: `kalkulator.html` (nomor 1). Asumsi: baterai 3,75 kWh, charger bawaan 0–100% 4,5 jam, fast charger 72V × ampere, rugi-rugi charger 10%. Tarif PLN rumah tangga non-subsidi Okt–Des 2026 ada di `TARIF` di `kalkulator.js`; **cek ulang tiap pergantian kuartal** (Jan, Apr, Jul, Okt). Kartu ajakan di beranda di bawah grid kategori.
 - 25 Nov 2026: `perawatan.html` (nomor 3): cek rutin, ukuran ban, baterai, cara cuci, solusi cepat, garansi. Tekanan angin ban dan jadwal servis resmi belum ditemukan sumbernya, jadi halaman mengarahkan ke buku manual/bengkel resmi. Link dari panel tips beranda dan `tips/index.html`. Owner mengizinkan Claude merge sendiri PR tahap 2–5 (25 Nov 2026).
+- 25 Nov 2026: kartu "Fox 350 dalam angka" di beranda (nomor 4), angka dari halaman produk resmi Polytron. Ubah langsung di `index.html` kalau spesifikasi resmi berubah.
 
 ## 9. Checklist sebelum buka PR
 
