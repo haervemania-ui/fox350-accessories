@@ -81,11 +81,11 @@ data/products.json  data produk (skema di atas)
 data/categories.json  8 kategori: slug, name, short (urutan = urutan tampil)
 data/tips.json      daftar artikel: id, title, summary, category, status ("terbit" = link ke tips/<id>.html, "segera" = belum terbit)
 assets/css/style.css  tema Volt
-assets/js/app.js    render semua halaman dari data/*.json
+assets/js/app.js    render semua halaman dari data/*.json + menu bawah HP (TABS)
 assets/img/         foto produk
 ```
 
-Setiap kali `assets/css/style.css` atau `assets/js/app.js` diubah (begitu juga `kalkulator.css`/`kalkulator.js`/`perawatan.css`, cukup di halaman yang memakainya), naikkan versi `?v=YYYYMMDD` di tag `<link>`/`<script>` semua halaman. Tanpa itu browser HP bisa memakai file lama dari cache (kejadian 24 Nov 2026: kartu adaptor di `spklu.html` tidak muncul).
+Setiap kali `assets/css/style.css` atau `assets/js/app.js` diubah (begitu juga `kalkulator.css`/`kalkulator.js`/`perawatan.css`, cukup di halaman yang memakainya), naikkan versi `?v=YYYYMMDD` (tambah huruf `b`, `c` kalau berubah lebih dari sekali di hari yang sama) di tag `<link>`/`<script>` semua halaman. Tanpa itu browser HP bisa memakai file lama dari cache (kejadian 24 Nov 2026: kartu adaptor di `spklu.html` tidak muncul).
 
 Semua halaman di-render dari JSON lewat `fetch`, jadi untuk cek lokal jalankan server (`python3 -m http.server`), bukan buka file langsung. Tanggal "Data produk terakhir dicek" di footer dihitung otomatis dari `checked_at` terbaru.
 
@@ -124,6 +124,7 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 - 25 Nov 2026: `kalkulator.html` (nomor 1). Asumsi: baterai 3,75 kWh, charger bawaan 0–100% 4,5 jam, fast charger 72V × ampere, rugi-rugi charger 10%. Tarif PLN rumah tangga non-subsidi Okt–Des 2026 ada di `TARIF` di `kalkulator.js`; **cek ulang tiap pergantian kuartal** (Jan, Apr, Jul, Okt). Kartu ajakan di beranda di bawah grid kategori.
 - 25 Nov 2026: `perawatan.html` (nomor 3): cek rutin, ukuran ban, baterai, cara cuci, solusi cepat, garansi. Tekanan angin ban dan jadwal servis resmi belum ditemukan sumbernya, jadi halaman mengarahkan ke buku manual/bengkel resmi. Link dari panel tips beranda dan `tips/index.html`. Owner mengizinkan Claude merge sendiri PR tahap 2–5 (25 Nov 2026).
 - 25 Nov 2026: kartu "Fox 350 dalam angka" di beranda (nomor 4), angka dari halaman produk resmi Polytron. Ubah langsung di `index.html` kalau spesifikasi resmi berubah.
+- 25 Nov 2026: menu bawah ala aplikasi (nomor 2), disisipkan `app.js` ke semua halaman, tampil di layar <720px; di HP menu header disembunyikan. Isi: Beranda, Katalog, Tips (termasuk Perawatan), SPKLU, Hitung (kalkulator). Halaman baru otomatis dapat menu ini asal memuat `app.js`.
 
 ## 9. Checklist sebelum buka PR
 
