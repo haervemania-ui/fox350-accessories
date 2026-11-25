@@ -1,0 +1,16 @@
+{
+  "name": "Fox350 riders",
+  "short_name": "Fox350",
+  "description": "Aksesori pilihan komunitas, tips, kalkulator charging, dan peta SPKLU untuk Polytron Fox 350.",
+  "lang": "id",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F3F4EF",
+  "theme_color": "#F3F4EF",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

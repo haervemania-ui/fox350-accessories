@@ -83,6 +83,9 @@ data/tips.json      daftar artikel: id, title, summary, category, status ("terbi
 assets/css/style.css  tema Volt
 assets/js/app.js    render semua halaman dari data/*.json + menu bawah HP (TABS)
 assets/img/         foto produk
+assets/icons/       ikon aplikasi (PNG) untuk layar HP
+manifest.webmanifest  data aplikasi untuk "Tambahkan ke layar utama"
+sw.js               service worker: jaringan dulu, cache hanya saat offline (jangan diubah jadi cache dulu, nanti HP tersangkut file lama)
 ```
 
 Setiap kali `assets/css/style.css` atau `assets/js/app.js` diubah (begitu juga `kalkulator.css`/`kalkulator.js`/`perawatan.css`, cukup di halaman yang memakainya), naikkan versi `?v=YYYYMMDD` (tambah huruf `b`, `c` kalau berubah lebih dari sekali di hari yang sama) di tag `<link>`/`<script>` semua halaman. Tanpa itu browser HP bisa memakai file lama dari cache (kejadian 24 Nov 2026: kartu adaptor di `spklu.html` tidak muncul).
@@ -97,7 +100,7 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 
 - Simpan di `assets/img/`.
 - Nama file: **lowercase, kebab-case, satu ekstensi `.jpg`**. Contoh `lampu-ibright-l9.jpg`, bukan `Lampu_iBright L9.JPG` atau `.jpeg`. GitHub Pages case-sensitive, jadi `foto.JPG` dan `foto.jpg` dianggap file berbeda.
-- Hanya foto produk. Tanpa screenshot chat, tanpa wajah atau nama member. Kalau ditemukan, catat sebagai temuan dan hapus.
+- Hanya foto produk (ikon aplikasi PNG di `assets/icons/` pengecualian). Tanpa screenshot chat, tanpa wajah atau nama member. Kalau ditemukan, catat sebagai temuan dan hapus.
 - Hapus metadata EXIF (Artist, GPS, dll.) sebelum commit gambar baru.
 
 ## 7. Visual
@@ -125,6 +128,7 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 - 25 Nov 2026: `perawatan.html` (nomor 3): cek rutin, ukuran ban, baterai, cara cuci, solusi cepat, garansi. Tekanan angin ban dan jadwal servis resmi belum ditemukan sumbernya, jadi halaman mengarahkan ke buku manual/bengkel resmi. Link dari panel tips beranda dan `tips/index.html`. Owner mengizinkan Claude merge sendiri PR tahap 2–5 (25 Nov 2026).
 - 25 Nov 2026: kartu "Fox 350 dalam angka" di beranda (nomor 4), angka dari halaman produk resmi Polytron. Ubah langsung di `index.html` kalau spesifikasi resmi berubah.
 - 25 Nov 2026: menu bawah ala aplikasi (nomor 2), disisipkan `app.js` ke semua halaman, tampil di layar <720px; di HP menu header disembunyikan. Isi: Beranda, Katalog, Tips (termasuk Perawatan), SPKLU, Hitung (kalkulator). Halaman baru otomatis dapat menu ini asal memuat `app.js`.
+- 25 Nov 2026: bisa dipasang di layar HP (nomor 5): `manifest.webmanifest`, `sw.js`, ikon di `assets/icons/`, tag manifest + apple-touch-icon di `<head>` semua halaman (halaman baru wajib ikut). Ajakan "Pasang di layar HP" muncul di beranda (Android: tombol Pasang; iPhone: petunjuk Bagikan > Tambah ke Layar Utama), bisa ditutup dengan "Nanti". Kelima perbaikan selesai.
 
 ## 9. Checklist sebelum buka PR
 
