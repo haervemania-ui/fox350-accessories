@@ -17,9 +17,11 @@
 .calc-custom { display: flex; align-items: center; gap: 8px; font-weight: 600; }
 .calc-custom[hidden] { display: none; }
 .calc-custom input { flex: 1; min-width: 0; }
-.calc-result { position: sticky; bottom: 10px; z-index: 5; box-shadow: 0 6px 24px rgba(16, 33, 58, 0.25); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 18px; border-radius: var(--radius); background: var(--ink); color: #FFFFFF; }
+.calc-result { position: sticky; bottom: 10px; z-index: 5; box-shadow: 0 6px 24px rgba(16, 33, 58, 0.25); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 14px 18px; border-radius: var(--radius); background: var(--ink); color: #FFFFFF; }
 .calc-stat { display: flex; flex-direction: column; gap: 2px; }
 .calc-stat small { color: #C9D2E0; font-size: 13px; }
 .calc-stat strong { font-family: var(--font-head); font-size: 22px; line-height: 1.1; color: var(--accent); }
-.calc-detail { grid-column: 1 / -1; font-size: 13px; color: #C9D2E0; }
+.calc-detail { font-size: 13px; color: var(--ink-2); }
 .callout a { color: inherit; font-weight: 600; }
+/* Di HP, kotak hasil menempel di atas menu bawah */
+@media (max-width: 719px) { .has-tabbar .calc-result { bottom: calc(72px + env(safe-area-inset-bottom)); } }

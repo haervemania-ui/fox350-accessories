@@ -216,6 +216,31 @@
     if (window.console) console.error(err);
   }
 
+  // Menu bawah ala aplikasi (HP). Disisipkan lewat JS supaya cukup diubah di satu tempat.
+  var TABS = [
+    { href: "index.html", label: "Beranda", match: /^(?!.*tips\/).*\/(index\.html)?$/, icon: '<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/>' },
+    { href: "produk.html", label: "Katalog", match: /produk\.html$/, icon: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>' },
+    { href: "tips/", label: "Tips", match: /(tips\/|perawatan\.html$)/, icon: '<path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h6"/>' },
+    { href: "spklu.html", label: "SPKLU", match: /spklu\.html$/, icon: '<path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/>' },
+    { href: "kalkulator.html", label: "Hitung", match: /kalkulator\.html$/, icon: '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h8"/>' }
+  ];
+
+  function renderTabbar() {
+    var path = location.pathname;
+    var nav = document.createElement("nav");
+    nav.className = "tabbar";
+    nav.setAttribute("aria-label", "Menu cepat");
+    nav.innerHTML = TABS.map(function (t) {
+      var on = t.match.test(path);
+      return '<a href="' + BASE + t.href + '"' + (on ? ' aria-current="page"' : "") + ">" +
+        '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + t.icon + "</svg>" +
+        "<span>" + t.label + "</span></a>";
+    }).join("");
+    document.body.appendChild(nav);
+    document.body.classList.add("has-tabbar");
+  }
+  renderTabbar();
+
   Promise.all([getJSON("data/products.json"), getJSON("data/categories.json"), getJSON("data/tips.json")])
     .then(function (r) {
       if (PAGE === "home") renderHome(r[0], r[1], r[2]);
