@@ -73,6 +73,7 @@ Struktur file:
 index.html          landing: hero + kotak search (ke produk.html?q=), grid kategori, top pick, teaser tips
 produk.html         katalog: search + filter kategori (?kategori=<slug>&q=<kata kunci>)
 spklu.html          halaman SPKLU & SPLU: tombol ke daftar Google Maps + panduan charging di luar rumah
+kalkulator.html     kalkulator charging: lama cas + biaya listrik (logika di assets/js/kalkulator.js, gaya di assets/css/kalkulator.css)
 tips/index.html     daftar artikel tips
 tips/<id>.html      satu file per artikel; produk terkait dirender dari data-related="id1,id2"
 data/products.json  data produk (skema di atas)
@@ -83,7 +84,7 @@ assets/js/app.js    render semua halaman dari data/*.json
 assets/img/         foto produk
 ```
 
-Setiap kali `assets/css/style.css` atau `assets/js/app.js` diubah, naikkan versi `?v=YYYYMMDD` di tag `<link>`/`<script>` semua halaman. Tanpa itu browser HP bisa memakai file lama dari cache (kejadian 24 Nov 2026: kartu adaptor di `spklu.html` tidak muncul).
+Setiap kali `assets/css/style.css` atau `assets/js/app.js` diubah (begitu juga `kalkulator.css`/`kalkulator.js`, cukup di `kalkulator.html`), naikkan versi `?v=YYYYMMDD` di tag `<link>`/`<script>` semua halaman. Tanpa itu browser HP bisa memakai file lama dari cache (kejadian 24 Nov 2026: kartu adaptor di `spklu.html` tidak muncul).
 
 Semua halaman di-render dari JSON lewat `fetch`, jadi untuk cek lokal jalankan server (`python3 -m http.server`), bukan buka file langsung. Tanggal "Data produk terakhir dicek" di footer dihitung otomatis dari `checked_at` terbaru.
 
@@ -118,6 +119,8 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 - 5 artikel tips terbit (21 Okt 2026). Fakta teknis dicek ke sumber Polytron dan media otomotif (daftar sumber ada di tiap artikel). Hitungan perkiraan ditandai jelas, dan hal yang tidak ditemukan sumber resminya ditulis apa adanya. Kutipan member tidak dipakai.
 - 22 Okt 2026: artikel ke-6 `tips/ganti-kampas-rem.html` (kampas rem cepat habis + memilih pengganti). Pengalaman komunitas dari ringkasan owner (export WA tidak tersedia), ditulis tanpa atribusi. Ditaruh paling atas di `data/tips.json` supaya tampil di teaser beranda.
 - 24 Nov 2026: halaman `spklu.html` (link daftar Google Maps "SPKLU & SPLU Motor Listrik", 241 titik, dari owner). Daftar Maps tidak bisa di-embed, jadi pakai tombol. Nama pembuat daftar tidak boleh ditulis di repo. Tarif dan alamat tidak ditulis. Menu "SPKLU" ada di header semua halaman, kartu ajakan di beranda di bawah hero.
+- 25 Nov 2026: owner menyetujui 5 perbaikan yang terinspirasi situs komunitas lain (hanya ide fitur, teks/gambar/desain tidak disalin): (1) kalkulator charging, (2) menu bawah ala aplikasi di HP, (3) halaman Perawatan & Solusi Cepat, (4) kartu spesifikasi Fox 350 di beranda, (5) bisa dipasang di layar HP (PWA). Dikerjakan satu PR per nomor.
+- 25 Nov 2026: `kalkulator.html` (nomor 1). Asumsi: baterai 3,75 kWh, charger bawaan 0–100% 4,5 jam, fast charger 72V × ampere, rugi-rugi charger 10%. Tarif PLN rumah tangga non-subsidi Okt–Des 2026 ada di `TARIF` di `kalkulator.js`; **cek ulang tiap pergantian kuartal** (Jan, Apr, Jul, Okt). Kartu ajakan di beranda di bawah grid kategori.
 
 ## 9. Checklist sebelum buka PR
 
