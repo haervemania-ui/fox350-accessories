@@ -8,7 +8,8 @@
     "tags": [
       "Populer di grup",
       "25A",
-      "Adjustable"
+      "Adjustable",
+      "Sering habis"
     ],
     "top_pick": true,
     "img": "fast-charging-polytron.jpg",
@@ -20,9 +21,13 @@
       {
         "label": "Shopee 2",
         "url": "https://s.shopee.co.id/8V9slKZQAF"
+      },
+      {
+        "label": "Shopee 3",
+        "url": "https://s.shopee.co.id/20xMkNYwIV"
       }
     ],
-    "checked_at": "2026-10-21"
+    "checked_at": "2026-11-27"
   },
   {
     "id": "sarung-jok-dracco",
