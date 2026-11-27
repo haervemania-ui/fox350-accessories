@@ -172,6 +172,26 @@
     "checked_at": "2026-03-22"
   },
   {
+    "id": "jalu-stang-besi",
+    "name": "Jalu Stang Besi (Bar End)",
+    "category": "body",
+    "hook": "Setang yang bergetar di kecepatan rendah jadi jauh lebih anteng, bobot besi padatnya terasa mantap.",
+    "price_range": "",
+    "tags": [
+      "Anti geter",
+      "Besi padat"
+    ],
+    "top_pick": false,
+    "img": "jalu-stang-besi.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/5AuOS1qi9v"
+      }
+    ],
+    "checked_at": "2026-11-27"
+  },
+  {
     "id": "sarung-shock-30",
     "name": "Sarung Shock 30 cm",
     "category": "suspensi",
