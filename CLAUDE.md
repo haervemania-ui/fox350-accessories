@@ -114,12 +114,12 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 > **Status sementara, update setiap ada perubahan besar.**
 
 - Situs sudah memakai struktur di bagian 5 dan visual Volt.
-- `data/products.json` berisi 58 produk (21 Okt 2026). Urutan array = urutan tampil di tiap kategori:
+- `data/products.json` berisi 59 produk (27 Nov 2026: + Jalu Stang Besi di kategori `body`, setelah Crossbar Motowolf). Urutan array = urutan tampil di tiap kategori:
   - 41 produk pertama = top 50 yang paling sering dibahas di grup WA (duplikat digabung jadi link tambahan "Shopee 2", dst.), ditandai tag `Populer di grup` dan diurutkan dari yang paling sering dibahas. 22 di antaranya produk baru. 21 sudah punya foto (22 Okt 2026, foto utama listing Shopee); `ban-zeneos-ionity` belum ada foto dan link (`img: ""`, `links: []`): listing lamanya diarsipkan seller, link pengganti Zeneos Ionity ring 13 menyusul dari owner.
   - 17 produk sisanya = produk lama dari situs sebelumnya yang tidak masuk top 50, tetap ditampilkan atas keputusan owner.
   - Produk yang bukan untuk Fox 350 (misalnya casing kunci mobil) sengaja tidak dimasukkan.
 - 21 Okt 2026: link produk dicek ulang. Polytron Fast Charging 25A sebelumnya memakai kode affiliate orang lain, sudah diganti ke link affiliate owner (produk yang sama). Minyak Rem Brembo DOT4 dan Adaptor Tekiro 3/8-1/2 juga sudah diganti. Semua link sekarang memakai kode affiliate owner.
-- `assets/img/`: 62 foto unik (41 lama + 21 baru 22 Okt 2026, maks 800px, <120 KB), sudah lowercase `.jpg` dan tanpa EXIF. 4 file lama yang sebenarnya WEBP sudah dikonversi ke JPEG. Folder `Img/` lama dihapus.
+- `assets/img/`: 63 foto unik (41 lama + 21 baru 22 Okt 2026 + `jalu-stang-besi.jpg` 27 Nov 2026, maks 800px, <120 KB), sudah lowercase `.jpg` dan tanpa EXIF. 4 file lama yang sebenarnya WEBP sudah dikonversi ke JPEG. Folder `Img/` lama dihapus.
 - 5 artikel tips terbit (21 Okt 2026). Fakta teknis dicek ke sumber Polytron dan media otomotif (daftar sumber ada di tiap artikel). Hitungan perkiraan ditandai jelas, dan hal yang tidak ditemukan sumber resminya ditulis apa adanya. Kutipan member tidak dipakai.
 - 22 Okt 2026: artikel ke-6 `tips/ganti-kampas-rem.html` (kampas rem cepat habis + memilih pengganti). Pengalaman komunitas dari ringkasan owner (export WA tidak tersedia), ditulis tanpa atribusi. Ditaruh paling atas di `data/tips.json` supaya tampil di teaser beranda.
 - 24 Nov 2026: halaman `spklu.html` (link daftar Google Maps "SPKLU & SPLU Motor Listrik", 241 titik, dari owner). Daftar Maps tidak bisa di-embed, jadi pakai tombol. Nama pembuat daftar tidak boleh ditulis di repo. Tarif dan alamat tidak ditulis. Menu "SPKLU" ada di header semua halaman, kartu ajakan di beranda di bawah hero.
