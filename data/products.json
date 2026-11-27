@@ -894,20 +894,25 @@
     "id": "yss-dtg-evo",
     "name": "YSS DTG EVO Twin Shock 335–350 mm",
     "category": "suspensi",
-    "hook": "Alternatif shock XMAX dari merek yang sudah lama dipakai di motor Indonesia.",
-    "price_range": "Rp578rb",
+    "hook": "PnP di Fox 350: tinggal pasang, tidak kena kaliper atau disk, dan tidak perlu pemundur shock.",
+    "price_range": "",
     "tags": [
-      "335 mm"
+      "PnP",
+      "335–350 mm"
     ],
     "top_pick": false,
     "img": "yss-dtg-evo.jpg",
     "links": [
       {
         "label": "Shopee",
+        "url": "https://s.shopee.co.id/5qA5FnzbGC"
+      },
+      {
+        "label": "Shopee 2",
         "url": "https://s.shopee.co.id/1qXU92HZGT"
       }
     ],
-    "checked_at": "2026-03-22"
+    "checked_at": "2026-11-27"
   },
   {
     "id": "shock-rcb-a3-365",
