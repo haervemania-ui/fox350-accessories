@@ -792,6 +792,26 @@
     "checked_at": "2026-10-21"
   },
   {
+    "id": "jalu-stang-besi",
+    "name": "Jalu Stang Besi (Bar End)",
+    "category": "body",
+    "hook": "Setang yang terasa geter di bawah 20 km/jam jadi lebih anteng, karena jalu besi padat menambah bobot di ujung setang.",
+    "price_range": "",
+    "tags": [
+      "Anti geter",
+      "Besi padat"
+    ],
+    "top_pick": false,
+    "img": "jalu-stang-besi.jpg",
+    "links": [
+      {
+        "label": "Shopee",
+        "url": "https://s.shopee.co.id/5AuOS1qi9v"
+      }
+    ],
+    "checked_at": "2026-11-27"
+  },
+  {
     "id": "kit-pnp-shock-depan-nmax",
     "name": "Kit PNP Shock Depan NMAX untuk Fox 350",
     "category": "suspensi",
