@@ -114,7 +114,7 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 > **Status sementara, update setiap ada perubahan besar.**
 
 - Situs sudah memakai struktur di bagian 5 dan visual Volt.
-- `data/products.json` berisi 59 produk (27 Nov 2026). Urutan array = urutan tampil di tiap kategori:
+- `data/products.json` berisi 58 produk (21 Okt 2026). Urutan array = urutan tampil di tiap kategori:
   - 41 produk pertama = top 50 yang paling sering dibahas di grup WA (duplikat digabung jadi link tambahan "Shopee 2", dst.), ditandai tag `Populer di grup` dan diurutkan dari yang paling sering dibahas. 22 di antaranya produk baru. 21 sudah punya foto (22 Okt 2026, foto utama listing Shopee); `ban-zeneos-ionity` belum ada foto dan link (`img: ""`, `links: []`): listing lamanya diarsipkan seller, link pengganti Zeneos Ionity ring 13 menyusul dari owner.
   - 17 produk sisanya = produk lama dari situs sebelumnya yang tidak masuk top 50, tetap ditampilkan atas keputusan owner.
   - Produk yang bukan untuk Fox 350 (misalnya casing kunci mobil) sengaja tidak dimasukkan.
@@ -129,7 +129,6 @@ Prinsip: **mobile-first**, ringan, dan bisa jalan sebagai static site di GitHub 
 - 25 Nov 2026: kartu "Fox 350 dalam angka" di beranda (nomor 4), angka dari halaman produk resmi Polytron. Ubah langsung di `index.html` kalau spesifikasi resmi berubah.
 - 25 Nov 2026: menu bawah ala aplikasi (nomor 2), disisipkan `app.js` ke semua halaman, tampil di layar <720px; di HP menu header disembunyikan. Isi: Beranda, Katalog, Tips (termasuk Perawatan), SPKLU, Hitung (kalkulator). Halaman baru otomatis dapat menu ini asal memuat `app.js`.
 - 25 Nov 2026: bisa dipasang di layar HP (nomor 5): `manifest.webmanifest`, `sw.js`, ikon di `assets/icons/`, tag manifest + apple-touch-icon di `<head>` semua halaman (halaman baru wajib ikut). Ajakan "Pasang di layar HP" muncul di beranda (Android: tombol Pasang; iPhone: petunjuk Bagikan > Tambah ke Layar Utama), bisa ditutup dengan "Nanti". Kelima perbaikan selesai.
-- 27 Nov 2026: produk ke-59 `jalu-stang-besi` (kategori body, link affiliate dari owner), plus solusi cepat "Setang geter di kecepatan rendah" di `perawatan.html` yang mengarah ke katalog (`produk.html?q=jalu`, tanpa link affiliate langsung). Insight komunitas ditulis ulang tanpa atribusi.
 
 ## 9. Checklist sebelum buka PR
 
